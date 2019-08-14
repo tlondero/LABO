@@ -72,7 +72,7 @@ Se realiza en un protoboard el circuito mostrado en la figura (\ref{graf:pasabaj
 	\label{graf:pasabajos}
 \end{figure}
 
-Con la fuente, se aplicó una tensión senoidal de una amplitud de $9,78 \ V$ para determinar la frecuencia de resonancia real de dicho circuito, obteniéndose así una frecuencia de $18,5 \ k\ Hz$. Luego, midiéndose la tensión del capacitor, se busca calcular el valor de capacitancia y de esta forma calcular el error existente entre el valor de calculado de esta forma y el obtenido por el analizador de impedancia. Utilizando el valor teórico de la resistencia se obtiene $2,21  \ nF  $, mientras que con el valor medido $2,23  \ nF  $. Se retira el capacitor y se repiten las mediciones realizadas con el objetivo de calcular la capacidad de las puntas del osciloscopio. De esta forma se obtiene un error de $ ???  $ con el valor teórico de la resistencia, y un error de $  ???  $ con el medido.
+Con la fuente, se aplicó una tensión senoidal de una amplitud de $9,78 \ V$ para determinar la frecuencia de resonancia real de dicho circuito, obteniéndose así una frecuencia de $18,5 \ k\ Hz$. Luego, midiéndose la tensión del capacitor, se busca calcular el valor de capacitancia y de esta forma calcular el error existente entre el valor de calculado de esta forma y el obtenido por el analizador de impedancia. Utilizando el valor teórico de la resistencia se obtiene $2,21 \ nF $, mientras que con el valor medido $2,23  \ nF  $. Se retira el capacitor y se repiten las mediciones realizadas con el objetivo de calcular la capacidad de las puntas del osciloscopio. De esta forma se obtiene un error de $ ???  $ con el valor teórico de la resistencia, y un error de $  ???  $ con el medido.
 A continuación, se mide la diferencia de fase entre la corriente y la tensión en el capacitor, y se verifica la suma vectorial de las tensiones, es decir $ \overrightarrow{V} = \overrightarrow{V_R} \ + \ \overrightarrow{V_C} $.
 
 %\begin{figure}[H]
@@ -139,11 +139,18 @@ Este método consiste en utilizar un generador para realizar el barrido por el e
 	\centering
 	%\includegraphics[width=0.8\textwidth,trim={0.5cm 2cm  0.5 5cm},clip]{oscixxx.png}
 	\caption{Medición de la respuesta en frecuencia del circuito de la figura \ref{graf:pasabajos} utilizando el modo normal del trigger.} 
-	\label{graf:osci_freq_alta}
+	\label{graf:ej3modoxy}
 \end{figure}
 
 \subsubsection*{Modo Normal}
 Por otro lado, se utilizó el modo normal, disparado acordemente, es decir, utilizando un solo generador de funciones.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth,trim={0.5cm 2cm  0.5 5cm},clip]{ej3normal.png}
+	\caption{Medición de la respuesta en frecuencia del circuito de la figura \ref{graf:pasabajos} utilizando el modo normal del trigger.} 
+	\label{graf:ej3modonormal}
+\end{figure}
+Se utilizó un barrido en frecuencia desde $100 \ mHz$ hasta $70 \ kHz$, en un período total de 2 segundos con una amplitud de 5 volt pico a pico. Para lograr visualizar a la respuesta en su totalidad, se utilizó el modo Single del osciloscopio, con el trigger en una amplitud igual a la de la salida al comienzo del barrido. Se observar que este modo de usar el osciloscopio puede ser una forma fácil de visualizar a la respuesta en frecuencia de un circuito de forma rápida y muy aproximada.
 
 \subsection*{Respuesta en Frecuencia del Osciloscopio}
 Finalmente, se midió la respuesta en frecuencia del Agilent DSO6014A del laboratorio, activando los filtros AC y BW. Se esperaba, según la teoría, que la respuesta sea similar a la de un filtro pasa-banda, atenuando las frecuencias muy bajas y muy altas. Esto es, realizando a priori la suposición de que el generador de funciones nos proporcionará una amplitud de señal constante a todas las frecuencias.
