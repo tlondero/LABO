@@ -67,7 +67,7 @@ Se realiza en un protoboard el circuito mostrado en la figura (\ref{graf:pasabaj
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{Filtro-pasabajos.PNG}
+	\includegraphics[width=0.6\textwidth]{Filtro-pasabajos.PNG}
 	\caption{Filtro pasabajos.} 
 	\label{graf:pasabajos}
 \end{figure}
@@ -111,7 +111,7 @@ Con los mismos elementos utilizados para armar el circuito (\ref{graf:pasabajos}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{Filtro-pasaaltos.PNG}
+	\includegraphics[width=0.6\textwidth]{Filtro-pasaaltos.PNG}
 	\caption{Filtro pasabaltos.} 
 	\label{graf:pasaaltos}
 \end{figure}
@@ -127,26 +127,26 @@ En este punto se utiliza el barrido automático del generador de funciones, para
 Por otro lado, también se utilizó el modo normal, disparado acordemente, es decir, utilizando un solo generador de funciones.
 
 \subsection*{Respuesta en frecuencia del osciloscopio}
-Finalmente, se midió la respuesta en frecuencia de un cierto osciloscopio (MARCA Y MODELO DEL OSCILOSCOPIO), activando los filtros AC y BW. Se esperaba, según la teoría, que la respuesta sea similar a la de un filtro pasa-banda, atenuando las frecuencias muy bajas y muy altas. Esto es, realizando a priori la suposición de que el generador de funciones nos proporcionará una amplitud de señal constante a todas las frecuencias.
+Finalmente, se midió la respuesta en frecuencia del Agilent DSO6014A del laboratorio, activando los filtros AC y BW. Se esperaba, según la teoría, que la respuesta sea similar a la de un filtro pasa-banda, atenuando las frecuencias muy bajas y muy altas. Esto es, realizando a priori la suposición de que el generador de funciones nos proporcionará una amplitud de señal constante a todas las frecuencias.
 
-Para realizar la medición, se conectó el osciloscopio con las puntas en x10 previamente calibradas, se activaron los filtros y se conectaron las puntas del osciloscopio a la salida de un generador de funciones con una señal sinusoidal de amplitud pico a pico de 20 voltios. Se comenzó a medir desde la frecuencia más pequeña del generador, de $1 / Hz$, hasta la mayor frecuencia que admite el generador, de $15 / MHz$.
+Para realizar la medición, se conectó el osciloscopio con las puntas en x10 previamente calibradas, se activaron los filtros y se conectaron las puntas del osciloscopio a la salida de un generador de funciones con una señal sinusoidal de amplitud pico a pico de 20 voltios para minimizar la lectura de ruido. Se comenzó a medir desde una frecuencia muy pequeña, de $100 \ mHz$, como se puede ver en la figura \ref{graf:osci_freq_baja}. Se finalizó la medición  conla mayor frecuencia que admite el generador usado, de $15 \ MHz$, observado en la figura \ref{graf:osci_freq_alta}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth,trim={0.7cm 5cm  0.5 8cm},clip]{osci1hz.png}
+	\includegraphics[width=0.8\textwidth,trim={0.7cm 5cm  0.5 5cm},clip]{osci100mhz.png}
 	\caption{Medición de la respuesta en frecuencia del osciloscopio a una frecuencia de $1 \ Hz$ con los filtros BW y AC. (500ms/div)} 
 	\label{graf:osci_freq_baja}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth,trim={0.7cm 5cm  0.5 8cm},clip]{osci15mhz.png}
+	\includegraphics[width=0.8\textwidth,trim={0.7cm 5cm  0.5 5cm},clip]{osci15Mhz.png}
 	\caption{Medición de la respuesta en frecuencia del osciloscopio a una frecuencia de $15 \ MHz$ con los filtros BW y AC.} 
 	\label{graf:osci_freq_alta}
 \end{figure}
 
 
-Finalmente, se logró capturar la respuesta en frecuencia en amplitud del osciloscopio con los filtros BW y AC.
+Finalmente, se utilizó python para graficar la respuesta en frecuencia en amplitud del osciloscopio con los filtros BW y AC, observado en la figura \ref{graf:resp_freq_osci}.
 
 \begin{figure}[H]
 	\centering
@@ -155,7 +155,17 @@ Finalmente, se logró capturar la respuesta en frecuencia en amplitud del oscilo
 	\label{graf:resp_freq_osci}
 \end{figure}
 
-Se puede observar que en la práctica la respuesta en frecuencia del osciloscopio resulta ser un pasabanda, que atenua frecuencias menores a $10 \ Hz$ y mayores a $\approx 1 \ MHz$. Estos resultados verifican la suposición hecha por los conocimientos de la teoría. A continuación, se contrastan las mediciones realizadas con los datos provistos por el fabricante del osciloscopio utilizado.
+Se puede observar que en la práctica la respuesta en frecuencia del osciloscopio resulta ser un pasabanda, que atenua frecuencias menores a $\approx 5 \ Hz$ y mayores a $\approx 1 \ MHz$. Estos resultados verifican la suposición hecha con ayuda de los conocimientos de la teoría. Se observa también que los filtros utilizados limitan al osciloscopio en ancho de banda significantemente, ya que según el fabricante la frecuencia a la que se atenúan las señales por $3dB$ es de $100 \ MHz$, mientras que en la figura \ref{graf:resp_freq_osci} puede verse que esa frecuencia es de $\approx 10-15 \ MHz$. Además, se puede notar como a $\approx 1 \ MHz$ se comienza a deformar la señal sinusoidal significantemente.\\
+
+Si se comparan los datos obtenidos con los datos del fabricante:
+\begin{center}
+BANDWIDTH $\rightarrow$ MSO/DSO601xA: DC to 100 MHz\\
+AC-COUPLED $\rightarrow$ MSO/DSO601xA: 3.5 Hz to 100 MHz\\
+BW LIMIT $\rightarrow$ MSO/DSO601xA: 20 MHz selectable\\
+\end{center}
+se puede ver que la práctica concuerda aproximadamente con los datos provistos.
+
+
 
 \section*{Conclusión}
 
