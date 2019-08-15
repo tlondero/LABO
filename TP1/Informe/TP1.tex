@@ -125,21 +125,14 @@ A continuación, se reemplaza la tensión sinusoidal por una triangular, variand
 \subsection*{Sincronización de Instrumentos}
 En este punto se utiliza el barrido automático del generador de funciones, para visualizar en el osciloscopio la respuesta en frecuencia del circuito de la la figura (\ref{graf:pasabajos}). Se realizó la medición aproximada utilizando dos métodos.
 
-\begin{figure}[H]
-	\centering
-	%\includegraphics[width=0.8\textwidth,trim={0.5cm 2cm  0.5 5cm},clip]{oscixxx.png}
-	\caption{Medición de la respuesta en frecuencia del circuito de la figura \ref{graf:pasabajos} utilizando el método XY y dos generadores.} 
-	\label{graf:osci_freq_alta}
-\end{figure}
-
 \subsubsection*{Modo XY con dos Generadores}
 Este método consiste en utilizar un generador para realizar el barrido por el eje horizontal del osciloscopio mientras que se usa otro para barrer a lo largo de las frecuencias en el circuito, que se mostrará en el eje Y.
 
 \begin{figure}[H]
 	\centering
 	%\includegraphics[width=0.8\textwidth,trim={0.5cm 2cm  0.5 5cm},clip]{oscixxx.png}
-	\caption{Medición de la respuesta en frecuencia del circuito de la figura \ref{graf:pasabajos} utilizando el modo normal del trigger.} 
-	\label{graf:ej3modoxy}
+	\caption{Medición de la respuesta en frecuencia del circuito de la figura \ref{graf:pasabajos} utilizando el método XY y dos generadores.} 
+	\label{graf:osci_freq_alta}
 \end{figure}
 
 \subsubsection*{Modo Normal}
@@ -150,7 +143,7 @@ Por otro lado, se utilizó el modo normal, disparado acordemente, es decir, util
 	\caption{Medición de la respuesta en frecuencia del circuito de la figura \ref{graf:pasabajos} utilizando el modo normal del trigger.} 
 	\label{graf:ej3modonormal}
 \end{figure}
-Se utilizó un barrido en frecuencia desde $100 \ mHz$ hasta $70 \ kHz$, en un período total de 2 segundos con una amplitud de 5 volt pico a pico. Para lograr visualizar a la respuesta en su totalidad, se utilizó el modo Single del osciloscopio, con el trigger en una amplitud igual a la de la salida al comienzo del barrido. Se observar que este modo de usar el osciloscopio puede ser una forma fácil de visualizar a la respuesta en frecuencia de un circuito de forma rápida y muy aproximada.
+Se utilizó un barrido en frecuencia desde $100 \ mHz$ hasta $70 \ kHz$, en un período total de 2 segundos con una amplitud de 5 volt pico a pico. Para lograr visualizar la mayor parte de la respuesta en frecuencia, se utilizó el modo Single del osciloscopio, con el trigger en una amplitud igual a la de la salida al comienzo del barrido. Se observa que este modo de usar el osciloscopio puede ser una forma fácil de visualizar a la respuesta en frecuencia de un circuito de forma rápida y muy aproximada.
 
 \subsection*{Respuesta en Frecuencia del Osciloscopio}
 Finalmente, se midió la respuesta en frecuencia del Agilent DSO6014A del laboratorio, activando los filtros AC y BW. Se esperaba, según la teoría, que la respuesta sea similar a la de un filtro pasa-banda, atenuando las frecuencias muy bajas y muy altas. Esto es, realizando a priori la suposición de que el generador de funciones nos proporcionará una amplitud de señal constante a todas las frecuencias.
