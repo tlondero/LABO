@@ -81,7 +81,11 @@ En el siguiente informe se realizan diversas mediciones con el osciloscopio, con
 \section*{Desarrollo de la Experiencia}
 
 \subsection*{Filtro Pasa-bajos de Primer Orden}
+<<<<<<< HEAD
 Se realiza en un protoboard el circuito mostrado en la figura (\ref{figure:circuito_Pasa_bajos}). Para esto se utilizó una resistencia $ R = 3,9 \ K\Omega $ y un capacitor $ C = 2,2 \ nF $. Además, se utilizó el analizador de impedancia con ambos componentes para medir sus valores reales obteniendose los valores expresados en la tabla (\ref{table:valores_calculados1}) .
+=======
+Se construyó en un protoboard el circuito mostrado en la figura \ref{figure:circuito_Pasa_bajos}. Para esto se hizo uso de una resistencia $ R = 3,9 \ K\Omega $ y un capacitor $ C = 2,2 \ nF $. Además, se utilizó el analizador de impedancias para determinar los valores reales de ambos componentes. Estos se enuentran registrados en la tabla \ref{table:valores_calculados}
+>>>>>>> d028e20324a1992f1699f39a954f2ddf465dd42f
 %Circuito pasabajo
 	\begin{figure}[ht]
 	\centering
@@ -102,27 +106,37 @@ Se realiza en un protoboard el circuito mostrado en la figura (\ref{figure:circu
 \label{figure:circuito_Pasa_bajos} 
    \end{figure}
  %~Circuito pasabajo
+<<<<<<< HEAD
 \par
 Primeramente, se calculó la frecuencia de corte teórica tomando como referencia los valores de referencia de los componentes, dando como resultado una frecuencia de $18,55 KHz$. Por otro lado, con la fuente se aplicó una tensión senoidal de una amplitud de $9,81 V$ para determinar la frecuencia de corte real de dicho circuito, obteniéndose así una frecuencia de $18,44 KHz$ detectada por ser la frecuencia a la que se produce un desfasaje de 45° entre la señal de entrada y de salida. \par Luego, conocida la frecuencia de corte real del circuito se procede a calcular el valor de capacitancia para la nueva frecuencia de corte, tomando como valor del resistor primero el teórico y luego el medido por el analizador de impedancia. Dichos valores se ven expresados en la siguiente tabla:
+=======
+
+>>>>>>> d028e20324a1992f1699f39a954f2ddf465dd42f
 
 %% Valores obtenidos
  \begin{center}
      \begin{table}[ht]
      \centering
+<<<<<<< HEAD
 	 \renewcommand{\arraystretch}{1.1}
          \begin{tabular}{c c c c c c}
+=======
+>>>>>>> d028e20324a1992f1699f39a954f2ddf465dd42f
             \hline 
             $\bm{|V|}$ &  $\bm{|V_C|}$ & $\bm{R}$ &  $\bm{C_{calculado}}$ &    $\bm{C_{medido}}$   &  $\bm{Error}$\\ \hline
             $9.81V$& $6.84V$ & $R_T = 3k90\Omega$  & $2.2126nF$ & $2.238nF$ & $1.13\%$ \\  
             $9.81V$& $6.84V$ & $R_M = 3k87\Omega$ & $2.2297nF$ & $2.238nF$ & $0.37 \%$ \\   \hline
         \end{tabular}
         \caption{Valores obtenidos}
+<<<<<<< HEAD
         \label{table:valores_calculados1}
     \end{table}
 \end{center}
 %% ~Valores obtenidos
 A continuación, se mide la diferencia de fase entre la corriente y la tensión en el capacitor, y se verifica la suma vectorial de las tensiones, es decir $ \overrightarrow{V} = \overrightarrow{V_R} \ + \ \overrightarrow{V_C} $.\par
 Al ser $\overrightarrow{i}$ coplanar con $\overrightarrow{V_r}$ podemos medir la diferencia de fase entre ambas tensiones y encontraremos la diferencia entre $\overrightarrow{i}$ y $\overrightarrow{V_C}$. La diferencia de fase será siempre de $90^\circ$ ya que la caída de tensión en la resistencia será puramente real y la caída de tensión en el capacitor será puramente imaginaria  como se puede ver en el siguiente diagrama:
+=======
+>>>>>>> d028e20324a1992f1699f39a954f2ddf465dd42f
 
 \begin{figure}[ht]
 	\centering
@@ -152,13 +166,21 @@ Esto se puede apreciar claramente en la captura de la pantalla del osciloscopio 
 
 \par
 
+<<<<<<< HEAD
 Posteriormente se calcula analíticamente la transferencia del circuito, llegán\-dose a la expresión:
+=======
+Posteriormente se calculó analíticamente la transferencia del circuito, obteniendo la expresión
+>>>>>>> d028e20324a1992f1699f39a954f2ddf465dd42f
 
 \begin{equation}
-	H \left(\$ \right) = \frac{V_C}{V} = \frac{1}{\$CR + 1} = \frac{1}{S \cdot 8.58 \cdot 10^{-6} + 1}
 	\label{equ:transfpasabajos}
+<<<<<<< HEAD
 \end{equation} \\
 Además, partiendo de una frecuencia de $10  Hz$ hasta llegar a $1  MHz$, se toman varios valores tanto de la $V_C$ como de $V_{gen}$, presentados en la tabla (\ref{table:Filtro_pasabajos}). De esta forma, se grafica punto a punto la transferencia y se la compara con la teórica hallada usando la ecuación (\ref{equ:transfpasabajos}), obteniendo los siguientes diagramas de Bode:
+=======
+\end{equation}
+
+>>>>>>> d028e20324a1992f1699f39a954f2ddf465dd42f
 
 \begin{figure}[H]
 	\centering
@@ -207,8 +229,11 @@ Además, partiendo de una frecuencia de $10  Hz$ hasta llegar a $1  MHz$, se tom
 
             \hline 
         \end{tabular}
+<<<<<<< HEAD
         \caption{H(\$) - Filtro Pasa-bajos}
         \label{table:Filtro_pasabajos}
+=======
+>>>>>>> d028e20324a1992f1699f39a954f2ddf465dd42f
     \end{table}
 \end{center}
 %%~Valores obtenidos Bode pasabajos
@@ -407,7 +432,10 @@ A continuación, se reemplaza la tensión sinusoidal por una triangular, variand
 
 \break
 \subsection*{Sincronización de Instrumentos}
+<<<<<<< HEAD
 En este punto se utiliza el barrido automático del generador de funciones, para visualizar en el osciloscopio la respuesta en frecuencia del circuito de la la figura (\ref{figure:circuito_Pasa_bajos}). Se realizó la medición aproximada utilizando dos métodos.
+=======
+>>>>>>> d028e20324a1992f1699f39a954f2ddf465dd42f
 
 \subsubsection*{Modo XY con dos Generadores}
 Este método consiste en utilizar un generador para realizar un barrido por el eje horizontal del osciloscopio utilizando una señal en forma de rampa mientras que se usa otro como entrada al circuito barriendo a lo largo de las frecuencias de $1 \ Hz$ y $200 \ kHz$, mostrándose en el eje vertical la salida del circuito.
