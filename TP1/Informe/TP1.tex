@@ -111,6 +111,7 @@ Se construyó en un protoboard el circuito mostrado en la figura \ref{figure:cir
 Primeramente, se calculó la frecuencia de corte teórica tomando como referencia los valores de referencia de los componentes, dando como resultado una frecuencia de $18,55 KHz$. Por otro lado, con la fuente se aplicó una tensión senoidal de una amplitud de $9,81 V$ para determinar la frecuencia de corte real de dicho circuito, obteniéndose así una frecuencia de $18,44 KHz$ detectada por ser la frecuencia a la que se produce un desfasaje de 45° entre la señal de entrada y de salida. \par Luego, conocida la frecuencia de corte real del circuito se procede a calcular el valor de capacitancia para la nueva frecuencia de corte, tomando como valor del resistor primero el teórico y luego el medido por el analizador de impedancia. Dichos valores se ven expresados en la siguiente tabla:
 =======
 
+Primeramente, se calculó la frecuencia de corte teórica utilizando los valores de referencia de los componentes, obteniéndose un valor de $18,55 \ K\ Hz$. Se prosiguió aplicando con la fuente una tensión senoidal de una amplitud de $9,81 \ V$ para determinar la frecuencia de corte real de dicho circuito, siendo dicha frecuencia la que ocasiona que se produzca un defasaje de 45° entre la señal de entrada y la señal de salida. El valor medido fue de $18,44 \ K\ Hz$ \par Luego, conocida la frecuencia de corte real del circuito, se calculó el valor de la capacitancia para la nueva frecuencia de corte, tomando como valor del resistor primero el teórico y luego el medido por el analizador de impedancia (con el cual deberíamos obtener una medición más precisa). Los resultados de las mediciones se ilustran en la siguiente tabla:
 >>>>>>> d028e20324a1992f1699f39a954f2ddf465dd42f
 
 %% Valores obtenidos
@@ -121,6 +122,10 @@ Primeramente, se calculó la frecuencia de corte teórica tomando como referenci
 	 \renewcommand{\arraystretch}{1.1}
          \begin{tabular}{c c c c c c}
 =======
+
+         \begin{tabular}{|c|c|c|c|c|c|}
+            \hline 
+              $|V|$ &  $|V_C|$ &R &  $C_{calculado}$ &    $C_{medido}$   &  Error\\
 >>>>>>> d028e20324a1992f1699f39a954f2ddf465dd42f
             \hline 
             $\bm{|V|}$ &  $\bm{|V_C|}$ & $\bm{R}$ &  $\bm{C_{calculado}}$ &    $\bm{C_{medido}}$   &  $\bm{Error}$\\ \hline
@@ -136,6 +141,14 @@ Primeramente, se calculó la frecuencia de corte teórica tomando como referenci
 A continuación, se mide la diferencia de fase entre la corriente y la tensión en el capacitor, y se verifica la suma vectorial de las tensiones, es decir $ \overrightarrow{V} = \overrightarrow{V_R} \ + \ \overrightarrow{V_C} $.\par
 Al ser $\overrightarrow{i}$ coplanar con $\overrightarrow{V_r}$ podemos medir la diferencia de fase entre ambas tensiones y encontraremos la diferencia entre $\overrightarrow{i}$ y $\overrightarrow{V_C}$. La diferencia de fase será siempre de $90^\circ$ ya que la caída de tensión en la resistencia será puramente real y la caída de tensión en el capacitor será puramente imaginaria  como se puede ver en el siguiente diagrama:
 =======
+        \label{table:valores_calculados}
+    \end{table}
+\end{center}
+%% ~Valores obtenidos
+
+
+A continuación, se midió la diferencia de fase entre la corriente y la tensión en el capacitor, y se verificó la suma vectorial de las tensiones, es decir $ \overrightarrow{V} = \overrightarrow{V_R} \ + \ \overrightarrow{V_C} $. Siendo $\overrightarrow{V}$ la tensión en la fuente, $ \overrightarrow{V_c}$ la tensión en el capacitor y $ \overrightarrow{V_R}$ la tensión en la resistencia. \par
+Al ser $\overrightarrow{i}$ (la corriente en el circuito) coplanar con $\overrightarrow{V_r}$ se puede medir la diferencia de fase entre ambas tensiones y se hallará la diferencia entre la corriente y $V_C$. La diferencia de fase será siempre de $90°$ ya que la caída de tensión en la resistencia será puramente real y la caída de tensión en el capacitor será puramente imaginaria.
 >>>>>>> d028e20324a1992f1699f39a954f2ddf465dd42f
 
 \begin{figure}[ht]
@@ -173,6 +186,7 @@ Posteriormente se calculó analíticamente la transferencia del circuito, obteni
 >>>>>>> d028e20324a1992f1699f39a954f2ddf465dd42f
 
 \begin{equation}
+	H \left(s\right) = \frac{V_C}{V} = \frac{1}{sCR + 1} = \frac{1}{s \cdot 8.58 \cdot 10^{-6} + 1}
 	\label{equ:transfpasabajos}
 <<<<<<< HEAD
 \end{equation} \\
@@ -180,6 +194,7 @@ Además, partiendo de una frecuencia de $10  Hz$ hasta llegar a $1  MHz$, se tom
 =======
 \end{equation}
 
+Luego, haciendo uso de la función sweep(o barrido automático) del generador de funciones, se tomaron varios valores tanto de $V_C$ como de $V_{gen}$, barriendo frecuencias entre $ 10 \ Hz $ y $ 1 \ MHz $. En la tabla \ref{table:Filtro pasabajos} se pueden observar los valores medidos a las distintas frecuencias. De esta forma, con las mediciones tomadas fue posible realizar un gráfico de Bode para el circuito y compararlo con el gráfico de Bode teórico construido según (\ref{equ:transfpasabajos}). A continuación puede apreciarse tal comparación:
 >>>>>>> d028e20324a1992f1699f39a954f2ddf465dd42f
 
 \begin{figure}[H]
@@ -233,6 +248,8 @@ Además, partiendo de una frecuencia de $10  Hz$ hasta llegar a $1  MHz$, se tom
         \caption{H(\$) - Filtro Pasa-bajos}
         \label{table:Filtro_pasabajos}
 =======
+        \caption{H(s) - Filtro Pasa-bajos}
+        \label{table:Filtro pasabajos}
 >>>>>>> d028e20324a1992f1699f39a954f2ddf465dd42f
     \end{table}
 \end{center}
@@ -328,10 +345,10 @@ Es necesario mencionar que para ningún cálculo se considera la capacitancia as
 
 \subsection*{Filtro Pasa-altos de Primer Orden}
 
-Con los mismos elementos utilizados para armar el circuito (\ref{figure:circuito_Pasa_bajos}), se elabora el circuito pasa altos (\ref{figure:circuito_pasa_altos}). Su transferencia se calcula analíticamente obteniéndose:
+Con los mismos elementos utilizados para armar el circuito (\ref{figure:circuito_Pasa_bajos}), se elaboró el filtro pasa-altos de primer orden de la figura (\ref{figure:circuito_pasa_altos}). Su transferencia se calculó analíticamente:
 
 \begin{equation}
-	H \left(\$ \right) = \frac{V_C}{V} = \frac{\$CR}{\$CR + 1} = \frac{\$ \cdot 8.58 \cdot 10^{-6}}{S \cdot 8.58 \cdot 10^{-6} + 1}
+	H \left(s \right) = \frac{V_C}{V} = \frac{sCR}{sCR + 1} = \frac{s \cdot 8.58 \cdot 10^{-6}}{s \cdot 8.58 \cdot 10^{-6} + 1}
 	\label{equ:transfpasaaltos}
 \end{equation}
 
@@ -356,7 +373,7 @@ Con los mismos elementos utilizados para armar el circuito (\ref{figure:circuito
  \end{figure}
  %~Circuito pasaalto
 
-Al igual que con el filtro pasabajos, se procede a medir varios puntos de la tensión de la resistencia y de la fuente, variando la frecuencia. Así se grafica la transferencia medida y se la compara con la teórica hallada en (\ref{equ:transfpasaaltos}).
+Análogamente a lo realizado con el filtro pasabajos, se utilizó la función sweep del generador de funciones para tomar valores a distintas frecuencias de la tensión de la resistencia y de la fuente. Así se graficó la transferencia medida y se la comparó con la teórica hallada en (\ref{equ:transfpasaaltos}).
 
 \begin{figure}[H]
 	\centering
@@ -397,7 +414,7 @@ Al igual que con el filtro pasabajos, se procede a medir varios puntos de la ten
 				20 & 9.94 & 0.22  & 9.72  & 180000 & 0.19  & -5°  \\
 		\hline
         \end{tabular}
-        \caption{H(\$) - Filtro Pasa-altos}
+        \caption{H(s) - Filtro Pasa-altos}
     \end{table}
 \end{center}
 
@@ -435,6 +452,7 @@ A continuación, se reemplaza la tensión sinusoidal por una triangular, variand
 <<<<<<< HEAD
 En este punto se utiliza el barrido automático del generador de funciones, para visualizar en el osciloscopio la respuesta en frecuencia del circuito de la la figura (\ref{figure:circuito_Pasa_bajos}). Se realizó la medición aproximada utilizando dos métodos.
 =======
+En este punto se utiliza el barrido automático del generador de funciones, para visualizar en el osciloscopio la respuesta en frecuencia del circuito de la figura (\ref{figure:circuito_Pasa_bajos}). Se realizó la medición aproximada utilizando dos métodos.
 >>>>>>> d028e20324a1992f1699f39a954f2ddf465dd42f
 
 \subsubsection*{Modo XY con dos Generadores}
