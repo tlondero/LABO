@@ -1,29 +1,34 @@
-%Type of document
-\documentclass[a4paper]{article}
+\documentclass[11pt, a4paper]{article}
 
 %Packages
 \usepackage[utf8]{inputenc}
 \usepackage{textcomp}
 \usepackage[spanish, es-tabla]{babel}
+\renewcommand*\familydefault{\sfdefault} 		% Sans Serif as default font
+
 
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{float}
 \usepackage{graphicx}
+\usepackage{bm}
+
 
 
 \graphicspath{ {./Imagenes/} }
 
 \usepackage{multirow}
+\setlength{\headheight}{14pt}
 \setlength{\doublerulesep}{\arrayrulewidth}
 
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-\usepackage[american]{circuitikz}
+\usepackage[american, nooldvoltagedirection]{circuitikz}
 
 \usepackage{fancyhdr}
+
 
 \usepackage{units} 
 \usepackage{tikz}
@@ -39,7 +44,7 @@
 %\rhead{Bertachini, Lambertucci, Londero, Mechoulam}
 \rfoot{Página \thepage}
 
-
+\usepackage{hyperref}
 
 
 
@@ -69,7 +74,6 @@
 %\end{figure}
 
 
-
 \section*{Introducción}
 
 En el siguiente informe se realizan diversas mediciones con el osciloscopio, con el objetivo de mejorar el manejo y comprensión de dicho instrumento.
@@ -77,9 +81,9 @@ En el siguiente informe se realizan diversas mediciones con el osciloscopio, con
 \section*{Desarrollo de la Experiencia}
 
 \subsection*{Filtro Pasa-bajos de Primer Orden}
-Se realiza en un protoboard el circuito mostrado en la figura (\ref{figure:circuito_Pasa_bajos}). Para esto se utilizó una resistencia $ R = 3,9 \ K\Omega $ y un capacitor $ C = 2,2 \ nF $. Ademas, se utilizó el analizador de impedancia con ambos componentes para medir sus valores reales obteniendose los valores expresados en la tabla (\ref{table:valores_calculados}):
+Se realiza en un protoboard el circuito mostrado en la figura (\ref{figure:circuito_Pasa_bajos}). Para esto se utilizó una resistencia $ R = 3,9 \ K\Omega $ y un capacitor $ C = 2,2 \ nF $. Además, se utilizó el analizador de impedancia con ambos componentes para medir sus valores reales obteniendose los valores expresados en la tabla (\ref{table:valores_calculados1}) .
 %Circuito pasabajo
-	\begin{figure}[h!]
+	\begin{figure}[ht]
 	\centering
   \begin{circuitikz}[scale=1.6]\draw
 	(0,2) to[V, l=$V_{inp}$,a=$10 V_{pp}$,*-*] (0,0)
@@ -98,33 +102,29 @@ Se realiza en un protoboard el circuito mostrado en la figura (\ref{figure:circu
 \label{figure:circuito_Pasa_bajos} 
    \end{figure}
  %~Circuito pasabajo
-
-Primeramente, se calculó la frecuencia de corte teórica tomando como referencia los valores de referencia de los componentes, dando como resultado una frecuencia de $18,55 \ K\ Hz$. Por otro lado, con la fuente se aplicó una tensión senoidal de una amplitud de $9,81 \ V$ para determinar la frecuencia de corte real de dicho circuito, obteniéndose así una frecuencia de $18,44 \ K\ Hz$ detectada por ser la frecuencia a la que se produce un desfasaje de 45° entre la señal de entrada y de salida. \par Luego, conocida la frecuencia de corte real del circuito se procede a calcular el valor de capacitancia para la nueva frecuencia de corte, tomando como valor del resistor primero el teórico y luego el medido por el analizador de impedancia, con el cual deberíamos obtener una medición más precisa. Dichos valores se ven expresados en la siguiente tabla:
+\par
+Primeramente, se calculó la frecuencia de corte teórica tomando como referencia los valores de referencia de los componentes, dando como resultado una frecuencia de $18,55 KHz$. Por otro lado, con la fuente se aplicó una tensión senoidal de una amplitud de $9,81 V$ para determinar la frecuencia de corte real de dicho circuito, obteniéndose así una frecuencia de $18,44 KHz$ detectada por ser la frecuencia a la que se produce un desfasaje de 45° entre la señal de entrada y de salida. \par Luego, conocida la frecuencia de corte real del circuito se procede a calcular el valor de capacitancia para la nueva frecuencia de corte, tomando como valor del resistor primero el teórico y luego el medido por el analizador de impedancia. Dichos valores se ven expresados en la siguiente tabla:
 
 %% Valores obtenidos
  \begin{center}
-     \begin{table}[H]
+     \begin{table}[ht]
      \centering
-
-     \label{table:valores_calculados}
-         \begin{tabular}{|c|c|c|c|c|c|}
+	 \renewcommand{\arraystretch}{1.1}
+         \begin{tabular}{c c c c c c}
             \hline 
-              $|V|$ &  $|V_C|$ &R &  $C_{calculado}$ &    $C_{medido}$   &  Error\\
-            \hline 
-            $9.81V$& $6.84V$ & $R_T = 3k90\Omega$  & $2.2126nF$ & $2.238nF$ & $1.13\%$ \\ \hline  
+            $\bm{|V|}$ &  $\bm{|V_C|}$ & $\bm{R}$ &  $\bm{C_{calculado}}$ &    $\bm{C_{medido}}$   &  $\bm{Error}$\\ \hline
+            $9.81V$& $6.84V$ & $R_T = 3k90\Omega$  & $2.2126nF$ & $2.238nF$ & $1.13\%$ \\  
             $9.81V$& $6.84V$ & $R_M = 3k87\Omega$ & $2.2297nF$ & $2.238nF$ & $0.37 \%$ \\   \hline
         \end{tabular}
         \caption{Valores obtenidos}
+        \label{table:valores_calculados1}
     \end{table}
 \end{center}
 %% ~Valores obtenidos
-
-
 A continuación, se mide la diferencia de fase entre la corriente y la tensión en el capacitor, y se verifica la suma vectorial de las tensiones, es decir $ \overrightarrow{V} = \overrightarrow{V_R} \ + \ \overrightarrow{V_C} $.\par
-Al ser $\overrightarrow{i}$ coplanar con $\overrightarrow{V_r}$ podemos medir la diferencia de fase entre ambas tensiones y encontraremos la diferencia entre la corriente y $V_C$. La diferencia de fase será siempre de $90°$ ya que la caída de tensión en la resistencia será puramente real y la caída de tensión en el capacitor será puramente imaginaria.
+Al ser $\overrightarrow{i}$ coplanar con $\overrightarrow{V_r}$ podemos medir la diferencia de fase entre ambas tensiones y encontraremos la diferencia entre $\overrightarrow{i}$ y $\overrightarrow{V_C}$. La diferencia de fase será siempre de $90^\circ$ ya que la caída de tensión en la resistencia será puramente real y la caída de tensión en el capacitor será puramente imaginaria  como se puede ver en el siguiente diagrama:
 
-\begin{figure}[h]
-	\label{figure:Diagrama_vectorial}
+\begin{figure}[ht]
 	\centering
 	\begin{tikzpicture}[scale=0.6]{>=Stealth}
 	\draw[black,thick,<->] (-4,0) -- (4,0) node[anchor=north west]{Im};
@@ -137,42 +137,46 @@ Al ser $\overrightarrow{i}$ coplanar con $\overrightarrow{V_r}$ podemos medir la
 	\draw[help lines,step=1cm,gray,thin] (-3.9,-3.9) grid (3.9,3.9);
 	\end{tikzpicture}
 	\caption{Diagrama vectorial de las tensiones}
+	\label{figure:Diagrama_vectorial}
 \end{figure}
 
-Esto se puede apreciar claramente en  ,donde la señal verde representa $\overrightarrow{V_r}$(coplanar con$\overrightarrow{i}$), la señal amarilla $\overrightarrow{V}$ y la señal violeta ... . Se puede apreciar claramente ese desfasaje de $90^\circ$ entre ambas tensiones.
+Esto se puede apreciar claramente en la captura de la pantalla del osciloscopio ({\ref{figure:VrvsVs}}), donde la señal verde representa $\overrightarrow{V_R}$(coplanar con$\overrightarrow{i}$), la señal amarilla $\overrightarrow{V}$ y la señal violeta $\overrightarrow{V_c}$. La captura se realizó trabajando sobre la frecuencia de corte por lo que se puede apreciar como claramente el desfasaje es de $45^\circ$ entre ambas tensiones($\overrightarrow{V_R}$ y $\overrightarrow{V}$) y los módulos, por ende se representa la situación planteada en el dibujo ({\ref{figure:Diagrama_vectorial}}).
 
- %\begin{figure}[H]
-%	\centering
-%	\includegraphics[width=0.9\textwidth , trim={0.7cm 6.25cm  0 3.5cm},clip]{scope_1}
-%	%trim={<left> <lower> <right> <upper>}
-%\caption{...}
-%	\label{fig:...}
-%\end{figure}
+ \begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth,trim={0.7cm 6.25cm  0 3.5cm},clip]{VrvsVvsVc.png}
+	\caption{Relación de tensiones}
+	\label{figure:VrvsVs}
+\end{figure}
+
 
 \par
 
-Posteriormente se calcula analíticamente la transferencia del circuito, llegándose a la expresión
+Posteriormente se calcula analíticamente la transferencia del circuito, llegán\-dose a la expresión:
 
 \begin{equation}
 	H \left(\$ \right) = \frac{V_C}{V} = \frac{1}{\$CR + 1} = \frac{1}{S \cdot 8.58 \cdot 10^{-6} + 1}
 	\label{equ:transfpasabajos}
-\end{equation}
+\end{equation} \\
+Además, partiendo de una frecuencia de $10  Hz$ hasta llegar a $1  MHz$, se toman varios valores tanto de la $V_C$ como de $V_{gen}$, presentados en la tabla (\ref{table:Filtro_pasabajos}). De esta forma, se grafica punto a punto la transferencia y se la compara con la teórica hallada usando la ecuación (\ref{equ:transfpasabajos}), obteniendo los siguientes diagramas de Bode:
 
-Ademas, partiendo de una frecuencia de $ 10 \ Hz $ hasta llegar a $ 1 \ MHz $, se toman varios valores tanto de la $V_C$ como de $V_{gen}$. De esta forma, se grafica punto a punto la transferencia y se la compara con la teórica hallada en (\ref{equ:transfpasabajos}), obteniendo los siguientes diagramas de Bode:
-
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Bode_filtro_pasabajo.png}
+	\caption{Diagramas de Bode - Medido vs Simulado} 
+	\label{graf:bodes_pasabajo}
+\end{figure}
 
 %%bode RC amplitud y fase (teórico y práctico)
 
-Las diferencias entre ambos diagramas se deben...
 %% Valores obtenidos Bode pasabajos
  \begin{center}
-     \begin{table}[H]
+     \begin{table}[ht]
      \centering
      \renewcommand{\arraystretch}{1.1}
-     \label{table:Filtro pasabajos}
          \begin{tabular}{ c c c c c c c c }
             \hline 
-             Medici\'on &  $|V|$ & $|V_c|$& $|V_R|$ & f & $\frac{V_c}{V}[dB]$ & $\theta_{\Delta t}$  &  $\theta_{XY}$\\
+             \bm{$Medici\acute{o}n$} &  $\bm{|V|}$ & $\bm{|V_c|}$& $\bm{|V_R|}$ & $\bm{f}$ & $\bm{\frac{V_c}{V}[dB]}$ & $\bm{\theta_{\Delta t}}$  &  $\bm{\theta_{XY}}$\\
              \hline
                 1&	9.94&	9.94&	0	&	10	&	0.00&	1°&		0.00°\\
 				2&	9.81&	9.81&	0	&	500	&	0.00&	1°&		1.24°\\
@@ -204,21 +208,88 @@ Las diferencias entre ambos diagramas se deben...
             \hline 
         \end{tabular}
         \caption{H(\$) - Filtro Pasa-bajos}
+        \label{table:Filtro_pasabajos}
     \end{table}
 \end{center}
 %%~Valores obtenidos Bode pasabajos
 \subsubsection*{Excitación con onda cuadrada}
+
 Integra, tres fotos en capturas, cual sería la demostración analítica?
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth,trim={0.5cm 5cm  1 5cm},clip]{rta_onda_cuadrada_baja_f.png}
+	\caption{Respuesta del circuito ante señal cuadrada de baja frecuencia} 
+	\label{graf:rta_onda_cuadrada_baja_f}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth,trim={0.5cm 5cm  1 5cm},clip]{rta_onda_cuadrada_fc.png}
+	\caption{Respuesta del circuito ante señal cuadrada similar a la frecuencia de corte} 
+	\label{graf:rta_onda_cuadrada_fc}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth,trim={0.5cm 5cm  1 5cm},clip]{rta_onda_cuadrada_alta_f.png}
+	\caption{Respuesta del circuito ante señal cuadrada de alta frecuencia} 
+	\label{graf:rta_onda_cuadrada_alta_f}
+\end{figure}
+
 \subsubsection*{Caída de tensión en la resistencia}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{Tensiones.png}
+	\caption{Relación entre las tensiones} 
+	\label{graf:Tensiones}
+\end{figure}
 
 %% grafico de vr, vc y v superpuestos
 Luego, se mide la tensión de la resistencia ... los modulos se suman
 
 \subsubsection*{Capacitancia residual al medir}
 
+En esta sección del trabajo se investigará como se comporta la capacidad inherente al osciloscopio y sus puntas. 
+
+Primero, se utilizaron las puntas en \textbf{modo x10}. Se calculó la frecuencia de corte presente en dicho circuito considerando que la capactiancia equivalente de las puntas en dicho modo, visto en clase, es de $12pF$. Teniendo en cuenta que se tomó la $R_M$ para mayor precisión, se obtuvo una frecuencia de corte teórica de $3,41MHz$. Luego, haciendo uso del analizador de impedancia a esa frecuencia se observó que la capacitancia de las puntas era $20pF$. Por otro lado, se buscó la frecuencia de corte con este último equipo obteniendo una frecuencia de $2.9MHz$ con una capacitancia asociada de $18.8pF$.
+%% Valores obtenidos
+ \begin{center}
+     \begin{table}[ht]
+     \centering
+	 \renewcommand{\arraystretch}{1.1}
+         \begin{tabular}{c c c c c c}
+            \hline 
+            $\bm{|V|}$ &  $\bm{|V_C|}$ & $\bm{R}$ &  $\bm{C_{calculado}}$ &    $\bm{C_{medido}}$   &  $\bm{Error}$\\ \hline
+            $9.81V$& $6.84V$ & $R_T = 3k90\Omega$  & $2.2126nF$ & $2.238nF$ & $1.13\%$ \\  
+            $9.81V$& $6.84V$ & $R_M = 3k87\Omega$ & $2.2297nF$ & $2.238nF$ & $0.37 \%$ \\   \hline
+        \end{tabular}
+        \caption{Capacitancia asociada usando una punta en modo x10}
+        \label{table:valores_punta_x10}
+    \end{table}
+\end{center}
+%% ~Valores obtenidos
+
+Luego, se utilizaron las puntas en \textbf{modo x1}. Se calculó la frecuencia de corte presente en dicho circuito considerando que la capactiancia equivalente de las puntas en dicho modo, visto en clase, es de $104pF$. Teniendo en cuenta que se tomó la $R_M$ para mayor precisión, se obtuvo una frecuencia de corte teórica de $3,93MHz$. Luego, haciendo uso del analizador de impedancia a esa frecuencia se observó que la capacitancia de las puntas era $106pF$. Por otro lado, se buscó la frecuencia de corte con este último equipo obteniendo una frecuencia de $6.7MHz$ con una capacitancia asociada de $94pF$.
+%% Valores obtenidos
+ \begin{center}
+     \begin{table}[ht]
+     \centering
+	 \renewcommand{\arraystretch}{1.1}
+         \begin{tabular}{c c c c c c}
+            \hline 
+            $\bm{|V|}$ &  $\bm{|V_C|}$ & $\bm{R}$ &  $\bm{C_{calculado}}$ &    $\bm{C_{medido}}$   &  $\bm{Error}$\\ \hline
+            $9.81V$& $6.84V$ & $R_T = 3k90\Omega$  & $2.2126nF$ & $2.238nF$ & $1.13\%$ \\  
+            $9.81V$& $6.84V$ & $R_M = 3k87\Omega$ & $2.2297nF$ & $2.238nF$ & $0.37 \%$ \\   \hline
+        \end{tabular}
+        \caption{Capacitancia asociada usando una punta en modo x1}
+        \label{table:valores_punta_x1}
+    \end{table}
+\end{center}
+%% ~Valores obtenidos
+
 Primeramente, se calculó la frecuencia de corte teórica tomando como referencia los valores de referencia de los componentes, dando como resultado una frecuencia de $18,55 \ K\ Hz$. Por otro lado, con la fuente se aplicó una tensión senoidal de una amplitud de $9,81 \ V$ para determinar la frecuencia de corte real de dicho circuito, obteniéndose así una frecuencia de $18,44 \ K\ Hz$ detectada por ser la frecuencia a la que se produce un desfasaje de 45° entre la señal de entrada y de salida. \par Luego, conocida la frecuencia de corte real del circuito se procede a calcular el valor de capacitancia para la nueva frecuencia de corte, tomando como valor del resistor primero el teórico y luego el medido por el analizador de impedancia, con el cual deberíamos obtener una medición más precisa. Dichos valores se ven expresados en la siguiente tabla:
 
-Para finalizar, se retira el capacitor y se repiten las mediciones realizadas previamente con el objetivo de calcular la capacidad de las puntas de medición utilizadas y la residual que presenta el osciloscopio.
 
  De esta forma se obtiene un error de $ ???  $ con el valor teórico de la resistencia, y un error de $  ???  $ con el medido.
 \subsubsection*{Conclusiones}
@@ -262,6 +333,13 @@ Con los mismos elementos utilizados para armar el circuito (\ref{figure:circuito
 
 Al igual que con el filtro pasabajos, se procede a medir varios puntos de la tensión de la resistencia y de la fuente, variando la frecuencia. Así se grafica la transferencia medida y se la compara con la teórica hallada en (\ref{equ:transfpasaaltos}).
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Bode_filtro_pasaalto.png}
+	\caption{Diagramas de Bode - Medido vs Simulado} 
+	\label{graf:bodes_pasaalto}
+\end{figure}
+
 %% Valores obtenidos Bode pasaltos
  \begin{center}
      \begin{table}[H]
@@ -270,7 +348,7 @@ Al igual que con el filtro pasabajos, se procede a medir varios puntos de la ten
      \label{table:Filtro pasaalto}
          \begin{tabular}{c c c c c c c}
             \hline 
-             Medici\'on  & $|V_{in}|$ & $|V_c|$&   $|V_r|$ & f&  $\frac{V_r}{V}[dB]$ & $\theta_{\Delta t}$  \\
+             \bm{$Medici\acute{o}n$}  & $\bm{|V_{in}|}$ & $\bm{|V_c|}$&   $|\bm{V_r|}$ & f&  $\bm{\frac{V_r}{V}[dB]}$ & $\bm{\theta_{\Delta t}}$  \\
              \hline
                 1  & 9.94 & 9.865 & 0.075 & 10     & 42.45 & -90° \\
 				2  & 9.94 & 9.34  & 0.6   & 500    & 24.38 & -89° \\
@@ -302,13 +380,34 @@ Al igual que con el filtro pasabajos, se procede a medir varios puntos de la ten
 \subsubsection*{Excitación con onda triangular}
 A continuación, se reemplaza la tensión sinusoidal por una triangular, variando la frecuencia. ...
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth,trim={0.5cm 5cm  1 5cm},clip]{rta_onda_triang_baja_f.png}
+	\caption{Respuesta del circuito ante señal triangular de baja frecuencia} 
+	\label{graf:rta_onda_triang_baja_f}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth,trim={0.5cm 5cm  1 5cm},clip]{rta_onda_triang_fc2.png}
+	\caption{Respuesta del circuito ante señal triangular similar a la frecuencia de corte} 
+	\label{graf:rta_onda_triang_fc}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth,trim={0.5cm 5cm  1 5cm},clip]{rta_onda_triang_alta_f.png}
+	\caption{Respuesta del circuito ante señal triangular de alta frecuencia} 
+	\label{graf:rta_onda_triang_alta_f}
+\end{figure}
+
 \textbf{Mostrar 3 gráficos representativos y sacar conclusiones. En el caso mas apropiado medir la respuesta transitoria y en caso de ser viable, demostrar analíticamente lo obtenido}
 \subsubsection*{Conclusiones}
 
 
 \break
 \subsection*{Sincronización de Instrumentos}
-En este punto se utiliza el barrido automático del generador de funciones, para visualizar en el osciloscopio la respuesta en frecuencia del circuito de la la figura (\ref{figure:circuito_Pasa-bajos}). Se realizó la medición aproximada utilizando dos métodos.
+En este punto se utiliza el barrido automático del generador de funciones, para visualizar en el osciloscopio la respuesta en frecuencia del circuito de la la figura (\ref{figure:circuito_Pasa_bajos}). Se realizó la medición aproximada utilizando dos métodos.
 
 \subsubsection*{Modo XY con dos Generadores}
 Este método consiste en utilizar un generador para realizar un barrido por el eje horizontal del osciloscopio utilizando una señal en forma de rampa mientras que se usa otro como entrada al circuito barriendo a lo largo de las frecuencias de $1 \ Hz$ y $200 \ kHz$, mostrándose en el eje vertical la salida del circuito.
@@ -320,7 +419,7 @@ Finalmente, se logró visualizar la respuesta en frecuencia del circuito de form
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth,trim={0.5cm 5cm  1 5cm},clip]{ej3xy.png}
-	\caption{Medición de la respuesta en frecuencia del circuito de la figura \ref{figure:circuito_Pasa-bajos} utilizando el método XY y dos generadores.} 
+	\caption{Medición de la respuesta en frecuencia del circuito de la figura \ref{figure:circuito_Pasa_bajos} utilizando el método XY y dos generadores.} 
 	\label{graf:osci_freq_alta}
 \end{figure}
 
@@ -329,7 +428,7 @@ Por otro lado, se utilizó el modo normal, disparado acordemente, es decir, util
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth,trim={0.6cm 7cm  1 5cm},clip]{ej3normal.png}
-	\caption{Medición de la respuesta en frecuencia del circuito de la figura \ref{figure:circuito_Pasa-bajos} utilizando el modo normal del trigger.} 
+	\caption{Medición de la respuesta en frecuencia del circuito de la figura \ref{figure:circuito_Pasa_bajos} utilizando el modo normal del trigger.} 
 	\label{graf:ej3modonormal}
 \end{figure}
 Se utilizó un barrido en frecuencia desde $100 \ mHz$ hasta $100 \ kHz$, en un período total de 2 segundos con una amplitud de 5 volt pico a pico. Para lograr visualizar la mayor parte de la respuesta en frecuencia, se utilizó el modo Single del osciloscopio, con el trigger en una amplitud igual a la de la salida al comienzo del barrido. Se observa que este modo de usar el osciloscopio puede ser una forma fácil de visualizar a la respuesta en frecuencia de un circuito de forma rápida y muy aproximada. No se presentaron mayores dificultades a la hora de realizar la medición.
