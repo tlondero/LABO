@@ -254,7 +254,7 @@ La frecuencia de corte será $f_c=\frac{1}{2\pi RC}$
 
 Véase que si $w<<\frac{1}{RC}$, $|H(s)|_{dB}=-20log\sqrt{1+(\frac{w}{\frac{1}{RC}})^2}\approx-20log1=0$ de donde señales de frecuencia mucho menores a las frecuencias de corte no deberían verse filtradas. En efecto, si se considera $f=0,1f_c$, se tiene $|H(s)|_{dB}\approx-0,04dB$, lo cual implica una atenuación muy pequeña, de ahí que la señal de entrada pase prácticamente sin cambios.
 
-Si se considera $w>>\frac{1}{RC}$, se tiene que $|\frac{jw}{\frac{1}{RC}}|>>1$, de donde $|H(s)|\approx\frac{1}{s}\frac{1}{RC}$ Recordando que el término $\frac{1}{s}$ aparece al transformar una integral por Laplace, antitransformando se llega a que $V_o(t)=\frac{1}{RC}\int_{-\infty}^{t}V_i(t)dt $ y efectivamente para altas frecuencias la señal de salida resulta de integrar la señal de entrada.
+Si se considera $w>>\frac{1}{RC}$, se tiene que $|\frac{jw}{\frac{1}{RC}}|>>1$, de donde $|H(s)|\approx\frac{1}{s}\frac{1}{RC}$ Recordando que el término $\frac{1}{s}$ aparece al transformar una integral por Laplace, antitransformando se llega a que $V_o(t)=\frac{1}{RC}\int_{0}^{t}V_i(t)dt $ y efectivamente para altas frecuencias la señal de salida resulta de integrar la señal de entrada.
 
 \subsubsection*{Caída de tensión en la resistencia}
 
@@ -439,6 +439,14 @@ La demostración analítica se presenta al final de las imágenes.
 	\label{graf:rta_onda_triang_alta_f}
 \end{figure}
 
+Se considera nuevamente la transferencia del circuito:
+\begin{equation*}
+    H(s)=\frac{sRC}{1+sRC}
+\end{equation*}
+La frecuencia de corte es $f_c=\frac{1}{2\pi RC}$ 
+Observamos que para $w>>\frac{1}{RC}$, $|H(s)|_{dB}=20log(\frac{w}{RC})-20log\sqrt{1+(\frac{w}{\frac{1}{RC}})^2}\approx20log(\frac{w}{RC})-20log(\frac{w}{RC})=0$ De donde efectivamente se espera que las señales con frecuencias mucho más altas que la frecuencia de corte no se vean atenuadas por el filtro. En particular, si $w=10f_c$, $|H(s)|_{dB}\approx-0,04dB$, por lo cual es sensato el hecho de que la señal con frecuencia $10f_c$ pasé por el filtro prácticamente sin atenuación.
+
+Si consideramos $w<<\frac{1}{RC}$, $|\frac{jw}{\frac{1}{RC}}|<<1$ de donde $|H(s)|\approx sRC$
 
 
 \break
