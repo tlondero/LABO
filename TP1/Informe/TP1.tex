@@ -81,7 +81,7 @@ En el presente trabajo de laboratorio se realizaron diversas mediciones utilizan
 \section*{Desarrollo de la Experiencia}
 
 \subsection*{Filtro Pasa-bajos de Primer Orden}
-Se construyó en un protoboard el circuito mostrado en la figura \ref{figure:circuito_Pasa_bajos}. Para esto se hizo uso de una resistencia $ R = 3,9 \ K\Omega $ y un capacitor $ C = 2,2 \ nF $. Además, se utilizó el analizador de impedancias para determinar los valores reales de ambos componentes. Estos se enuentran registrados en la tabla (\ref{table:valores_calculados}).
+Se construyó en un protoboard el circuito mostrado en la figura \ref{figure:circuito_Pasa_bajos}. Para esto se hizo uso de una resistencia $ R = 3,9 \ K\Omega $ y un capacitor $ C = 2,2 \ nF $. Además, se utilizó el analizador de impedancias para determinar los valores reales de ambos componentes. Estos se enuentran registrados en la tabla (\ref{table:valores_calculados1}).
 %Circuito pasabajo
 	\begin{figure}[ht]
 	\centering
@@ -156,10 +156,10 @@ Posteriormente se calculó analíticamente la transferencia del circuito, obteni
 
 \begin{equation}
 	H \left(\$ \right) = \frac{V_C}{V} = \frac{1}{\$CR + 1} = \frac{1}{S \cdot 8.58 \cdot 10^{-6} + 1}
-	\label{equ:transfpasabajos}
+	\label{eq:transfpasabajos}
 \end{equation} \\
 
-Luego se tomaron varios valores tanto de $V_C$ como de $V_{gen}$, barriendo frecuencias entre $ 10 \ Hz $ y $ 1 \ MHz $. En la tabla \ref{table:Filtro pasabajos} se pueden observar los valores medidos a las distintas frecuencias. De esta forma, con las mediciones tomadas fue posible realizar un gráfico de la transferencia para el circuito y compararlo punto a punto con el gráfico de Bode teórico construido según (\ref{equ:transfpasabajos}). A continuación puede apreciarse tal comparación:
+Luego se tomaron varios valores tanto de $V_C$ como de $V_{gen}$, barriendo frecuencias entre $ 10 \ Hz $ y $ 1 \ MHz $. En la tabla \ref{table:FiltroPasabajos} se pueden observar los valores medidos a las distintas frecuencias. De esta forma, con las mediciones tomadas fue posible realizar un gráfico de la transferencia para el circuito y compararlo punto a punto con el gráfico de Bode teórico construido según (\ref{eq:transfpasabajos}). A continuación puede apreciarse tal comparación:
 
 \begin{figure}[H]
 	\centering
@@ -209,7 +209,7 @@ Se puede observar una discrepancia a altas frecuencias entre las curvas simulada
             \hline 
         \end{tabular}
         \caption{H(\$) - Filtro Pasa-bajos}
-        \label{table:Filtro_pasabajos}
+        \label{table:FiltroPasabajos}
     \end{table}
 \end{center}
 
