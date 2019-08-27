@@ -247,6 +247,15 @@ Al subir a una frecuencia de $f_c$ (\ref{graf:rta_onda_cuadrada_fc}) se verá un
 	\label{graf:rta_onda_cuadrada_alta_f}
 \end{figure}
 
+Se vuelve a escribir la función transferencia del circuito: \begin{equation*}
+    H(s)=\frac{1}{1+sRC}
+\end{equation*}
+La frecuencia de corte será $f_c=\frac{1}{2\pi RC}$
+
+Véase que si $w<<\frac{1}{RC}$, $|H(s)|_{dB}=-20log\sqrt{1+(\frac{w}{\frac{1}{RC}})^2}\approx-20log1=0$ de donde señales de frecuencia mucho menores a las frecuencias de corte no deberían verse filtradas. En efecto, si se considera $f=0,1f_c$, se tiene $|H(s)|_{dB}\approx-0,04dB$, lo cual implica una atenuación muy pequeña, de ahí que la señal de entrada pase prácticamente sin cambios.
+
+Si se considera $w>>\frac{1}{RC}$, se tiene que $|\frac{jw}{\frac{1}{RC}}|>>1$, de donde $|H(s)|\approx\frac{1}{s}\frac{1}{RC}$ Recordando que el término $\frac{1}{s}$ aparece al transformar una integral por Laplace, antitransformando se llega a que $V_o(t)=\frac{1}{RC}\int_{0}^{t}V_i(t)dt $ y efectivamente para altas frecuencias la señal de salida resulta de integrar la señal de entrada.
+
 \subsubsection*{Caída de tensión en la resistencia}
 
 Se calculó $V_R$  como:
@@ -268,8 +277,8 @@ en la figura (\ref{graf:Tensiones}) se puede observar como a medida que disminuy
 
 En esta sección del trabajo se investigó cómo se comporta la capacidad inherente al osciloscopio y sus puntas. 
 
-Primero, se utilizaron las puntas en \textbf{modo x10}. Se calculó la frecuencia de corte presente en dicho circuito considerando que la capactiancia equivalente de las puntas en dicho modo, visto en clase, es de $12 pF$ y tomando como referencia $R_T$. Se obtuvo una frecuencia de corte teórica de $3,41MHz$. \par 
-Luego, haciendo uso del analizador de impedancia a esa frecuencia se observó que la capacitancia de las puntas era $20 pF$. Por otro lado, se buscó la frecuencia de corte con este último equipo obteniendo una frecuencia de $2.9 MHz$ con una capacitancia asociada de $18.8pF$. Se repite el proceso utilizando la $R_M$. Se llegó a los datos expresados en la siguiente tabla:
+Primero, se utilizaron las puntas en \textbf{modo x10}. Se calculó la frecuencia de corte presente en dicho circuito considerando que la capactiancia equivalente de las puntas en dicho modo, visto en clase, es de $12 pF$ y tomando como referencia $R_T$. Se obtuvo una frecuencia de corte teórica de $3,40MHz$. \par 
+Luego, haciendo uso del analizador de impedancia a esa frecuencia se observó que la capacitancia de las puntas era $15.85 pF$. Por otro lado, se buscó la frecuencia de corte con este último equipo obteniendo una frecuencia de $2.9 MHz$ con una capacitancia asociada de $16.05pF$. Se repite el proceso utilizando la $R_M$. Se llegó a los datos expresados en la siguiente tabla:
 %% Valores obtenidos
  \begin{center}
      \begin{table}[ht]
@@ -278,8 +287,8 @@ Luego, haciendo uso del analizador de impedancia a esa frecuencia se observó qu
          \begin{tabular}{c c c c c c}
             \hline 
              $\bm{R}$ &  $\bm{C_{calculado}}$ &    $\bm{C_{medido}}$   &  $\bm{Error}$\\ \hline
-             $R_T = 3k90\Omega$  & $20 pF$ & $18.8 pF$ & $6.38\%$ \\  
-             $R_M = 3k87\Omega$ & $20.1 pF$ & $19.2 pF$ & $4.68 \%$ \\   \hline
+             $R_T = 3k90\Omega$  & $15.85 pF$ & $16.05 pF$ & $1.24\%$ \\  
+             $R_M = 3k87\Omega$ & $16.32 pF$ & $16.20 pF$ & $0.74 \%$ \\   \hline
         \end{tabular}
         \caption{Capacitancia asociada usando una punta en modo x10}
         \label{table:valores_punta_x10}
@@ -287,7 +296,7 @@ Luego, haciendo uso del analizador de impedancia a esa frecuencia se observó qu
 \end{center}
 
 %% ~Valores obtenidos
-Luego, se utilizaron las puntas en \textbf{modo x1}. Se calculó la frecuencia de corte presente en dicho circuito considerando que la capactiancia equivalente de las puntas en dicho modo, visto en clase, es de $104pF$ y tomando como referencia $R_T$. Se obtuvo una frecuencia de corte teórica de $3,93MHz$. \par Después, haciendo uso del analizador de impedancia a esa frecuencia se observó que la capacitancia de las puntas era $106pF$. Por otro lado, se buscó la frecuencia de corte con este último equipo obteniendo una frecuencia de $6.7MHz$ con una capacitancia asociada de $94pF$. Se repite el proceso utilizando la $R_M$. Se llegó a los datos expresados en la siguiente tabla:
+Luego, se utilizaron las puntas en \textbf{modo x1}. Se calculó la frecuencia de corte presente en dicho circuito considerando que la capactiancia equivalente de las puntas en dicho modo, visto en clase, es de $104pF$ y tomando como referencia $R_T$. Se obtuvo una frecuencia de corte teórica de $3,95MHz$. \par Después, haciendo uso del analizador de impedancia a esa frecuencia se observó que la capacitancia de las puntas era $84pF$. Por otro lado, se buscó la frecuencia de corte con este último equipo obteniendo una frecuencia de $6.7MHz$ con una capacitancia asociada de $70pF$. Se repite el proceso utilizando la $R_M$. Se llegó a los datos expresados en la siguiente tabla:
 %% Valores obtenidos
  \begin{center}
      \begin{table}[ht]
@@ -296,8 +305,8 @@ Luego, se utilizaron las puntas en \textbf{modo x1}. Se calculó la frecuencia d
          \begin{tabular}{ c c c c}
             \hline 
              $\bm{R}$ &  $\bm{C_{calculado}}$ &    $\bm{C_{medido}}$   &  $\bm{Error}$\\ \hline
-             $R_T = 3k90\Omega$  & $106 pF$ & $94 pF$ & $11.32\%$ \\  
-             $R_M = 3k87\Omega$ & $104 pF$ & $96p F$ & $7.69 \%$ \\   \hline
+             $R_T = 3k90\Omega$  & $84 pF$ & $72 pF$ & $16.6\%$ \\  
+             $R_M = 3k87\Omega$ & $84.5 pF$ & $71 pF$ & $19 \%$ \\   \hline
         \end{tabular}
         \caption{Capacitancia asociada usando una punta en modo x1}
         \label{table:valores_punta_x1}
@@ -430,6 +439,14 @@ La demostración analítica se presenta al final de las imágenes.
 	\label{graf:rta_onda_triang_alta_f}
 \end{figure}
 
+Se considera nuevamente la transferencia del circuito:
+\begin{equation*}
+    H(s)=\frac{sRC}{1+sRC}
+\end{equation*}
+La frecuencia de corte es $f_c=\frac{1}{2\pi RC}$ 
+Observamos que para $w>>\frac{1}{RC}$, $|H(s)|_{dB}=20log(\frac{w}{RC})-20log\sqrt{1+(\frac{w}{\frac{1}{RC}})^2}\approx20log(\frac{w}{RC})-20log(\frac{w}{RC})=0$ De donde efectivamente se espera que las señales con frecuencias mucho más altas que la frecuencia de corte no se vean atenuadas por el filtro. En particular, si $w=10f_c$, $|H(s)|_{dB}\approx-0,04dB$, por lo cual es sensato el hecho de que la señal con frecuencia $10f_c$ pasé por el filtro prácticamente sin atenuación.
+
+Si consideramos $w<<\frac{1}{RC}$, $|\frac{jw}{\frac{1}{RC}}|<<1$ de donde $|H(s)|\approx sRC$ En este caso, antitransformando con Laplace tenemos $V_o(t)=RC\frac{dV_i(t)}{dt}$ Luego, efectivamete la señal de salida está dada por la derivada de la señal de entrada.
 
 
 \break
