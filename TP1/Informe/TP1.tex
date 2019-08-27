@@ -127,8 +127,8 @@ Al ser $\overrightarrow{i}$ (la corriente en el circuito) coplanar con $\overrig
 \begin{figure}[ht]
 	\centering
 	\begin{tikzpicture}[scale=0.6]{>=Stealth}
-	\draw[black,thick,<->] (-4,0) -- (4,0) node[anchor=north west]{Im};
-	\draw[black,thick,<->] (0,-4) -- (0,4) node[anchor=south east]{Re};
+	\draw[black,thick,<->] (-4,0) -- (4,0) node[anchor=north west]{Re};
+	\draw[black,thick,<->] (0,-4) -- (0,4) node[anchor=south east]{Im};
 	\draw[black,thick] (0.5,0) -- (0.5,-0.5) -- (0,-0.5) ;
 	\draw[blue,ultra thick,->,-Latex] (0,0) -- (3,0) node[anchor=south east]{$\overrightarrow{V_r}$};
 	\draw[red,ultra thick,->>,-Latex] (0,0) -- (2,0) node[anchor=south east]{$\overrightarrow{i}$};
@@ -167,7 +167,7 @@ Luego se tomaron varios valores tanto de $V_C$ como de $V_{gen}$, barriendo frec
 	\caption{Diagramas de Bode - Medido vs Simulado} 
 	\label{graf:bodes_pasabajo}
 \end{figure}
-
+Se puede observar una discrepancia a altas frecuencias entre las curvas simuladas y medidas. Se atribuyen dichas diferencias a erores humanos, ya que este circuito, en frecuencias tan elevadas, atenua la señal de entrada, haciendo que esta sea comparable con el ruido existente, por lo tanto existe una dificultad en tomar valores estables.
 %%bode RC amplitud y fase (teórico y práctico)
 
 %% Valores obtenidos Bode pasabajos
@@ -336,7 +336,7 @@ Respecto de los diagramas de Bode, se puede apreciar una gran similitud entre el
 Con los mismos elementos utilizados para armar el circuito (\ref{figure:circuito_Pasa_bajos}), se elaboró el circuito pasa altos (\ref{figure:circuito_pasa_altos}). Su transferencia se calculó analíticamente obteniéndose:
 
 \begin{equation}
-	H \left(\$ \right) = \frac{V_C}{V} = \frac{\$CR}{\$CR + 1} = \frac{\$ \cdot 8.58 \cdot 10^{-6}}{S \cdot 8.58 \cdot 10^{-6} + 1}
+	H \left(\$ \right) = \frac{V_C}{V} = \frac{\$CR}{\$CR + 1} = \frac{\$ \cdot 8.58 \cdot 10^{-6}}{\$ \cdot 8.58 \cdot 10^{-6} + 1}
 	\label{equ:transfpasaaltos}
 \end{equation}
 
@@ -380,26 +380,27 @@ Al igual que con el filtro pasabajos, se procedió a medir varios puntos de la t
             \hline 
              \bm{$Medici\acute{o}n$}  & $\bm{|V_{in}|}$ & $\bm{|V_c|}$&   $|\bm{V_r|}$ & f&  $\bm{\frac{V_r}{V}[dB]}$ & $\bm{\theta_{\Delta t}}$  \\
              \hline
-                1  & 9.94 & 9.865 & 0.075 & 10     & 42.45 & -90° \\
-				2  & 9.94 & 9.34  & 0.6   & 500    & 24.38 & -89° \\
-				3  & 9.94 & 9.04  & 0.9   & 1000   & 20.86 & -87° \\
-				4  & 9.94 & 8.84  & 1.1   & 1200   & 19.12 & -86° \\
-				5  & 9.94 & 8.64  & 1.3   & 1800   & 17.67 & -85° \\
-				6  & 9.94 & 7.94  & 2     & 3000   & 13.93 & -81° \\
-				7  & 9.94 & 6.83  & 3.11  & 5000   & 10.09 & -75° \\
-				8  & 9.94 & 5.53  & 4.41  & 8000   & 7.06  & -66° \\
-				9  & 9.94 & 5.13  & 4.81  & 10000  & 6.30  & -61° \\
-				10 & 9.94 & 3.74  & 6.2   & 14000  & 4.10  & -52° \\
-				11 & 9.94 & 3.1   & 6.84  & 16000  & 3.25  & -46° \\
-				12 & 9.94 & 3.03  & 6.91  & 18000  & 3.16  & -45° \\
-				13 & 9.94 & 2.93  & 7.01  & 20000  & 3.03  & -41° \\
-				14 & 9.94 & 2.66  & 7.28  & 22000  & 2.71  & -39° \\
-				15 & 9.94 & 1.71  & 8.23  & 30000  & 1.64  & -31° \\
-				16 & 9.94 & 1.01  & 8.93  & 50000  & 0.93  & -20° \\
-				17 & 9.94 & 0.63  & 9.31  & 80000  & 0.57  & -13° \\
-				18 & 9.94 & 0.25  & 9.69  & 120000 & 0.22  & -9°  \\
-				19 & 9.94 & 0.23  & 9.71  & 150000 & 0.20  & -6°  \\
-				20 & 9.94 & 0.22  & 9.72  & 180000 & 0.19  & -5°  \\
+            		 	1  & 9.94 & 9.865 & 0.075 & 10     & -65.2 & -92° \\
+				2  & 9.94 & 9.34  & 0.6   & 500    & -31.2 & -88° \\
+				3  & 9.94 & 9.04  & 0.9   & 1000   & -25.2 & -87° \\
+				4  & 9.94 & 8.84  & 1.1   & 1200   & -23.6 & -84° \\
+				5  & 9.94 & 8.64  & 1.3   & 1800   & -20.2 & -83° \\
+				6  & 9.94 & 7.94  & 2     & 3000   & -15.8& -80° \\
+				7  & 9.94 & 6.83  & 3.11  & 5000   & -11.6 & -74° \\
+				8  & 9.94 & 5.53  & 4.41  & 8000   & -8 & -65° \\
+				9  & 9.94 & 5.13  & 4.81  & 10000  & -6.50  & -60° \\
+				10 & 9.94 & 3.74  & 6.2   & 14000  & -4.50  & -50° \\
+				11 & 9.94 & 3.1   & 6.84  & 16000  & -3.9  & -46° \\
+				12 & 9.94 & 3.03  & 6.91  & 18000  & -3.3  & -43° \\
+				13 & 9.94 & 2.93  & 7.01  & 20000  & -2.9  & -41° \\
+				14 & 9.94 & 2.66  & 7.28  & 22000  & -2.6  & -40° \\
+				15 & 9.94 & 1.71  & 8.23  & 30000  & -1.7  & -30° \\
+				16 & 9.94 & 1.01  & 8.93  & 50000  & -0.9  & -20° \\
+				17 & 9.94 & 0.63  & 9.31  & 80000  & -0.57  & -13° \\
+				18 & 9.94 & 0.25  & 9.69  & 120000 & -0.5  & -9°  \\
+				19 & 9.94 & 0.23  & 9.71  & 150000 & -0.40  & -6°  \\
+				20 & 9.94 & 0.22  & 9.72  & 180000 & -0.4  & -5°  \\
+				21 & 9.94 & 0.22  & 9.72  & 1000000 & -0.4  & -3°  \\
 		\hline
         \end{tabular}
         \caption{H(\$) - Filtro Pasa-altos}
