@@ -446,7 +446,7 @@ Se considera nuevamente la transferencia del circuito:
 La frecuencia de corte es $f_c=\frac{1}{2\pi RC}$ 
 Observamos que para $w>>\frac{1}{RC}$, $|H(s)|_{dB}=20log(\frac{w}{RC})-20log\sqrt{1+(\frac{w}{\frac{1}{RC}})^2}\approx20log(\frac{w}{RC})-20log(\frac{w}{RC})=0$ De donde efectivamente se espera que las señales con frecuencias mucho más altas que la frecuencia de corte no se vean atenuadas por el filtro. En particular, si $w=10f_c$, $|H(s)|_{dB}\approx-0,04dB$, por lo cual es sensato el hecho de que la señal con frecuencia $10f_c$ pasé por el filtro prácticamente sin atenuación.
 
-Si consideramos $w<<\frac{1}{RC}$, $|\frac{jw}{\frac{1}{RC}}|<<1$ de donde $|H(s)|\approx sRC$
+Si consideramos $w<<\frac{1}{RC}$, $|\frac{jw}{\frac{1}{RC}}|<<1$ de donde $|H(s)|\approx sRC$ En este caso, antitransformando con Laplace tenemos $V_o(t)=RC\frac{dV_i(t)}{dt}$ Luego, efectivamete la señal de salida está dada por la derivada de la señal de entrada.
 
 
 \break
