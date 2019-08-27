@@ -73,20 +73,20 @@ def read_file_spice(filename):
 data = read_file_spice("Ejercicio 2 - Pasaalto.txt")
 
 
-fmed=[10,500,1*10**3,1.2*10**3,1.8*10**3,3*10**3,5*10**3,8*10**3,10*10**3,14*10**3,16*10**3,18*10**3,20*10**3,22*10**3, 30*10**3, 50*10**3,80*10**3,0.12*10**6,0.15*10**6 ,0.18*10**6]
-hmed=[42.45,24.38,20.86,19.12,17.67,13.93,10.09,7.06,6.30,4.10,3.25,3.16,3.03,2.71,1.64,0.93,0.57,0.22,0.20,0.19]
-fase=[90,89,87,86,85,81,75,66,61,52,46,45,41,39,31,20,13,9,6,5]
+fmed=[10   ,500    ,1*10**3 ,1.2*10**3 ,1.8*10**3,3*10**3,5*10**3,8*10**3,10*10**3,14*10**3,16*10**3,18*10**3,20*10**3,22*10**3, 30*10**3, 50*10**3,80*10**3,0.12*10**6,0.15*10**6 ,0.18*10**6,1*10**6]
+hmed=[-65.2,-31.2  ,-25.2   ,-23.6     ,-20.2    ,-15.8  ,-11.6  ,-8     ,-6.5    ,-4.5    ,-3.9    ,-3.3    ,-2.9    ,-2.6    ,-1.7     ,-0.9     ,-0.6    ,-0.5      ,-0.5       ,-0.40,-0.4]
+fase=[-92  ,-88    ,-87     ,-84       ,-83      ,-80    ,-74    ,-65    ,-60     ,-50     ,-46     ,-43     ,-40     ,-40     ,-30      ,-20       ,-13    ,-9        ,-6         ,-5,0]
 
+data["abs"] = np.asarray(data["abs"])*-1
+
+data["pha"] = np.asarray(data["pha"])*-1
 fig, ax1 = plt.subplots()
-
+#data["pha"]= -1* data["pha"]
 ax1.set_xlabel('Frecuencia [Hz]')
 ax1.set_ylabel('|H($)| [dB]')
 ax1.plot(fmed, hmed, "blue", linestyle='-', label='Módulo de la Transferencia (Empírico)')
 ax1.plot(data["f"], data["abs"], "red", linestyle='-', label='Módulo de la Transferencia (Simulado)')
-ax1.set_xscale("log", basex=10,subsx=[1,2,3,4,5,6])
-ax1.tick_params(axis='y')
-
-
+ax1.set_xscale("log", basex=10)
 ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
 
 ax2.set_ylabel('Fase [°]')  # we already handled the x-label with ax1
@@ -94,8 +94,6 @@ ax2.plot(fmed, fase, "blue", linestyle=':', label='Fase(Empírica)')
 ax2.plot(data["f"], data["pha"], "red", linestyle=':', label='Fase (Simulada)')
 ax2.tick_params(axis='y')
 
-ax1.set_yticks([-5,0,5,10,15,20,25,30,35,40,45,50,55,60])
-ax2.set_yticks([0,15,30,45,60,74,90])
 fig.tight_layout()  # otherwise the right y-label is slightly clipped
 #plt.show()
 
