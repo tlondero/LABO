@@ -256,6 +256,11 @@ Véase que si $w<<\frac{1}{RC}$, $|H(s)|_{dB}=-20log\sqrt{1+(\frac{w}{\frac{1}{R
 
 Si se considera $w>>\frac{1}{RC}$, se tiene que $|\frac{jw}{\frac{1}{RC}}|>>1$, de donde $|H(s)|\approx\frac{1}{s}\frac{1}{RC}$ Recordando que el término $\frac{1}{s}$ aparece al transformar una integral por Laplace, antitransformando se llega a que $V_o(t)=\frac{1}{RC}\int_{0}^{t}V_i(t)dt $ y efectivamente para altas frecuencias la señal de salida resulta de integrar la señal de entrada.
 
+Considerando el circuito RC, en el caso en que la frecuencia de la señal cuadrada es mucho menor que la frecuencia de corte, se vio que prácticamente ninguna componente es filtrada, de donde el período de carga del capacitor es mucho menor al período de la señal cuadrada, por lo que el capacitor puede cargarse en su totalidad durante el tiempo en que la señal cuadrada está activada y descargarse totalmente en el tiempo en que ésta está desactivada.
+
+Para el caso en que la frecuencia de la onda cuadrada es igual a la frecuencia de corte, ciertas componentes son filtradas, de donde ahora el capacitor no llega a cargarse completamente antes de que comience el tiempo de descarga.
+
+
 \subsubsection*{Caída de tensión en la resistencia}
 
 Se calculó $V_R$  como:
@@ -448,6 +453,8 @@ La frecuencia de corte es $f_c=\frac{1}{2\pi RC}$
 Observamos que para $w>>\frac{1}{RC}$, $|H(s)|_{dB}=20log(\frac{w}{RC})-20log\sqrt{1+(\frac{w}{\frac{1}{RC}})^2}\approx20log(\frac{w}{RC})-20log(\frac{w}{RC})=0$ De donde efectivamente se espera que las señales con frecuencias mucho más altas que la frecuencia de corte no se vean atenuadas por el filtro. En particular, si $w=10f_c$, $|H(s)|_{dB}\approx-0,04dB$, por lo cual es sensato el hecho de que la señal con frecuencia $10f_c$ pasé por el filtro prácticamente sin atenuación.
 
 Si consideramos $w<<\frac{1}{RC}$, $|\frac{jw}{\frac{1}{RC}}|<<1$ de donde $|H(s)|\approx sRC$ En este caso, antitransformando con Laplace tenemos $V_o(t)=RC\frac{dV_i(t)}{dt}$ Luego, efectivamete la señal de salida está dada por la derivada de la señal de entrada.
+
+
 
 
 \break
