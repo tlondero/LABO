@@ -16,25 +16,25 @@ D_medida=[0,0.01,0.0035,0.007,0.007,0.01,0.0113,0.0126,0.0136,0.0138,0.0152,0.01
 
 Z_medida=[0.14*10**(-6),1.43*10**(-6),14.22*10**(-6),70.73*10**(-6),0.1410*10**(-3),0.2808*10**(-3),0.42*10**(-3),0.6971*10**(-3),1.04*10**(-3),1.38*10**(-3),2.753*10**(-3),5.47*10**(-3),6.146*10**(-3),6.821*10**(-3),7.4*10**(-3),8.84*10**(-3),10.2*10**(-3),10.87*10**(-3),12.22*10**(-3),13.57*10**(-3),16.27*10**(-3),27.12*10**(-3),55.38*10**(-3),101.05*10**(-3),0.1308,0.182,0.208,0.239]
 
+
+##Impedancia y fase vs frecuencia (Empírica y Simulada)##
 fig, ax1 = plt.subplots()
 
 ax1.set_xlabel('Frecuencia [Hz]')
-ax1.set_ylabel('|Z| [S]')
-ax1.plot(frecuencia_medida, Z_medida, "blue", linestyle='-', label='Módulo de la Admitancia')
+ax1.set_ylabel('Factor de pérdida (D)')
+ax1.plot(frecuencia_medida, D_medida, "blue", linestyle='-', label='Factor de pérdida(Empírico)')
 #ax1.plot(data["f"], data["abs"], "red", linestyle='-', label='Módulo de la Transferencia (Simulado)')
 ax1.set_xscale("log", basex=10,subsx=[1,2,3,4,5,6])
+#ax1.set_yscale("log", basey=10,subsy=[1,0.1,0.01])
 ax1.tick_params(axis='y')
 
 
-ax2 = ax1.twinx()  # instantiate a second axes that shares the same x-axis
 
-ax2.set_ylabel('Fase [°]')  # we already handled the x-label with ax1
-ax2.plot(frecuencia_medida, fase_medida, "blue", linestyle=':', label='Fase(Empírica)')
-#ax2.plot(data["f"], data["pha"], "red", linestyle=':', label='Fase (Simulada)')
-ax2.tick_params(axis='y')
+ax1.set_yticks([0.001,0.01,0.025,0.05,0.075,0.1])
 
-ax1.set_yticks([])
-ax2.set_yticks([90,75,60,45,30,15,0])
+ax2 = ax1.twinx()  # agrego otro eje para hardcodear el error de la doble impresión
+ax2.set_yticks([])
+
 fig.tight_layout()  # otherwise the right y-label is slightly clipped
 #plt.show()
 
@@ -45,10 +45,8 @@ fig.tight_layout()  # otherwise the right y-label is slightly clipped
 
 # agregamos patches
 patches = [
-    mpatches.Patch(color="blue", linestyle=':', label='Fase (Medida)'),
-    mpatches.Patch(color="blue", linestyle='-', label='Módulo de la Transferencia (Medido)'),
-    mpatches.Patch(color="red", linestyle=':', label='Fase (Simulada)'),
-    mpatches.Patch(color="red", linestyle='-', label='Módulo de la Transferencia (Simulada)'),
+    mpatches.Patch(color="blue", linestyle='-', label='Factor de pérdida (Medido)'),
+    mpatches.Patch(color="red", linestyle='-', label='Factor de pérdida (Simulado)'),
 ]
 # agregamos leyenda
 plt.legend(handles=patches)
@@ -64,8 +62,11 @@ plt.legend(handles=patches)
 # pongo una grilla
 plt.minorticks_on()
 ax1.xaxis.grid(True)
+ax1.yaxis.grid(True)
 plt.grid(which='major', axis='both', linestyle='-', linewidth=0.3, color='black')
 plt.grid(which='minor', axis='both', linestyle=':', linewidth=0.1, color='black')
 plt.grid(True, which="both")
 
 plt.show()
+
+
