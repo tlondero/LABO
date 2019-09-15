@@ -1,0 +1,25 @@
+\documentclass{standalone}
+\usepackage{circuitikz}
+
+\begin{document}
+
+\begin{circuitikz}[scale=1]\draw
+
+(0,0) to[R, l=$R_s$] (4,0)
+(0,-2) to[C, l=$C$] (4,-2)
+(4,0)--(4,-2)
+(0,0) -- (0,-2)
+(4,-1) -- (5,-1)
+(0,-1) -- (-1,-1)
+
+(5,-1) node[ocirc]{}
+(-1,-1) node[ocirc]{}
+(4,-1) node[circ]{}
+(0,-1) node[circ]{}
+
+
+;\end{circuitikz}
+
+
+ 
+\end{document}

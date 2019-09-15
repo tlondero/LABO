@@ -1,5 +1,3 @@
-%ejercicio1
-
 \section*{Caracterización de componentes pasivos}
 
 \subsection*{Inductancia}
@@ -10,37 +8,23 @@ Para comenzar, se realiza el estudio de las magnitudes propias del inductor en f
 Se plantea el siguiente circuito equivalente:
 
 %circuito equivalente Inductancia
-\begin{center}\begin{circuitikz}[scale=1]\draw
-
-(0,0) to[R, l=$R_s$] (2,0)
-(2,0) to[L, l=$L_s$] (4,0)
-(0,-2) to[C, l=$C$] (4,-2)
-(4,0)--(4,-2)
-(0,0) -- (0,-2)
-(4,-1) -- (5,-1)
-(0,-1) -- (-1,-1)
-
-(5,-1) node[ocirc]{}
-(-1,-1) node[ocirc]{}
-(4,-1) node[circ]{}
-(0,-1) node[circ]{}
-
-
- ;\end{circuitikz}
-  \end{center}
+\begin{figure}[H]
+\centering
+\includegraphics[width=6cm,height=4cm]{Ejercicio_1(Germo)/Circuitos/circuito_equivalente_inductancia.pdf}
+\label{fig:circuito_equivalente_inductancia}
+\end{figure}
 %~circuito equivalente Inductancia
 
 Al ser las bobinas un conjunto de espiras enrolladas una gran cantidad de vueltas, el componente resistivo de la inductancia se debe a la resistencia eléctrica del material utilizado en su fabricación. También, se podría considerar la resistencia propia de los terminales.
-Por otro lado, debido a que consctructivamente cada una de las vueltas de la bobina están aisladas eléctricamente entre si debido al barniz que recubre el material y a la pequeña diferencia de tensión se puede apreciar el comportamiento de un capacitor.
+Por otro lado, debido a que consctructivamente cada una de las vueltas de la bobina están aisladas eléctricamente entre si debido al barniz que recubre el material y a la pequeña diferencia de tensión, se puede apreciar el comportamiento de un capacitor entre vuelta y vuelta del cable.
 
-
- 
 
 %% Tabla inductor
  \begin{center}
      \begin{table}[H]
      \centering
      \renewcommand{\arraystretch}{1.1}
+     \scalebox{0.8}{
          \begin{tabular}{ c c c c c c }
             \hline 
              $\bm{f_S[Hz]}$ &  $\bm{L_S[mH]}$ & $\bm{Q}$& $\bm{R_S[\Omega]}$ & $\bm{|Z|[\Omega]}$ & $\bm{\theta}[^\circ]$ \\
@@ -86,44 +70,40 @@ Por otro lado, debido a que consctructivamente cada una de las vueltas de la bob
 				10M   & -2.893$\mu$ & 27.3 		& 6.7  		& 181.9 & -87.9     \\
             \hline 
         \end{tabular}
+        }
         \caption{Magnitudes del inductor en función de la frecuencia}
         \label{table:Rta_en_frecuencia_inductor}
     \end{table}
 \end{center}
 %%~Tabla inductor
-\subsection*{Capacitor}
-Se procederá a realizar el mismo análisis planteado anteriormente para una inductancia pero para este caso para un capacitor, analizando como varían sus magnitudes según la frecuencia a la que trabaja y el estudio de sus circuitos equivalentes.
 
-Para comenzar, se realiza el estudio de las magnitudes propias del capacitor en función de la frecuencia. \par Las frecuencias utilizadas fueron detectadas al realizar las frecuencias ya que eran las que permitían ver con claridad como variaba la fase. Las mediciones se tomaron en el modo paralelo del analizador de impedancias por lo que se medirán conductancias. Las mismas se pueden apreciar en la tabla (\ref{table:Rta_en_frecuencia_capacitor}).
+\subsection{Capacitor}
+Se procederá a realizar el mismo análisis planteado anteriormente para una inductancia pero, para este caso con un capacitor, analizando como varían sus magnitudes según la frecuencia a la que trabaja y el estudio de sus circuitos equivalentes.
+
+Para comenzar, se realiza el estudio de las magnitudes propias del capacitor en función de la frecuencia. \par Las frecuencias utilizadas fueron detectadas ya que eran las que permitían ver con claridad como variaba la fase. Las mediciones se tomaron en el modo paralelo del analizador de impedancias por lo que se medirán conductancias. Las mismas se pueden apreciar en la tabla (\ref{table:Rta_en_frecuencia_capacitor}).
 
 Se plantea el siguiente circuito equivalente:
+
 %circuito equivalente capacitor
-\begin{center}\begin{circuitikz}[scale=1]\draw
-
-(0,0) to[R, l=$R_s$] (4,0)
-(0,-2) to[C, l=$C$] (4,-2)
-(4,0)--(4,-2)
-(0,0) -- (0,-2)
-(4,-1) -- (5,-1)
-(0,-1) -- (-1,-1)
-
-(5,-1) node[ocirc]{}
-(-1,-1) node[ocirc]{}
-(4,-1) node[circ]{}
-(0,-1) node[circ]{}
-
-
-;\end{circuitikz}
-  \end{center}
+\begin{figure}[H]
+\centering
+\includegraphics[width=6cm,height=4cm]{Ejercicio_1(Germo)/Circuitos/circuito_equivalente_capacitor.pdf}
+\label{fig:circuito_equivalente_capacitor}
+\end{figure}
 %~circuito equivalente capacitor
+
+
 La resistencia observada se debe a la resistencia eléctrica del material del componente(film).También, se podría considerar la resistencia propia de los terminales. \par
 Por otro lado, se podría considerar una inductancia en el modelo equivalente pero debido al método de fabriacación y por las frecuencias con las que se puede trabajar en el laboratorio no se pudo hallar una frecuencia donde se apreciará un comportamiento de tipo inductivo. El máximo cambio de fase obtenido fue de aproximadamente $4^\circ$ a $13 MHz$.
 
+
 %% Tabla capacitor
  \begin{center}
+ 
      \begin{table}[H]
      \centering
      \renewcommand{\arraystretch}{1.1}
+     \scalebox{0.8}{
          \begin{tabular}{ c c c c c c c c }
             \hline 
              $\bm{f_P[Hz]}$ &  $\bm{C_P[nF]}$ & $\bm{D}$& $\bm{R_P[S]}$ & $\bm{|Z|[S]}$ & $\bm{\theta}[^\circ]$ \\
@@ -159,6 +139,7 @@ Por otro lado, se podría considerar una inductancia en el modelo equivalente pe
 			13M  & 2.91 & 0.065 & 0.015   & 0.24   & 86.30 \\
             \hline 
         \end{tabular}
+        }
         \caption{Magnitudes del capacitor en función de la frecuencia}
         \label{table:Rta_en_frecuencia_capacitor}
     \end{table}
