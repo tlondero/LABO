@@ -1,4 +1,4 @@
-\input{preamble.tex}
+\input{Preamble.tex}
 
 \begin{document}
 
@@ -22,9 +22,7 @@ En el presente trabajo de laboratorio se estudian filtros RLC de segundo orden, 
 
 \input{Ejercicio_1(Germo)/ejercicio1.tex}
 
-
-
-\subsection{Filtro pasabajos}
+\section{Filtro pasabajos}
 
 En esta sección se analizó la respuesta al escalón del circuito mostrado en la Figura (\ref{fig:rlc}). Sabiendo que $L = 500 \ \mu H$, $C = 33 \ nF$ y $\xi = 0.33$, se determinó que $R = 81.24 \ \Omega$. Además, se calculó la frecuencia de resonancia de este circuito, siendo esta $f_0 = 39.2 \ kHz$.
 
@@ -67,13 +65,7 @@ Por otro lado, con (\ref{equ:fres}) se calcula el sobrepico,
 	\textcolor{red}{\textbf{COLOCAR CALCULOS.}}
 \end{center}
 
-Considerando los valores comerciales, se utilizaron ...
-
-\begin{center}
-	\textcolor{red}{\textbf{COLOCAR COMPONENTES USADOS.}}
-\end{center}
-
-Es así que se preparó el circuito en un protoboard y se procedió a realizar las mediciones pertinentes y así compararlas con los cálculos teóricos. Este circuito fue excitado con una señal cuadrada, la cual posee una frecuencia de $3.92 \ kHz$ y una amplitud tal que la tensión de salida máxima sea de $1 \ V_{pp}$. Es así que se observó la respuesta al escalón del sistema, al inicio de cada cuadrada.
+Considerando los valores comerciales, y sabiendo que se disponía de una bobina de una inductancia de $500 \ \mu H$, se utilizaron una resistencia de $82 \ \Omega$ y un capacitor de $33 \ nF$. Es así que se preparó el circuito en un protoboard y se procedió a realizar las mediciones pertinentes y así compararlas con los cálculos teóricos. Este circuito fue excitado con una señal cuadrada, la cual posee una frecuencia de $3.92 \ kHz$ y una amplitud tal que la tensión de salida máxima sea de $1 \ V_{pp}$. Es así que se observó la respuesta al escalón del sistema, al inicio de cada cuadrada.
 
 \begin{figure}[H]
 	\centering
@@ -82,10 +74,7 @@ Es así que se preparó el circuito en un protoboard y se procedió a realizar l
 	\label{fig:rtaescalon}
 \end{figure}
 
-De esta forma, se obtuvo ...
-\begin{center}
-	\textcolor{red}{\textbf{COLOCAR MEDICIONES.}}
-\end{center} 
+De esta forma, se midió un pseudoperíodo de $24.4 \ \mu s$, un sobrepico de $245 \ mV$ y un tiempo de establecimiento del 5\% de $33.6 \ \mu s$.
 
 Luego, se obtuvo el diagrama de BODE del sistema. Es así que se compara este con el teórico y con el simulado.
 
