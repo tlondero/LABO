@@ -1,4 +1,44 @@
+<<<<<<< HEAD
 \input{preamble.tex}
+=======
+\documentclass[11pt, a4paper]{article}
+
+%Packages
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage[spanish, es-tabla]{babel}
+\renewcommand*\familydefault{\sfdefault} 		% Sans Serif as default font
+
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{bm}
+
+\usepackage{xcolor}
+
+\graphicspath{ {./Imagenes/} }
+
+\usepackage{multirow}
+\setlength{\headheight}{14pt}
+\setlength{\doublerulesep}{\arrayrulewidth}
+
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage[american, nooldvoltagedirection]{circuitikz}
+
+\usepackage{fancyhdr}
+
+
+\usepackage{units} 
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{babel,positioning}
+
+>>>>>>> 794dd710e30d8b060293c8fb20e65e645f3f4490
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -25,23 +65,12 @@
 %								INFORME									%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Introducción}
+En el presente trabajo de laboratorio se estudian filtros RLC de segundo orden, haciendo uso del osciloscopio, el generador de funciones y el analizador de impedancias. También, se realiza un programa para automatizar las mediciones del osciloscopio; dicho programa será de gran utilidad en trabajos prácticos futuros.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-%					RECORTAR IMAGEN DEL OSCILOSCOPIO					%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Caracterización de componentes pasivos}
 
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[width=0.9\textwidth , trim={0.7cm 6.25cm  0 3.5cm},clip]{scope_1}
-%	%trim={<left> <lower> <right> <upper>}
-%\caption{...}
-%	\label{fig:...}
-%\end{figure}
-
-
-\section*{Introducción}
-En esta práctica se volverán a aplicar los contenidos aprendidos para realizar el trabajo práctico anterior pero para analizar el comportamiento de un circuito de segundo orden. También, se realizarán mediciones automáticas con el osciloscopio que servirán de guía para trabajos prácticos posteriores.
-
+<<<<<<< HEAD
 \section*{Caracterización de componentes pasivos}
 
 \subsection*{Inductancia}
@@ -77,6 +106,12 @@ Por otro lado, debido a que consctructivamente cada una de las vueltas de la bob
 
 
  
+=======
+\subsection{Inductancia}
+A continuación de realizará un estudio acerca del comportamiento de una bobina, observando como varían sus magnitudes según la frecuencia y analizando sus circuitos equivalentes.\par En un sistema simplificado, la bobina sólo tiene un componente inductivo, sin embargo, dicho planteo dista en gran medida de la realidad donde, debido en gran medida a su fabricación, las inductancias tendrán tanto componentes resistivos como capacitivos. \par Las características previamente mencionadas nos llevarán a plantear distintos circuitos equivalentes. Se analizará cual de ellos refleja en mejor medida la práctica experimental realizada.
+
+Para comenzar, se realiza el estudio de las magnitudes propias del inductor en función de la frecuencia. \par Las frecuencias utilizadas fueron detectadas al realizar las frecuencias ya que eran las que permitían ver con claridad como variaba la fase. Las mediciones se tomaron en el modo serie del analizador de impedancias, las mismas se pueden apreciar en la Tabla (\ref{table:Rta_en_frecuencia_inductor}):
+>>>>>>> 794dd710e30d8b060293c8fb20e65e645f3f4490
 
 %% Tabla inductor
  \begin{center}
@@ -133,9 +168,10 @@ Por otro lado, debido a que consctructivamente cada una de las vueltas de la bob
     \end{table}
 \end{center}
 %%~Tabla inductor
-\subsection*{Capacitor}
+\subsection{Capacitor}
 Se procederá a realizar el mismo análisis planteado anteriormente para una inductancia pero para este caso para un capacitor, analizando como varían sus magnitudes según la frecuencia a la que trabaja y el estudio de sus circuitos equivalentes.
 
+<<<<<<< HEAD
 Para comenzar, se realiza el estudio de las magnitudes propias del capacitor en función de la frecuencia. \par Las frecuencias utilizadas fueron detectadas al realizar las frecuencias ya que eran las que permitían ver con claridad como variaba la fase. Las mediciones se tomaron en el modo paralelo del analizador de impedancias por lo que se medirán conductancias. Las mismas se pueden apreciar en la tabla (\ref{table:Rta_en_frecuencia_capacitor}).
 
 Se plantea el siguiente circuito equivalente:
@@ -160,6 +196,9 @@ Se plantea el siguiente circuito equivalente:
 %~circuito equivalente capacitor
 La resistencia observada se debe a la resistencia eléctrica del material del componente(film).También, se podría considerar la resistencia propia de los terminales. \par
 Por otro lado, se podría considerar una inductancia en el modelo equivalente pero debido al método de fabriacación y por las frecuencias con las que se puede trabajar en el laboratorio no se pudo hallar una frecuencia donde se apreciará un comportamiento de tipo inductivo. El máximo cambio de fase obtenido fue de aproximadamente $4^\circ$ a $13 MHz$.
+=======
+Para comenzar, se realiza el estudio de las magnitudes propias del capacitor en función de la frecuencia. \par Las frecuencias utilizadas fueron detectadas al realizar las frecuencias ya que eran las que permitían ver con claridad como variaba la fase. Las mediciones se tomaron en el modo paralelo del analizador de impedancias por lo que se medirán conductancias. Las mismas se pueden apreciar en la Tabla (\ref{table:Rta_en_frecuencia_capacitor}):
+>>>>>>> 794dd710e30d8b060293c8fb20e65e645f3f4490
 
 %% Tabla capacitor
  \begin{center}
@@ -206,5 +245,78 @@ Por otro lado, se podría considerar una inductancia en el modelo equivalente pe
     \end{table}
 \end{center}
 %%~Tabla capacitor
+
+\subsection{Filtro pasabajos}
+
+En esta sección se analizó la respuesta al escalón del circuito mostrado en la Figura (\ref{fig:rlc}). Sabiendo que $L = 500 \ \mu H$, $C = 33 \ nF$ y $\xi = 0.33$, se determinó que $R = 81.24 \ \Omega$. Además, se calculó la frecuencia de resonancia de este circuito, siendo esta $f_0 = 39.2 \ kHz$.
+
+\begin{figure}[H]
+\begin{center}
+\begin{circuitikz}
+	\node [buffer](buff){};
+	\draw (buff.out) to[short] ++(0.25,0) to[L, l = $L$] ++(2,0) to[R, l = $R$] ++(2.5,0) node[](Vcpos){};
+	\draw (Vcpos) to[C, l_= $C$, v^= $V_C$] ++(0,-2) node[](Vcneg){};
+	\draw (buff.in) to[short] ++(-0.5,0) to[sV, v_=$V_i$] ++(0,-2) to[short] node[ground]{} (Vcneg);
+\end{circuitikz}
+\caption{Primera etapa del circuito.}
+	\label{fig:rlc}
+\end{center}
+\end{figure}
+
+Luego se procedió a analizar distintos valores de importancia del circuito, como lo son la frecuencia de oscilación del transitorio, el tiempo de establecimiento del $5 \ \%$ y el sobrepico. Para ello se calculó primero la transferencia del circuito:
+
+\begin{equation}
+	H(S) = \frac{1}{LC S^2 + RC S + 1}
+	\label{equ:hrlc}
+\end{equation}
+
+Es así que, sabiendo que la transformada de Laplace del escalón es $\frac{1}{S}$, y la salida del sistema es $Y(S) = X(S) \cdot H(S)$, se obtuvo la respuesta al escalón de este:
+
+\begin{equation} \hspace*{-1cm}
+	V_{C}(t) = 1 - e^{-t \frac{R}{2L}} \cdot \left[\frac{1}{2 \sqrt{4LC - {RC}^2}} \cdot sen \left( \frac{\sqrt{4LC - {RC}^2}}{2LC} \cdot t \right) + cos \left( \frac{\sqrt{4LC - {RC}^2}}{2LC} \cdot t - \pi \right) \right]
+\end{equation} 
+
+Además, se sabe que la frecuencia de oscilación del transitorio se puede calcular como
+
+\begin{equation}
+	f_t = f_0 \cdot \sqrt{|\xi^2 - 1|} = 37 \ kHz
+	\label{equ:fres}
+\end{equation}
+
+Por otro lado, con (\ref{equ:fres}) se calcula el sobrepico,
+
+\begin{center}
+	\textcolor{red}{\textbf{COLOCAR CALCULOS.}}
+\end{center}
+
+Considerando los valores comerciales, se utilizaron ...
+
+\begin{center}
+	\textcolor{red}{\textbf{COLOCAR COMPONENTES USADOS.}}
+\end{center}
+
+Es así que se preparó el circuito en un protoboard y se procedió a realizar las mediciones pertinentes y así compararlas con los cálculos teóricos. Este circuito fue excitado con una señal cuadrada, la cual posee una frecuencia de $3.92 \ kHz$ y una amplitud tal que la tensión de salida máxima sea de $1 \ V_{pp}$. Es así que se observó la respuesta al escalón del sistema, al inicio de cada cuadrada.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth, trim = {0 3.4cm 0.4cm 2cm},clip]{Ejercicio2/Mediciones/A/scope_0.png}
+\caption{Respuesta al escalón del circuito.}
+	\label{fig:rtaescalon}
+\end{figure}
+
+De esta forma, se obtuvo ...
+\begin{center}
+	\textcolor{red}{\textbf{COLOCAR MEDICIONES.}}
+\end{center} 
+
+Luego, se obtuvo el diagrama de BODE del sistema. Es así que se compara este con el teórico y con el simulado.
+
+\begin{center}
+	\textcolor{red}{\textbf{BODE.}}
+\end{center}
+
+\begin{center}
+	\textcolor{red}{\textbf{PUNTO E.}}
+\end{center}
 
 \end{document}
