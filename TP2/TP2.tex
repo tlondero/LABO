@@ -75,6 +75,7 @@ Por otro lado, el sobrepico se calcula como
 
 \begin{equation}
     M_p=e^{\frac{-\xi\pi}{\sqrt{1-\xi^2}}}=333mV
+    \label{equ:mp}
 \end{equation}
 
 Finalmente, el tiempo de establecimiento del $5\%$ puede calcularse de (\ref{equ:vc}) como
@@ -91,7 +92,7 @@ Considerando los valores comerciales, y sabiendo que se disponía de una bobina 
 	\label{fig:rtaescalon}
 \end{figure}
 
-De esta forma, se midió una frecuencia de oscilacón de $41 \ KhZ $, un sobrepico de $245 \ mV$ y un tiempo de establecimiento del 5\% de $33.6 \ \mu s$.
+De esta forma, se midió una frecuencia de oscilacón de $41 \ KhZ $, un sobrepico de $245 \ mV$ y un tiempo de establecimiento del 5\% de $33.6 \ \mu s$. Las discrepencias entre los valores teóricos y los medidos pueden deberse a varios factores: errores humanos, errores de instrumentacón.
 
 Luego, se obtuvo el diagrama de BODE del sistema. Es así que se compara este con el teórico y con el simulado.
 
@@ -111,5 +112,40 @@ Luego, se obtuvo el diagrama de BODE del sistema. Es así que se compara este co
 \begin{center}
 	\textcolor{red}{\textbf{PUNTO E.}}
 \end{center}
+
+\section{Filtro pasabanda}
+
+En este caso la funcón transferencia es 
+
+\begin{equation}
+    H(s)=\frac{sRC}{1+sRC+s^{2}LC}
+\end{equation}
+
+La frecuencia de oscilación y el valor de sobrepico teóricos son los mismos que en el caso del filtro pasabajos, calculados en (\ref{equ:fres}) y (\ref{equ:mp}) respectivamente.
+
+\section{Filtro pasaaltos}
+
+En este caso la función transferencia es
+\begin{equation}
+    H(s)=\frac{s^{2}LC}{1+sRC+s^{2}LC}
+\end{equation}
+
+Nuevamente, como el denominador de la función transferencia es el mismo que en los casos del filtro pasabanda y pasabajos, los valores teóricos de la frecuencia de oscilación y el sobrepico son los calculados en (\ref{equ:fres}) y (\ref{equ:mp}) respectivamente.
+
+\section{Filtro Notch}
+
+Se analizó el circuito mostrado en la figura
+\begin{center}
+	\textcolor{red}{\textbf{insertar figura Notch}}
+\end{center}
+
+En este caso la transferencia está dada por 
+
+\begin{equation}
+    H(s)=\frac{1+s^ {2}LC}{1+sRC+s^ {2}LC}
+\end{equation}
+
+Los valores teóricos de la frecuencia de oscilación y el sobrepico son, nuevamente, los de (\ref{equ:fres}) y (\ref{equ:mp})
+
 
 \end{document}
