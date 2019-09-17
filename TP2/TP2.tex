@@ -24,7 +24,18 @@ En el presente trabajo de laboratorio se estudian filtros RLC de segundo orden, 
 
 \section{Filtro pasabajos}
 
-En esta sección se analizó la respuesta al escalón del circuito mostrado en la Figura (\ref{fig:rlc}). Sabiendo que $L = 500 \ \mu H$, $C = 33 \ nF$ y $\xi = 0.33$, se determinó que $R = 81.24 \ \Omega$. Además, se calculó la frecuencia de resonancia de este circuito, siendo esta $f_0 = 39.2 \ kHz$.
+En esta sección se analizó la respuesta al escalón del circuito mostrado en la Figura (\ref{fig:rlc}). Sabiendo que $L = 500 \ \mu H$, $C = 33 \ nF$ y $\xi = 0.33$, se determinó que $R = 81.24 \ \Omega$. Además, se calculó la frecuencia de resonancia de este circuito, siendo esta $f_0 = 39.2 \ kHz$. Para determinar R se analizó primero la transferencia. Tenemos que la funcón transferencia del circuito es:
+
+\begin{equation}
+	H(s) = \frac{1}{LC s^2 + RC s + 1}
+	\label{equ:hrlc}
+\end{equation}
+
+Sabiendo que $w_0=\frac{1}{\sqrt{LC}}$ y escribiendo el denominador de $H(s)$ la forma $1+2\xi\frac{s}{w_0}+(\frac{s}{w_0})^2$ obtenemos \begin{equation}
+    H(s)=\frac{1}{1+RC\frac{1}{\sqrt{LC}}\frac{s}{\frac{1}{\sqrt{LC}}}+(\frac{s}{\frac{1}{\sqrt{LC}}})^2}=\frac{1}{1+R\sqrt{\frac{C}{L}}\frac{s}{w_0}+(\frac{s}{w_0})^2}
+\end{equation}
+Por lo tanto, se tiene que $2\xi=R\sqrt{\frac{C}{L}}$, de donde como $\xi=0,33$, $L=500\mu H$ y $C=33nF$, se encuentra $R=81,24\Omega$
+
 
 \begin{figure}[H]
 \begin{center}
@@ -39,12 +50,12 @@ En esta sección se analizó la respuesta al escalón del circuito mostrado en l
 \end{center}
 \end{figure}
 
-Luego se procedió a analizar distintos valores de importancia del circuito, como lo son la frecuencia de oscilación del transitorio, el tiempo de establecimiento del $5 \ \%$ y el sobrepico. Para ello se calculó primero la transferencia del circuito:
+Luego se procedió a analizar distintos valores de importancia del circuito, como lo son la frecuencia de oscilación del transitorio, el tiempo de establecimiento del $5 \ \%$ y el sobrepico. Para ello se analiza nuevamente la transferencia del circuito hallada en (\ref{equ:hrlc})
 
-\begin{equation}
+\begin{equation*}
 	H(S) = \frac{1}{LC S^2 + RC S + 1}
 	\label{equ:hrlc}
-\end{equation}
+\end{equation*}
 
 Es así que, sabiendo que la transformada de Laplace del escalón es $\frac{1}{S}$, y la salida del sistema es $Y(S) = X(S) \cdot H(S)$, se obtuvo la respuesta al escalón de este:
 
