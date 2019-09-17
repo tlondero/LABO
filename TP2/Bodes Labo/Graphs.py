@@ -1,6 +1,119 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import os
+
+
+scriptfile = os.path.dirname(__file__)
+
+########################HIGHPASS
+###CSV
+df = pd.read_csv(scriptfile +  '/CSV/HIGHPASS.csv',sep = ';')
+H = np.asarray(df['MAG'])
+f = np.asarray(df['frequency'])
+ph = np.asarray(df['PHA'])
+###SPICE
+data = read_file_spice(scriptfile + '')
+####TEORICO
+
+plt.xscale('log')
+plt.plot(f,H,'b-',label = 'Amplitud')
+plt.ylabel("Transferencia Módulo [dB]")
+plt.xlabel("Frecuencia [Hz]")
+plt.legend()
+plt.grid()
+plt.show()
+
+
+plt.xscale('log')
+plt.plot(f,ph,'b-.',label = 'Fase')
+plt.legend()
+plt.grid()
+plt.show()
+
+########################BANDPASS
+
+#####CSV
+df = pd.read_csv(scriptfile +  '/CSV/LABOPASABANDA.csv',sep = ';')
+H = np.asarray(df['MAG'])
+f = np.asarray(df['frequency'])
+ph = np.asarray(df['PHA'])
+#####SPICE
+data = read_file_spice(scriptfile + '')
+#####TEORICO
+
+plt.xscale('log')
+plt.plot(f,H,'b-',label = 'Amplitud')
+plt.ylabel("Transferencia Módulo [dB]")
+plt.xlabel("Frecuencia [Hz]")
+plt.legend()
+plt.grid()
+plt.show()
+
+
+plt.xscale('log')
+plt.plot(f,ph,'b-.',label = 'Fase')
+plt.legend()
+plt.grid()
+plt.show()
+
+########################NOTCH
+####CSV
+df = pd.read_csv(scriptfile +  '/CSV/NOTCH.csv',sep = ';')
+H = np.asarray(df['MAG'])
+f = np.asarray(df['frequency'])
+ph = np.asarray(df['PHA'])
+
+###SPICE
+data = read_file_spice(scriptfile + '')
+
+###TEORICO
+
+plt.xscale('log')
+plt.plot(f,H,'b-',label = 'Amplitud')
+plt.ylabel("Transferencia Módulo [dB]")
+plt.xlabel("Frecuencia [Hz]")
+plt.legend()
+plt.grid()
+plt.show()
+
+plt.xscale('log')
+plt.plot(f,ph,'b-.',label = 'Fase')
+plt.legend()
+plt.grid()
+plt.show()
+
+
+########################LOWPASS
+
+###CSV
+df = pd.read_csv(scriptfile +  '/CSV/PASABAJOPS.csv',sep = ';')
+H = np.asarray(df['MAG'])
+f = np.asarray(df['frequency'])
+ph = np.asarray(df['PHA'])
+
+###SPICE
+data = read_file_spice(scriptfile + '')
+
+###TEORICO
+
+plt.xscale('log')
+plt.plot(f,H,'b-',label = 'Amplitud')
+plt.ylabel("Transferencia Módulo [dB]")
+plt.xlabel("Frecuencia [Hz]")
+plt.legend()
+plt.grid()
+plt.show()
+
+plt.xscale('log')
+plt.plot(f,ph,'b-.',label = 'Fase')
+plt.legend()
+plt.grid()
+plt.show()
+
+
+
+
 
 
 def not_num(content):
@@ -75,95 +188,3 @@ def read_file_spice(filename):
         data["pha"].append(c3)
 
     return data
-
-
-df = pd.read_csv('HIGHPASS.csv',sep = ';')
-H = np.asarray(df['MAG'])
-f = np.asarray(df['frequency'])
-ph = np.asarray(df['PHA'])
-
-plt.xscale('log')
-plt.plot(f,H,'b-',label = 'Amplitud')
-plt.ylabel("Transferencia Módulo [dB]")
-plt.xlabel("Frecuencia [Hz]")
-plt.legend()
-plt.grid()
-plt.show()
-
-
-plt.xscale('log')
-plt.plot(f,ph,'b-.',label = 'Fase')
-plt.legend()
-plt.grid()
-plt.show()
-
-
-
-df = pd.read_csv('LABOPASABANDA.csv',sep = ';')
-H = np.asarray(df['MAG'])
-f = np.asarray(df['frequency'])
-ph = np.asarray(df['PHA'])
-
-plt.xscale('log')
-plt.plot(f,H,'b-',label = 'Amplitud')
-plt.ylabel("Transferencia Módulo [dB]")
-plt.xlabel("Frecuencia [Hz]")
-plt.legend()
-plt.grid()
-plt.show()
-
-
-plt.xscale('log')
-plt.plot(f,ph,'b-.',label = 'Fase')
-plt.legend()
-plt.grid()
-plt.show()
-
-
-
-df = pd.read_csv('NOTCH.csv',sep = ';')
-H = np.asarray(df['MAG'])
-f = np.asarray(df['frequency'])
-ph = np.asarray(df['PHA'])
-
-plt.xscale('log')
-plt.plot(f,H,'b-',label = 'Amplitud')
-plt.ylabel("Transferencia Módulo [dB]")
-plt.xlabel("Frecuencia [Hz]")
-plt.legend()
-plt.grid()
-plt.show()
-
-plt.xscale('log')
-plt.plot(f,ph,'b-.',label = 'Fase')
-plt.legend()
-plt.grid()
-plt.show()
-
-
-
-
-df = pd.read_csv('PASABAJOPS.csv',sep = ';')
-H = np.asarray(df['MAG'])
-f = np.asarray(df['frequency'])
-ph = np.asarray(df['PHA'])
-
-plt.xscale('log')
-plt.plot(f,H,'b-',label = 'Amplitud')
-plt.ylabel("Transferencia Módulo [dB]")
-plt.xlabel("Frecuencia [Hz]")
-plt.legend()
-plt.grid()
-plt.show()
-
-plt.xscale('log')
-plt.plot(f,ph,'b-.',label = 'Fase')
-plt.legend()
-plt.grid()
-plt.show()
-
-
-
-
-
-
