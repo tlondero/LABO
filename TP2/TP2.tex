@@ -61,6 +61,7 @@ Es así que, sabiendo que la transformada de Laplace del escalón es $\frac{1}{S
 
 \begin{equation} \hspace*{-1cm}
 	V_{C}(t) = 1 - e^{-t \frac{R}{2L}} \cdot \left[\frac{1}{2 \sqrt{4LC - {RC}^2}} \cdot sen \left( \frac{\sqrt{4LC - {RC}^2}}{2LC} \cdot t \right) + cos \left( \frac{\sqrt{4LC - {RC}^2}}{2LC} \cdot t - \pi \right) \right]
+	\label{equ:vc}
 \end{equation} 
 
 Además, se sabe que la frecuencia de oscilación del transitorio se puede calcular como
@@ -70,8 +71,13 @@ Además, se sabe que la frecuencia de oscilación del transitorio se puede calcu
 	\label{equ:fres}
 \end{equation}
 
-Por otro lado, con (\ref{equ:fres}) se calcula el sobrepico,
+Por otro lado, el sobrepico se calcula como 
 
+\begin{equation}
+    M_p=e^{\frac{-\xi\pi}{\sqrt{1-\xi^2}}}=333mV
+\end{equation}
+
+Finalmente, el tiempo de establecimiento del $5\%$ puede calcularse de (\ref{equ:vc}) como
 \begin{center}
 	\textcolor{red}{\textbf{COLOCAR CALCULOS.}}
 \end{center}
@@ -85,7 +91,7 @@ Considerando los valores comerciales, y sabiendo que se disponía de una bobina 
 	\label{fig:rtaescalon}
 \end{figure}
 
-De esta forma, se midió un pseudoperíodo de $24.4 \ \mu s$, un sobrepico de $245 \ mV$ y un tiempo de establecimiento del 5\% de $33.6 \ \mu s$.
+De esta forma, se midió una frecuencia de oscilacón de $41 \ KhZ $, un sobrepico de $245 \ mV$ y un tiempo de establecimiento del 5\% de $33.6 \ \mu s$.
 
 Luego, se obtuvo el diagrama de BODE del sistema. Es así que se compara este con el teórico y con el simulado.
 
