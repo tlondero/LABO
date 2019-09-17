@@ -114,6 +114,20 @@ Luego, se obtuvo el diagrama de BODE del sistema. Es así que se compara este co
 \end{center}
 
 \section{Filtro pasabanda}
+Se analizó el circuito de la figura \ref{fig:pasabanda}
+
+\begin{figure}[H]
+\begin{center}
+\begin{circuitikz}
+	\node [buffer](buff){};
+	\draw (buff.out) to[short] ++(0.25,0) to[L, l = $L$] ++(2,0) to[C, l = $C$] ++(2.5,0) node[](Vcpos){};
+	\draw (Vcpos) to[R, l_= $R$, v^= $V_R$] ++(0,-2) node[](Vcneg){};
+	\draw (buff.in) to[short] ++(-0.5,0) to[sV, v_=$V_i$] ++(0,-2) to[short] node[ground]{} (Vcneg);
+\end{circuitikz}
+\caption{Filtro pasabanda}
+	\label{fig:pasabanda}
+\end{center}
+\end{figure}
 
 En este caso la funcón transferencia es 
 
@@ -124,6 +138,20 @@ En este caso la funcón transferencia es
 La frecuencia de oscilación y el valor de sobrepico teóricos son los mismos que en el caso del filtro pasabajos, calculados en (\ref{equ:fres}) y (\ref{equ:mp}) respectivamente.
 
 \section{Filtro pasaaltos}
+Se analizó el circuito de la figura \ref{fig:pasaaltos}
+
+\begin{figure}[H]
+\begin{center}
+\begin{circuitikz}
+	\node [buffer](buff){};
+	\draw (buff.out) to[short] ++(0.25,0) to[R, l = $R$] ++(2,0) to[C, l = $C$] ++(2.5,0) node[](Vcpos){};
+	\draw (Vcpos) to[L, l_= $L$, v^= $V_L$] ++(0,-2) node[](Vcneg){};
+	\draw (buff.in) to[short] ++(-0.5,0) to[sV, v_=$V_i$] ++(0,-2) to[short] node[ground]{} (Vcneg);
+\end{circuitikz}
+\caption{Filtro pasaaltos}
+	\label{fig:pasaaltos}
+\end{center}
+\end{figure}
 
 En este caso la función transferencia es
 \begin{equation}
@@ -134,10 +162,20 @@ Nuevamente, como el denominador de la función transferencia es el mismo que en 
 
 \section{Filtro Notch}
 
-Se analizó el circuito mostrado en la figura
+Se analizó el circuito mostrado en la figura \ref{fig:notch}
+\begin{figure}[H]
 \begin{center}
-	\textcolor{red}{\textbf{insertar figura Notch}}
+\begin{circuitikz}
+	\node [buffer](buff){};
+	\draw (buff.out) to[short] ++(0.25,0) to[R, l = $R$] ++(2,0) to[L, l = $L$] ++(2.5,0) node[](Vcpos){};
+	\draw (Vcpos) to[C, l_= $C$] ++(0,-2) node[](Vcneg){};
+	\draw (buff.in) to[short] ++(-0.5,0) to[sV, v_=$V_i$] ++(0,-2) to[short] node[ground]{} (Vcneg);
+	\draw (3.5,0) to [open,v=$V_o$] (3.5,-2)
+\end{circuitikz}
+\caption{Filtro Notch}
+	\label{fig:notch}
 \end{center}
+\end{figure}
 
 En este caso la transferencia está dada por 
 
