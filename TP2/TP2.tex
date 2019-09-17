@@ -112,7 +112,7 @@ Luego, se obtuvo el diagrama de BODE del sistema. Es así que se compara este co
 \begin{center}
 	\textcolor{red}{\textbf{PUNTO E.}}
 \end{center}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Filtro pasabanda}
 Se analizó el circuito de la figura \ref{fig:pasabanda}
 
@@ -133,11 +133,28 @@ En este caso la funcón transferencia es
 
 \begin{equation}
     H(s)=\frac{sRC}{1+sRC+s^{2}LC}
+\label{eq:BandPass}
 \end{equation}
 
 La frecuencia de oscilación y el valor de sobrepico teóricos son los mismos que en el caso del filtro pasabajos, calculados en (\ref{equ:fres}) y (\ref{equ:mp}) respectivamente.
+Se midió la respuesta en frecuencia del circuito (\ref{fig:pasaaltos}) para contrastar que el modelo analítico corresponda con la realidad, además se hizo una simulacion en \textbf{LTSpice} obteniendo los siguientes resultados:
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Bodes_Labo/Fotos/BP.png}
+\caption{Comparación de diagramas de Bode en módulo Band-Pass.}
+	\label{fig:BODEHP}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Bodes_Labo/Fotos/BPP.png}
+\caption{Comparación de diagramas de Bode en fase Band-Pass.}
+	\label{fig:BODEBPP}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Filtro pasaaltos}
+\subsection{Análisis del circuito}
 Se analizó el circuito de la figura \ref{fig:pasaaltos}
 
 \begin{figure}[H]
@@ -156,38 +173,76 @@ Se analizó el circuito de la figura \ref{fig:pasaaltos}
 En este caso la función transferencia es
 \begin{equation}
     H(s)=\frac{s^{2}LC}{1+sRC+s^{2}LC}
+\label{eq:HighPass}
 \end{equation}
 
 Nuevamente, como el denominador de la función transferencia es el mismo que en los casos del filtro pasabanda y pasabajos, los valores teóricos de la frecuencia de oscilación y el sobrepico son los calculados en (\ref{equ:fres}) y (\ref{equ:mp}) respectivamente.
+\subsection{Respuesta en frecuancia.}
+Se midió la respuesta en frecuencia del circuito (\ref{fig:pasaaltos}) para contrastar que el modelo analítico corresponda con la realidad, además se hizo una simulacion en \textbf{LTSpice} obteniendo los siguientes resultados:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Bodes_Labo/Fotos/HP.png}
+\caption{Comparación de diagramas de Bode en módulo High-Pass.}
+	\label{fig:BODEHP}
+\end{figure}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Bodes_Labo/Fotos/HPP.png}
+\caption{Comparación de diagramas de Bode en fase High-Pass.}
+	\label{fig:BODEHPP}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Filtro Notch}
 
 Se analizó el circuito mostrado en la figura \ref{fig:notch}
 \begin{figure}[H]
-\begin{center}
+\centering
+
 \begin{circuitikz}
-	\node [buffer](buff){};
-	\draw (buff.out) to[short] ++(0.25,0) to[R, l = $R$] ++(2,0) to[L, l = $L$] ++(2.5,0) node[](Vcpos){};
-	\draw (Vcpos) to[C, l_= $C$] ++(0,-2) node[](Vcneg){};
-	\draw (buff.in) to[short] ++(-0.5,0) to[sV, v_=$V_i$] ++(0,-2) to[short] node[ground]{} (Vcneg);
-	\draw (3.5,0) to [open,v=$V_o$] (3.5,-2)
+\draw
+	(0,0) node[buffer](buff){}
+	 (buff.out) to[short] ++(0.25,0)
+		 to[R, l = $R$] ++(2,0) 
+		 to[L, l = $L$] ++(2.5,0) 
+		 node[](Vcpos){}
+	(Vcpos) to[C, l_= $C$] ++(0,-2) 
+		node[](Vcneg){}
+	(buff.in) to[short] ++(-0.5,0) 
+		to[sV, v_=$V_i$] ++(0,-2) 
+		 node[ground]{} (Vcneg)
+	(3.5,0) to [open,v=$V_o$] (3.5,-2)
+;
 \end{circuitikz}
 \caption{Filtro Notch}
 	\label{fig:notch}
-\end{center}
 \end{figure}
 
 En este caso la transferencia está dada por 
 
 \begin{equation}
     H(s)=\frac{1+s^ {2}LC}{1+sRC+s^ {2}LC}
+\label{eq:BandReject}
 \end{equation}
 
 Los valores teóricos de la frecuencia de oscilación y el sobrepico son, nuevamente, los de (\ref{equ:fres}) y (\ref{equ:mp})
+Se midió la respuesta en frecuencia del circuito (\ref{fig:pasaaltos}) para contrastar que el modelo analítico corresponda con la realidad, además se hizo una simulacion en \textbf{LTSpice} obteniendo los siguientes resultados:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Bodes_Labo/Fotos/BR.png}
+\caption{Comparación de diagramas de Bode en módulo Notch.}
+	\label{fig:BODEBR}
+\end{figure}
 
-
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Bodes_Labo/Fotos/BRP.png}
+\caption{Comparación de diagramas de Bode en fase Notch.}
+	\label{fig:BODEBRP}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Medición del factor de calidad}
-
+\subsection{Q Teórico}
 Se calculó el valor del factor de calidad de forma teórica según 
 
 \begin{equation}
@@ -195,6 +250,18 @@ Se calculó el valor del factor de calidad de forma teórica según
 \end{equation}
 
 Luego, para cada una de las configuraciones anteriores (pasabajos, pasaaltos, pasabanda y notch) se midió el factor de calidad y se lo comparó con el teórico.
+\subsection{Q High/Low/Band-Pass}
+Para medir el Q del circuito se puede apreciar que si en las ecuaciones (\ref{eq:HighPass}) , (\ref{eq:BandReject}) , (\ref{equ:hrlc}) se evalúa la función en $\omega_0 \implies |H(s)|=Q$
 
+\subsection{Q Notch}
+En este caso no era tan simple como evaluar la transferencia en un valor dado a que si se evalúa $H(j\omega_0)=0$, se optó por medir la respuesta al escalón, y de allí obtener el sobrepico, el cual esta ligado al $\xi$ por la siguiente ecuación:
+\begin{align}M_p = e^{\frac{\pi \cdot \xi}{\sqrt{1-\xi^2}}} \end{align}
+obteniendo la siguiente medición:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Mediciones_pendrive_alan/scope_1.png}
+\caption{Sobrepico de la respuesta al escalón en el Notch.}
+	\label{fig:Overshoot5}
+\end{figure}
 
 \end{document}
