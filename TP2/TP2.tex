@@ -156,10 +156,79 @@ Luego de realizar el análisis de la forma de onda anterior, se obtuvo el diagra
 \caption{Comparación de diagramas de Bode en fase.}
 	\label{fig:bodefase}
 \end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{center}
-	\textcolor{red}{\textbf{PUNTO E.}}
-\end{center}
+\subsection{Caso R nula}
+\subsubsection{Consideraciones teóricas}
+Se analizó el circuito de la figura \ref{fig:rlc} con $R=0\Omega$, i.e. un circuito LC. Teóricamente, el circuito debería oscilar armónicamente, ya que no hay pérdida de energía. Por supuesto, esto no ocurre ya que tanto el cable como el inductor y el capacitor tienen resistencias internas, por lo que sí habrá disipación de energía y las oscilaciones decaerán en cada ciclo.
+Los valores teóricos son
+\begin{itemize}
+  \item frecuencia de oscilación ($f_t$)$=\frac{1}{2\pi}\frac{1}{\sqrt{LC}}\approx 39 kHz$
+  \item tiempo de establecimiento ($t_s)$ $\rightarrow \infty$
+  \item valor de sobrepico ($M_p$)$=1 V$
+\end{itemize}
+\subsubsection{Mediciones}
+
+Los valores medidos fueron 
+\begin{itemize}
+  \item $f_t= 41,3 kHz$
+  \item $t_s=275\mu s$
+  \item $M_p=1,3 V$
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Caso R tal que $M_p=0,15V_i$}
+\subsubsection{Consideraciones teóricas}
+Para este caso, excitando al circuito con una señal cuadrada de $5 V_{pp}$, se busca R tal que el valor máximo de sobrepico $M_p=0,15V_i=0,75$
+Para hallar R, del desarrollo anterior se tiene que $M_p=0,75\Rightarrow \xi=0,51=R\sqrt{\frac{C}{L}}\frac{1}{2} \Rightarrow R=125,55\Omega $
+Luego, los valores teóricos son (utilizando las mismas fórmulas presentadas en la sección del pasabajos) 
+\begin{equation}
+    f_t=\frac{1}{2\pi}w_d=33,7 kHz
+\end{equation}
+
+\begin{equation}
+    t_s=\frac{ln({\frac{1}{0,05\sqrt{1-\xi^2}}})}{\frac{R}{2L}}=25,3\mu s
+\end{equation}
+\subsubsection{Mediciones}
+Los valores obtenidos de las mediciones fueron:
+\begin{itemize}
+  \item $f_t= 37,5 kHz$
+  \item $t_s=28\mu s$
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Caso R tal que el circuito sea críticamente amortiguado}
+\subsubsection{Consideraciones teóricas}
+Para que el circuito esté críticamente amortiguado se debe verificar \begin{equation}
+    \frac{R}{2L}=\frac{1}{\sqrt{LC}}
+\end{equation}
+Luego \begin{equation}
+    R=2\sqrt{\frac{L}{C}}=246,18 \Omega
+\end{equation}
+En este caso el circuito no oscila, por lo que no hay frecuencia de oscilación del transitorio y $M_p$=0
+El tiempo de establecimiento teórico es $t_s=21,4 \mu s$
+
+\subsubsection{Mediciones}
+Los valores medidos fueron:
+\begin{itemize}
+  \item $t_s= 18,8 \mu s$
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Casos sin buffer}
+\subsubsection{$R=0\Omega$}
+Teóricamente el circuito debería oscilar armónicamente con una frecuencia $f_t\approx39 kHz$ y $t_s\rightarrow\infty$
+Nuevamente el hecho de que todos los elementos poseen resistencias propias causa que las oscilaciones decaigan en cada ciclo. Los valores medidos fueron:
+\begin{itemize}
+  \item $f_t= 40 kHz kHz$
+  \item $t_s=50,4\mu s$
+  \item $M_p=1,52 V$
+\end{itemize}
+
+\subsubsection{R tal que $M_p=0,15V_i$}
+Al quitar el Buffer, la respuesta observada no oscilaba, de donde no hay frecuencia de oscilación del transitorio ni máximo valor de sobrepico. El tiempo de establecimiento del 5\% medido fue $t_s=25\mu s$
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Filtro pasa banda}
 Se analizó el circuito de la figura \ref{fig:pasabanda}
@@ -200,6 +269,7 @@ Se midió la respuesta en frecuencia del circuito (\ref{fig:pasaaltos}) para con
 \caption{Comparación de diagramas de Bode en fase Band-Pass.}
 	\label{fig:BODEBPP}
 \end{figure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Filtro pasaaltos}
 \subsection{Análisis del circuito}
