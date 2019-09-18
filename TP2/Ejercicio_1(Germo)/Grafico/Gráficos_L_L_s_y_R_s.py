@@ -16,6 +16,45 @@ Q_medida=[0.0,3.0,16.6,25.8,26.0,23.8,22.1,19.5,16.7,14.4,8.6,4.1,3.5,2.9,2.4,2.
 
 Ls_medida=[0.49,0.48,0.48,0.485,0.482,0.4781,0.4736,0.467,0.462,0.459,0.466,0.529,0.556,0.589,0.627,0.669,0.708,0.7243,0.7110,0.6713,0.5949,0.4718,0.3012,0.0940,0.0527,-0.100,-0.719,-0.1114,-0.2898,-0.4204,-0.500,-0.5488,-0.4697,-0.3682,-0.2908,-0.2349,-0.0928, -19.79*10**(-3), -2.893*10**(-3)]
 
+R_s_calculada=[0.91,
+0.10,
+0.18,
+0.59,
+1.16,
+2.52,
+4.04,
+7.50,
+13.00,
+20.00,
+67.70,
+322.00,
+449.99,
+631.98,
+892.94,
+1280.86,
+1867.64,
+2762.08,
+3354.53,
+4057.68,
+4827.47,
+5602.87,
+6257.10,
+6644.61,
+6683.37,
+6706.01,
+6693.37,
+6667.88,
+6347.09,
+5779.07,
+5107.38,
+3815.83,
+2130.39,
+1305.27,
+873.61,
+625.77,
+174.96,
+29.60,
+6.70]
 
 ##Inductancia serie y resistencia serie vs frecuencia (Empírica y Simulada)##
 
@@ -33,7 +72,7 @@ ax4 = ax3.twinx()  # instantiate a second axes that shares the same x-axis
 
 ax4.set_ylabel('$R_S$ [\u03A9]')  # we already handled the x-label with ax1
 ax4.plot(frecuencia_med, R_s_medida, "blue", linestyle=':', label='Resistencia serie(Empírica)')
-#ax2.plot(data["f"], data["pha"], "red", linestyle=':', label='Fase (Simulada)')
+ax4.plot(frecuencia_med, R_s_calculada, "red", linestyle=':', label='Resistencia serie (Simulada)')
 ax4.tick_params(axis='y')
 
 ax3.set_yticks([-1,-0.75,-0.5,-0.25,0,0.25,0.5,0.75,1])
@@ -51,7 +90,7 @@ patches = [
     mpatches.Patch(color="blue", linestyle=':', label='Resistencia serie(Empírica)'),
     mpatches.Patch(color="blue", linestyle='-', label='Inductancia serie(Empírica)'),
     mpatches.Patch(color="red", linestyle=':', label='Resistencia serie(Simulada)'),
-    mpatches.Patch(color="red", linestyle='-', label='Inductancia serie(Simulada)'),
+
 ]
 # agregamos leyenda
 plt.legend(handles=patches)

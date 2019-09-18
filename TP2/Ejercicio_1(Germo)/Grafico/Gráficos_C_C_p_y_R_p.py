@@ -16,6 +16,34 @@ D_medida=[0,0.01,0.0035,0.007,0.007,0.01,0.0113,0.0126,0.0136,0.0138,0.0152,0.01
 
 Z_medida=[0.14*10**(-6),1.43*10**(-6),14.22*10**(-6),70.73*10**(-6),0.1410*10**(-3),0.2808*10**(-3),0.42*10**(-3),0.6971*10**(-3),1.04*10**(-3),1.38*10**(-3),2.753*10**(-3),5.47*10**(-3),6.146*10**(-3),6.821*10**(-3),7.4*10**(-3),8.84*10**(-3),10.2*10**(-3),10.87*10**(-3),12.22*10**(-3),13.57*10**(-3),16.27*10**(-3),27.12*10**(-3),55.38*10**(-3),101.05*10**(-3),0.1308,0.182,0.208,0.239]
 
+R_p_calculada=[0.00000,
+0.00010,
+0.00005,
+0.00049,
+0.00110,
+0.00283,
+0.00474,
+0.00892,
+0.01446,
+0.01934,
+0.04315,
+0.09099,
+0.10349,
+0.11509,
+0.13179,
+0.15478,
+0.17987,
+0.19375,
+0.21875,
+0.25000,
+0.30250,
+0.54241,
+1.29708,
+3.13598,
+4.63022,
+7.70323,
+9.79080,
+11.61277]
 
 ##Capacitancia paralela y resistencia paralela vs frecuencia (Empírica y Simulada)##
 
@@ -33,7 +61,7 @@ ax4 = ax3.twinx()  # instantiate a second axes that shares the same x-axis
 
 ax4.set_ylabel('$R_P$ [mS]')  # we already handled the x-label with ax1
 ax4.plot(frecuencia_medida, R_p_medida, "blue", linestyle=':', label='Resistencia paralela(Empírica)')
-#ax2.plot(data["f"], data["pha"], "red", linestyle=':', label='Fase (Simulada)')
+ax4.plot(frecuencia_medida, R_p_calculada, "red", linestyle=':', label='Fase (Simulada)')
 #ax4.set_yscale("log", basey=10,subsy=[1,0.1,0.01,0.001,0.0001])
 ax4.tick_params(axis='y')
 
@@ -53,7 +81,7 @@ patches = [
     mpatches.Patch(color="blue", linestyle=':', label='Resistencia paralela(Empírica)'),
     mpatches.Patch(color="blue", linestyle='-', label='Capacitancia paralela(Empírica)'),
     mpatches.Patch(color="red", linestyle=':', label='Resistencia paralela(Simulada)'),
-    mpatches.Patch(color="red", linestyle='-', label='Capacitancia paralela(Simulada)'),
+
 ]
 # agregamos leyenda
 plt.legend(handles=patches)

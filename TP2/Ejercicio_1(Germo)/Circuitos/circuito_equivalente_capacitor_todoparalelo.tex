@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage{circuitikz}
+
+\begin{document}
+
+\begin{circuitikz}[scale=1]\draw
+
+(0,0) to[R, l=$R_S$] (4,0)
+(0,-2) to[C, l=$C_P$] (4,-2)
+(0,-4) to[L, l=$L$] (4,-4)
+(4,0)--(4,-4)
+(0,0) -- (0,-4)
+(4,-2) -- (5,-2)
+(0,-2) -- (-1,-2)
+
+(5,-2) node[ocirc]{}
+(-1,-2) node[ocirc]{}
+(4,-2) node[circ]{}
+(0,-2) node[circ]{}
+
+
+;\end{circuitikz}
+
+
+ 
+\end{document}
