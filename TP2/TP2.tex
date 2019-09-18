@@ -24,7 +24,7 @@ En el presente trabajo de laboratorio se estudian filtros RLC de segundo orden, 
 
 \section{Filtro pasabajos}
 
-En esta sección se analizó la respuesta al escalón del circuito mostrado en la Figura (\ref{fig:rlc}). Sabiendo que $L = 500 \ \mu H$, $C = 33 \ nF$ y $\xi = 0.33$, se determinó que $R = 81.24 \ \Omega$. Además, se calculó la frecuencia de resonancia de este circuito, siendo esta $f_0 = 39.2 \ kHz$. Para determinar R se analizó primero la transferencia. Tenemos que la funcón transferencia del circuito es:
+En esta sección se analizó la respuesta al escalón del circuito mostrado en la Figura (\ref{fig:rlc}). Sabiendo que $L = 500 \ \mu H$, $C = 33 \ nF$ y $\xi = 0.33$, se determinó que $R = 81.24 \ \Omega$. Además, se calculó la frecuencia de resonancia de este circuito, siendo esta $f_0 = 39.2 \ kHz$. Para determinar R se analizó primero la transferencia. Tenemos que la función transferencia del circuito es:
 
 \begin{equation}
 	H(s) = \frac{1}{LC s^2 + RC s + 1}
@@ -50,7 +50,7 @@ Por lo tanto, se tiene que $2\xi=R\sqrt{\frac{C}{L}}$, de donde como $\xi=0,33$,
 \end{center}
 \end{figure}
 
-Luego se procedió a analizar distintos valores de importancia del circuito, como lo son la frecuencia de oscilación del transitorio, el tiempo de establecimiento del $5 \ \%$ y el sobrepico. Para ello se analiza nuevamente la transferencia del circuito hallada en (\ref{equ:hrlc})
+Luego se procedió a analizar distintos valores de importancia del circuito, como lo son la frecuencia de oscilación del transitorio, el tiempo de establecimiento del $5 \ \%$ y el sobre pico. Para ello se analiza nuevamente la transferencia del circuito hallada en (\ref{equ:hrlc})
 
 \begin{equation*}
 	H(S) = \frac{1}{LC S^2 + RC S + 1}
@@ -71,7 +71,7 @@ Además, se sabe que la frecuencia de oscilación del transitorio se puede calcu
 	\label{equ:fres}
 \end{equation}
 
-Por otro lado, el sobrepico se calcula como 
+Por otro lado, el sobre pico se calcula como 
 
 \begin{equation}
     M_p=e^{\frac{-\xi\pi}{\sqrt{1-\xi^2}}}=333mV
@@ -80,7 +80,7 @@ Por otro lado, el sobrepico se calcula como
 
 Finalmente, el tiempo de establecimiento del $5\%$ puede calcularse de (\ref{equ:vc}) como
 \begin{center}
-	\textcolor{red}{\textbf{COLOCAR CALCULOS.}}
+	\textcolor{red}{\textbf{COLOCAR CÁLCULOS.}}
 \end{center}
 
 Considerando los valores comerciales, y sabiendo que se disponía de una bobina de una inductancia de $500 \ \mu H$, se utilizaron una resistencia de $82 \ \Omega$ y un capacitor de $33 \ nF$. Es así que se preparó el circuito en un protoboard y se procedió a realizar las mediciones pertinentes y así compararlas con los cálculos teóricos. Este circuito fue excitado con una señal cuadrada, la cual posee una frecuencia de $3.92 \ kHz$ y una amplitud tal que la tensión de salida máxima sea de $1 \ V_{pp}$. Es así que se observó la respuesta al escalón del sistema, al inicio de cada cuadrada.
@@ -92,7 +92,7 @@ Considerando los valores comerciales, y sabiendo que se disponía de una bobina 
 	\label{fig:rtaescalon}
 \end{figure}
 
-De esta forma, se midió una frecuencia de oscilacón de $41 \ KhZ $, un sobrepico de $245 \ mV$ y un tiempo de establecimiento del 5\% de $33.6 \ \mu s$. Las discrepencias entre los valores teóricos y los medidos pueden deberse a varios factores: errores humanos, errores de instrumentacón.
+De esta forma, se midió una frecuencia de oscilación de $41 \ KhZ $, un sobre pico de $245 \ mV$ y un tiempo de establecimiento del 5\% de $33.6 \ \mu s$. Las discrepancias entre los valores teóricos y los medidos pueden deberse a varios factores: errores humanos, errores de instrumentación.
 
 Luego, se obtuvo el diagrama de BODE del sistema. Es así que se compara este con el teórico y con el simulado.
 
@@ -113,7 +113,7 @@ Luego, se obtuvo el diagrama de BODE del sistema. Es así que se compara este co
 	\textcolor{red}{\textbf{PUNTO E.}}
 \end{center}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Filtro pasabanda}
+\section{Filtro pasa banda}
 Se analizó el circuito de la figura \ref{fig:pasabanda}
 
 \begin{figure}[H]
@@ -129,15 +129,15 @@ Se analizó el circuito de la figura \ref{fig:pasabanda}
 \end{center}
 \end{figure}
 
-En este caso la funcón transferencia es 
+En este caso la función transferencia es 
 
 \begin{equation}
     H(s)=\frac{sRC}{1+sRC+s^{2}LC}
 \label{eq:BandPass}
 \end{equation}
 
-La frecuencia de oscilación y el valor de sobrepico teóricos son los mismos que en el caso del filtro pasabajos, calculados en (\ref{equ:fres}) y (\ref{equ:mp}) respectivamente.
-Se midió la respuesta en frecuencia del circuito (\ref{fig:pasaaltos}) para contrastar que el modelo analítico corresponda con la realidad, además se hizo una simulacion en \textbf{LTSpice} obteniendo los siguientes resultados:
+La frecuencia de oscilación y el valor de sobre pico teóricos son los mismos que en el caso del filtro pasabajos, calculados en (\ref{equ:fres}) y (\ref{equ:mp}) respectivamente.
+Se midió la respuesta en frecuencia del circuito (\ref{fig:pasaaltos}) para contrastar que el modelo analítico corresponda con la realidad, además se hizo una simulación en \textbf{LTSpice} obteniendo los siguientes resultados:
 
 \begin{figure}[H]
 	\centering
@@ -176,9 +176,9 @@ En este caso la función transferencia es
 \label{eq:HighPass}
 \end{equation}
 
-Nuevamente, como el denominador de la función transferencia es el mismo que en los casos del filtro pasabanda y pasabajos, los valores teóricos de la frecuencia de oscilación y el sobrepico son los calculados en (\ref{equ:fres}) y (\ref{equ:mp}) respectivamente.
-\subsection{Respuesta en frecuancia.}
-Se midió la respuesta en frecuencia del circuito (\ref{fig:pasaaltos}) para contrastar que el modelo analítico corresponda con la realidad, además se hizo una simulacion en \textbf{LTSpice} obteniendo los siguientes resultados:
+Nuevamente, como el denominador de la función transferencia es el mismo que en los casos del filtro pasabanda y pasabajos, los valores teóricos de la frecuencia de oscilación y el sobre pico son los calculados en (\ref{equ:fres}) y (\ref{equ:mp}) respectivamente.
+\subsection{Respuesta en frecuencia.}
+Se midió la respuesta en frecuencia del circuito (\ref{fig:pasaaltos}) para contrastar que el modelo analítico corresponda con la realidad, además se hizo una simulación en \textbf{LTSpice} obteniendo los siguientes resultados:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{Bodes_Labo/Fotos/HP.png}
@@ -225,8 +225,8 @@ En este caso la transferencia está dada por
 \label{eq:BandReject}
 \end{equation}
 
-Los valores teóricos de la frecuencia de oscilación y el sobrepico son, nuevamente, los de (\ref{equ:fres}) y (\ref{equ:mp})
-Se midió la respuesta en frecuencia del circuito (\ref{fig:pasaaltos}) para contrastar que el modelo analítico corresponda con la realidad, además se hizo una simulacion en \textbf{LTSpice} obteniendo los siguientes resultados:
+Los valores teóricos de la frecuencia de oscilación y el sobre pico son, nuevamente, los de (\ref{equ:fres}) y (\ref{equ:mp})
+Se midió la respuesta en frecuencia del circuito (\ref{fig:pasaaltos}) para contrastar que el modelo analítico corresponda con la realidad, además se hizo una simulación en \textbf{LTSpice} obteniendo los siguientes resultados:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{Bodes_Labo/Fotos/BR.png}
@@ -254,13 +254,13 @@ Luego, para cada una de las configuraciones anteriores (pasabajos, pasaaltos, pa
 Para medir el Q del circuito se puede apreciar que si en las ecuaciones (\ref{eq:HighPass}) , (\ref{eq:BandReject}) , (\ref{equ:hrlc}) se evalúa la función en $\omega_0 \implies |H(s)|=Q$
 
 \subsection{Q Notch}
-En este caso no era tan simple como evaluar la transferencia en un valor dado a que si se evalúa $H(j\omega_0)=0$, se optó por medir la respuesta al escalón, y de allí obtener el sobrepico, el cual esta ligado al $\xi$ por la siguiente ecuación:
+En este caso no era tan simple como evaluar la transferencia en un valor dado a que si se evalúa $H(j\omega_0)=0$, se optó por medir la respuesta al escalón, y de allí obtener el sobre pico, el cual esta ligado al $\xi$ por la siguiente ecuación:
 \begin{align}M_p = e^{\frac{\pi \cdot \xi}{\sqrt{1-\xi^2}}} \end{align}
 obteniendo la siguiente medición:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{Mediciones_pendrive_alan/scope_1.png}
-\caption{Sobrepico de la respuesta al escalón en el Notch.}
+\caption{Sobre pico de la respuesta al escalón en el Notch.}
 	\label{fig:Overshoot5}
 \end{figure}
 
