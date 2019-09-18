@@ -1,5 +1,7 @@
 \input{Preamble.tex}
 
+\usepackage{subfigure}
+
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -78,23 +80,69 @@ Por otro lado, el sobre pico se calcula como
     \label{equ:mp}
 \end{equation}
 
-Finalmente, el tiempo de establecimiento del $5\%$ puede calcularse de (\ref{equ:vc}) como
-\begin{center}
-	\textcolor{red}{\textbf{COLOCAR CÁLCULOS.}}
-\end{center}
+Finalmente, el tiempo de establecimiento del $5\%$ puede calcularse de (\ref{equ:vc}) tomando la envolvente de la respuesta al escalón y resolviendo:
 
-Considerando los valores comerciales, y sabiendo que se disponía de una bobina de una inductancia de $500 \ \mu H$, se utilizaron una resistencia de $82 \ \Omega$ y un capacitor de $33 \ nF$. Es así que se preparó el circuito en un protoboard y se procedió a realizar las mediciones pertinentes y así compararlas con los cálculos teóricos. Este circuito fue excitado con una señal cuadrada, la cual posee una frecuencia de $3.92 \ kHz$ y una amplitud tal que la tensión de salida máxima sea de $1 \ V_{pp}$. Es así que se observó la respuesta al escalón del sistema, al inicio de cada cuadrada.
+\begin{equation}
+	e^{-t\frac{R}{2L}} = 0.05
+\end{equation}
+
+\begin{equation}
+	t=36.87\mu s
+\end{equation}
+
+Considerando los valores comerciales, y sabiendo que se disponía de una bobina de una inductancia de $500 \ \mu H$, se utilizaron una resistencia de $82 \ \Omega$ y un capacitor de $33 \ nF$. Es así que se preparó el circuito en un protoboard y se procedió a realizar las mediciones pertinentes y así compararlas con los cálculos teóricos. Este circuito fue excitado con una señal cuadrada, la cual posee una frecuencia de $3.92 \ kHz$, un décimo de la frecuencia de resonancia, y una amplitud tal que la tensión de salida máxima sea de $1 \ V_{pp}$. Es así que se observó la respuesta al escalón del sistema, al inicio de cada cuadrada.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth, trim = {0 3.4cm 0.4cm 2cm},clip]{Ejercicio2/Mediciones/A/scope_0.png}
+	\includegraphics[width=0.9\textwidth, trim = {0 3.4cm 0.4cm 2cm},clip]{Ejercicio2/Mediciones/A/waveform1.png}
 \caption{Respuesta al escalón del circuito.}
 	\label{fig:rtaescalon}
 \end{figure}
 
-De esta forma, se midió una frecuencia de oscilación de $41 \ KhZ $, un sobre pico de $245 \ mV$ y un tiempo de establecimiento del 5\% de $33.6 \ \mu s$. Las discrepancias entre los valores teóricos y los medidos pueden deberse a varios factores: errores humanos, errores de instrumentación.
+De esta forma, se midió una frecuencia de oscilación de $41 \ KHz $, un sobre pico de $245 \ mV$ y un tiempo de establecimiento del 5\% de $33.6 \ \mu s$. Las discrepancias entre los valores teóricos y los medidos pueden deberse a varios factores. Uno de los más importantes es la capacitancia que añaden las puntas al circuito.
 
-Luego, se obtuvo el diagrama de BODE del sistema. Es así que se compara este con el teórico y con el simulado.
+Se puede observar como, inyectada una señal cuadrada al circuito, existe un pequeño tiempo de establecimiento oscilatorio. A continuación, se realizó un barrido desde la frecuencia utilizada anterior mente hasta una frecuencia 20 mayor. A continuación se muestran los resultados:
+
+\begin{figure}[H]
+\begin{subfigure}
+  \centering
+  \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform2.png}  
+\end{subfigure}
+\begin{subfigure}
+  \centering
+  \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform3.png}  
+\end{subfigure}
+\begin{subfigure}
+  \centering
+  \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform4.png}  
+\end{subfigure}
+\begin{subfigure}
+  \centering
+  \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform5.png}  
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}
+  \centering
+  \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform6.png}  
+\end{subfigure}
+\begin{subfigure}
+  \centering
+  \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform7.png}  
+\end{subfigure}
+\begin{subfigure}
+  \centering
+  \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform8.png}  
+\end{subfigure}
+\caption{Formas de onda frente a un barrido de frecuencia.}
+\label{fig:fig}
+\end{figure}
+
+A bajas frecuencias, se contempla como si bien la salida del circuito tiene un pequeño tiempo de establecimiento, esta termina copiando a la señal de entrada. En cuanto se sube la frecuencia, la salida del circuito no logra establecerse por completo en lo que dura la cuadrada. Esto genera que la salida del circuito se vea cada vez más como una sinusoidal en cuanto se sube la frecuencia de entrada.
+
+Luego de realizar el análisis de la forma de onda anterior, se obtuvo el diagrama de BODE del sistema. Es así que se compara este con el teórico y con el simulado.
 
 \begin{figure}[H]
 	\centering
@@ -259,7 +307,7 @@ En este caso no era tan simple como evaluar la transferencia en un valor dado a 
 obteniendo la siguiente medición:
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{Mediciones_pendrive_alan/scope_1.png}
+	\includegraphics[width=0.9\textwidth]{Mediciones_pendrive_alan/ej4sobrepiconotch.png}
 \caption{Sobre pico de la respuesta al escalón en el Notch.}
 	\label{fig:Overshoot5}
 \end{figure}
