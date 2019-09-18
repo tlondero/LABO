@@ -1,0 +1,55 @@
+\documentclass[11pt, a4paper]{article}
+
+%Packages
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}
+\usepackage[spanish, es-tabla]{babel}
+\renewcommand*\familydefault{\sfdefault} 		% Sans Serif as default font
+
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage[siunitx, nooldvoltagedirection, american]{circuitikz}
+\usepackage{pdfpages}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor=blue,    
+}
+
+\graphicspath{ {./Imagenes/} }
+
+\usepackage{multirow}
+\setlength{\headheight}{14pt}
+\setlength{\doublerulesep}{\arrayrulewidth}
+
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+\usepackage{fancyhdr}
+
+
+\usepackage{units} 
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{babel,positioning}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{22.42 - Laboratorio de Electrónica}
+\rhead{Trabajo Práctico N°2}
+
+
+%\rhead{Bertachini, Lambertucci, Londero, Mechoulam, Scapolla}
+\rfoot{Página \thepage}
+
+
