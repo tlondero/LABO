@@ -1,4 +1,6 @@
-\input{preamble.tex}
+\input{Preamble.tex}
+
+\usepackage{subfigure}
 
 \begin{document}
 
@@ -22,11 +24,20 @@ En el presente trabajo de laboratorio se estudian filtros RLC de segundo orden, 
 
 \input{Ejercicio_1(Germo)/ejercicio1.tex}
 
+\section{Filtro pasabajos}
 
+En esta sección se analizó la respuesta al escalón del circuito mostrado en la Figura (\ref{fig:rlc}). Sabiendo que $L = 500 \ \mu H$, $C = 33 \ nF$ y $\xi = 0.33$, se determinó que $R = 81.24 \ \Omega$. Además, se calculó la frecuencia de resonancia de este circuito, siendo esta $f_0 = 39.2 \ kHz$. Para determinar R se analizó primero la transferencia. Tenemos que la función transferencia del circuito es:
 
-\subsection{Filtro pasabajos}
+\begin{equation}
+	H(s) = \frac{1}{LC s^2 + RC s + 1}
+	\label{equ:hrlc}
+\end{equation}
 
-En esta sección se analizó la respuesta al escalón del circuito mostrado en la Figura (\ref{fig:rlc}). Sabiendo que $L = 500 \ \mu H$, $C = 33 \ nF$ y $\xi = 0.33$, se determinó que $R = 81.24 \ \Omega$. Además, se calculó la frecuencia de resonancia de este circuito, siendo esta $f_0 = 39.2 \ kHz$.
+Sabiendo que $w_0=\frac{1}{\sqrt{LC}}$ y escribiendo el denominador de $H(s)$ la forma $1+2\xi\frac{s}{w_0}+(\frac{s}{w_0})^2$ obtenemos \begin{equation}
+    H(s)=\frac{1}{1+RC\frac{1}{\sqrt{LC}}\frac{s}{\frac{1}{\sqrt{LC}}}+(\frac{s}{\frac{1}{\sqrt{LC}}})^2}=\frac{1}{1+R\sqrt{\frac{C}{L}}\frac{s}{w_0}+(\frac{s}{w_0})^2}
+\end{equation}
+Por lo tanto, se tiene que $2\xi=R\sqrt{\frac{C}{L}}$, de donde como $\xi=0,33$, $L=500\mu H$ y $C=33nF$, se encuentra $R=81,24\Omega$
+
 
 \begin{figure}[H]
 \begin{center}
@@ -41,17 +52,18 @@ En esta sección se analizó la respuesta al escalón del circuito mostrado en l
 \end{center}
 \end{figure}
 
-Luego se procedió a analizar distintos valores de importancia del circuito, como lo son la frecuencia de oscilación del transitorio, el tiempo de establecimiento del $5 \ \%$ y el sobrepico. Para ello se calculó primero la transferencia del circuito:
+Luego se procedió a analizar distintos valores de importancia del circuito, como lo son la frecuencia de oscilación del transitorio, el tiempo de establecimiento del $5 \ \%$ y el sobre pico. Para ello se analiza nuevamente la transferencia del circuito hallada en (\ref{equ:hrlc})
 
-\begin{equation}
+\begin{equation*}
 	H(S) = \frac{1}{LC S^2 + RC S + 1}
 	\label{equ:hrlc}
-\end{equation}
+\end{equation*}
 
 Es así que, sabiendo que la transformada de Laplace del escalón es $\frac{1}{S}$, y la salida del sistema es $Y(S) = X(S) \cdot H(S)$, se obtuvo la respuesta al escalón de este:
 
 \begin{equation} \hspace*{-1cm}
 	V_{C}(t) = 1 - e^{-t \frac{R}{2L}} \cdot \left[\frac{1}{2 \sqrt{4LC - {RC}^2}} \cdot sen \left( \frac{\sqrt{4LC - {RC}^2}}{2LC} \cdot t \right) + cos \left( \frac{\sqrt{4LC - {RC}^2}}{2LC} \cdot t - \pi \right) \right]
+	\label{equ:vc}
 \end{equation} 
 
 Además, se sabe que la frecuencia de oscilación del transitorio se puede calcular como
@@ -61,40 +73,313 @@ Además, se sabe que la frecuencia de oscilación del transitorio se puede calcu
 	\label{equ:fres}
 \end{equation}
 
-Por otro lado, con (\ref{equ:fres}) se calcula el sobrepico,
+Por otro lado, el sobre pico se calcula como 
 
-\begin{center}
-	\textcolor{red}{\textbf{COLOCAR CALCULOS.}}
-\end{center}
+\begin{equation}
+    M_p=e^{\frac{-\xi\pi}{\sqrt{1-\xi^2}}}=333mV
+    \label{equ:mp}
+\end{equation}
 
-Considerando los valores comerciales, se utilizaron ...
+Finalmente, el tiempo de establecimiento del $5\%$ puede calcularse de (\ref{equ:vc}) tomando la envolvente de la respuesta al escalón y resolviendo:
 
-\begin{center}
-	\textcolor{red}{\textbf{COLOCAR COMPONENTES USADOS.}}
-\end{center}
+\begin{equation}
+	e^{-t\frac{R}{2L}} = 0.05
+\end{equation}
 
-Es así que se preparó el circuito en un protoboard y se procedió a realizar las mediciones pertinentes y así compararlas con los cálculos teóricos. Este circuito fue excitado con una señal cuadrada, la cual posee una frecuencia de $3.92 \ kHz$ y una amplitud tal que la tensión de salida máxima sea de $1 \ V_{pp}$. Es así que se observó la respuesta al escalón del sistema, al inicio de cada cuadrada.
+\begin{equation}
+	t=36.87\mu s
+\end{equation}
+
+Considerando los valores comerciales, y sabiendo que se disponía de una bobina de una inductancia de $500 \ \mu H$, se utilizaron una resistencia de $82 \ \Omega$ y un capacitor de $33 \ nF$. Es así que se preparó el circuito en un protoboard y se procedió a realizar las mediciones pertinentes y así compararlas con los cálculos teóricos. Este circuito fue excitado con una señal cuadrada, la cual posee una frecuencia de $3.92 \ kHz$, un décimo de la frecuencia de resonancia, y una amplitud tal que la tensión de salida máxima sea de $1 \ V_{pp}$. Es así que se observó la respuesta al escalón del sistema, al inicio de cada cuadrada.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth, trim = {0 3.4cm 0.4cm 2cm},clip]{Ejercicio2/Mediciones/A/scope_0.png}
+	\includegraphics[width=0.9\textwidth, trim = {0 3.4cm 0.4cm 2cm},clip]{Ejercicio2/Mediciones/A/waveform1.png}
 \caption{Respuesta al escalón del circuito.}
 	\label{fig:rtaescalon}
 \end{figure}
 
-De esta forma, se obtuvo ...
-\begin{center}
-	\textcolor{red}{\textbf{COLOCAR MEDICIONES.}}
-\end{center} 
+De esta forma, se midió una frecuencia de oscilación de $41 \ KHz $, un sobre pico de $245 \ mV$ y un tiempo de establecimiento del 5\% de $33.6 \ \mu s$. Las discrepancias entre los valores teóricos y los medidos pueden deberse a varios factores. Uno de los más importantes es la capacitancia que añaden las puntas al circuito.
 
-Luego, se obtuvo el diagrama de BODE del sistema. Es así que se compara este con el teórico y con el simulado.
+Se puede observar como, inyectada una señal cuadrada al circuito, existe un pequeño tiempo de establecimiento oscilatorio. A continuación, se realizó un barrido desde la frecuencia utilizada anterior mente hasta una frecuencia 20 mayor. A continuación se muestran los resultados:
 
+\begin{figure}[H]
+\begin{subfigure}
+  \centering
+  \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform2.png}  
+\end{subfigure}
+\begin{subfigure}
+  \centering
+  \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform3.png}  
+\end{subfigure}
+\begin{subfigure}
+  \centering
+  \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform4.png}  
+\end{subfigure}
+\begin{subfigure}
+  \centering
+  \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform5.png}  
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}
+  \centering
+  \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform6.png}  
+\end{subfigure}
+\begin{subfigure}
+  \centering
+  \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform7.png}  
+\end{subfigure}
+\begin{subfigure}
+  \centering
+  \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform8.png}  
+\end{subfigure}
+\caption{Formas de onda frente a un barrido de frecuencia.}
+\label{fig:fig}
+\end{figure}
+
+A bajas frecuencias, se contempla como si bien la salida del circuito tiene un pequeño tiempo de establecimiento, esta termina copiando a la señal de entrada. En cuanto se sube la frecuencia, la salida del circuito no logra establecerse por completo en lo que dura la cuadrada. Esto genera que la salida del circuito se vea cada vez más como una sinusoidal en cuanto se sube la frecuencia de entrada.
+
+Luego de realizar el análisis de la forma de onda anterior, se obtuvo el diagrama de BODE del sistema. Es así que se compara este con el teórico y con el simulado.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Ejercicio2/Mediciones/Modulo.png}
+\caption{Comparación de diagramas de Bode en módulo.}
+	\label{fig:bodemod}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Ejercicio2/Mediciones/Fase.png}
+\caption{Comparación de diagramas de Bode en fase.}
+	\label{fig:bodefase}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Caso R nula}
+\subsubsection{Consideraciones teóricas}
+Se analizó el circuito de la figura \ref{fig:rlc} con $R=0\Omega$, i.e. un circuito LC. Teóricamente, el circuito debería oscilar armónicamente, ya que no hay pérdida de energía. Por supuesto, esto no ocurre ya que tanto el cable como el inductor y el capacitor tienen resistencias internas, por lo que sí habrá disipación de energía y las oscilaciones decaerán en cada ciclo.
+Los valores teóricos son
+\begin{itemize}
+  \item frecuencia de oscilación ($f_t$)$=\frac{1}{2\pi}\frac{1}{\sqrt{LC}}\approx 39 kHz$
+  \item tiempo de establecimiento ($t_s)$ $\rightarrow \infty$
+  \item valor de sobrepico ($M_p$)$=1 V$
+\end{itemize}
+\subsubsection{Mediciones}
+
+Los valores medidos fueron 
+\begin{itemize}
+  \item $f_t= 41,3 kHz$
+  \item $t_s=275\mu s$
+  \item $M_p=1,3 V$
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Caso R tal que $M_p=0,15V_i$}
+\subsubsection{Consideraciones teóricas}
+Para este caso, excitando al circuito con una señal cuadrada de $5 V_{pp}$, se busca R tal que el valor máximo de sobrepico $M_p=0,15V_i=0,75$
+Para hallar R, del desarrollo anterior se tiene que $M_p=0,75\Rightarrow \xi=0,51=R\sqrt{\frac{C}{L}}\frac{1}{2} \Rightarrow R=125,55\Omega $
+Luego, los valores teóricos son (utilizando las mismas fórmulas presentadas en la sección del pasabajos) 
+\begin{equation}
+    f_t=\frac{1}{2\pi}w_d=33,7 kHz
+\end{equation}
+
+\begin{equation}
+    t_s=\frac{ln({\frac{1}{0,05\sqrt{1-\xi^2}}})}{\frac{R}{2L}}=25,3\mu s
+\end{equation}
+\subsubsection{Mediciones}
+Los valores obtenidos de las mediciones fueron:
+\begin{itemize}
+  \item $f_t= 37,5 kHz$
+  \item $t_s=28\mu s$
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Caso R tal que el circuito sea críticamente amortiguado}
+\subsubsection{Consideraciones teóricas}
+Para que el circuito esté críticamente amortiguado se debe verificar \begin{equation}
+    \frac{R}{2L}=\frac{1}{\sqrt{LC}}
+\end{equation}
+Luego \begin{equation}
+    R=2\sqrt{\frac{L}{C}}=246,18 \Omega
+\end{equation}
+En este caso el circuito no oscila, por lo que no hay frecuencia de oscilación del transitorio y $M_p$=0
+El tiempo de establecimiento teórico es $t_s=21,4 \mu s$
+
+\subsubsection{Mediciones}
+Los valores medidos fueron:
+\begin{itemize}
+  \item $t_s= 18,8 \mu s$
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Casos sin buffer}
+\subsubsection{$R=0\Omega$}
+Teóricamente el circuito debería oscilar armónicamente con una frecuencia $f_t\approx39 kHz$ y $t_s\rightarrow\infty$
+Nuevamente el hecho de que todos los elementos poseen resistencias propias causa que las oscilaciones decaigan en cada ciclo. Los valores medidos fueron:
+\begin{itemize}
+  \item $f_t= 40 kHz kHz$
+  \item $t_s=50,4\mu s$
+  \item $M_p=1,52 V$
+\end{itemize}
+
+\subsubsection{R tal que $M_p=0,15V_i$}
+Al quitar el Buffer, la respuesta observada no oscilaba, de donde no hay frecuencia de oscilación del transitorio ni máximo valor de sobrepico. El tiempo de establecimiento del 5\% medido fue $t_s=25\mu s$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Filtro pasa banda}
+Se analizó el circuito de la figura \ref{fig:pasabanda}
+
+\begin{figure}[H]
 \begin{center}
-	\textcolor{red}{\textbf{BODE.}}
+\begin{circuitikz}
+	\node [buffer](buff){};
+	\draw (buff.out) to[short] ++(0.25,0) to[L, l = $L$] ++(2,0) to[C, l = $C$] ++(2.5,0) node[](Vcpos){};
+	\draw (Vcpos) to[R, l_= $R$, v^= $V_R$] ++(0,-2) node[](Vcneg){};
+	\draw (buff.in) to[short] ++(-0.5,0) to[sV, v_=$V_i$] ++(0,-2) to[short] node[ground]{} (Vcneg);
+\end{circuitikz}
+\caption{Filtro pasabanda}
+	\label{fig:pasabanda}
 \end{center}
+\end{figure}
 
+En este caso la función transferencia es 
+
+\begin{equation}
+    H(s)=\frac{sRC}{1+sRC+s^{2}LC}
+\label{eq:BandPass}
+\end{equation}
+
+La frecuencia de oscilación y el valor de sobre pico teóricos son los mismos que en el caso del filtro pasabajos, calculados en (\ref{equ:fres}) y (\ref{equ:mp}) respectivamente.
+Se midió la respuesta en frecuencia del circuito (\ref{fig:pasaaltos}) para contrastar que el modelo analítico corresponda con la realidad, además se hizo una simulación en \textbf{LTSpice} obteniendo los siguientes resultados:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Bodes_Labo/Fotos/BP.png}
+\caption{Comparación de diagramas de Bode en módulo Band-Pass.}
+	\label{fig:BODEHP}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Bodes_Labo/Fotos/BPP.png}
+\caption{Comparación de diagramas de Bode en fase Band-Pass.}
+	\label{fig:BODEBPP}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Filtro pasaaltos}
+\subsection{Análisis del circuito}
+Se analizó el circuito de la figura \ref{fig:pasaaltos}
+
+\begin{figure}[H]
 \begin{center}
-	\textcolor{red}{\textbf{PUNTO E.}}
+\begin{circuitikz}
+	\node [buffer](buff){};
+	\draw (buff.out) to[short] ++(0.25,0) to[R, l = $R$] ++(2,0) to[C, l = $C$] ++(2.5,0) node[](Vcpos){};
+	\draw (Vcpos) to[L, l_= $L$, v^= $V_L$] ++(0,-2) node[](Vcneg){};
+	\draw (buff.in) to[short] ++(-0.5,0) to[sV, v_=$V_i$] ++(0,-2) to[short] node[ground]{} (Vcneg);
+\end{circuitikz}
+\caption{Filtro pasaaltos}
+	\label{fig:pasaaltos}
 \end{center}
+\end{figure}
+
+En este caso la función transferencia es
+\begin{equation}
+    H(s)=\frac{s^{2}LC}{1+sRC+s^{2}LC}
+\label{eq:HighPass}
+\end{equation}
+
+Nuevamente, como el denominador de la función transferencia es el mismo que en los casos del filtro pasabanda y pasabajos, los valores teóricos de la frecuencia de oscilación y el sobre pico son los calculados en (\ref{equ:fres}) y (\ref{equ:mp}) respectivamente.
+\subsection{Respuesta en frecuencia.}
+Se midió la respuesta en frecuencia del circuito (\ref{fig:pasaaltos}) para contrastar que el modelo analítico corresponda con la realidad, además se hizo una simulación en \textbf{LTSpice} obteniendo los siguientes resultados:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Bodes_Labo/Fotos/HP.png}
+\caption{Comparación de diagramas de Bode en módulo High-Pass.}
+	\label{fig:BODEHP}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Bodes_Labo/Fotos/HPP.png}
+\caption{Comparación de diagramas de Bode en fase High-Pass.}
+	\label{fig:BODEHPP}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Filtro Notch}
+
+Se analizó el circuito mostrado en la figura \ref{fig:notch}
+\begin{figure}[H]
+\centering
+
+\begin{circuitikz}
+\draw
+	(0,0) node[buffer](buff){}
+	 (buff.out) to[short] ++(0.25,0)
+		 to[R, l = $R$] ++(2,0) 
+		 to[L, l = $L$] ++(2.5,0) 
+		 node[](Vcpos){}
+	(Vcpos) to[C, l_= $C$] ++(0,-2) 
+		node[](Vcneg){}
+	(buff.in) to[short] ++(-0.5,0) 
+		to[sV, v_=$V_i$] ++(0,-2) 
+		 node[ground]{} (Vcneg)
+	(3.5,0) to [open,v=$V_o$] (3.5,-2)
+;
+\end{circuitikz}
+\caption{Filtro Notch}
+	\label{fig:notch}
+\end{figure}
+
+En este caso la transferencia está dada por 
+
+\begin{equation}
+    H(s)=\frac{1+s^ {2}LC}{1+sRC+s^ {2}LC}
+\label{eq:BandReject}
+\end{equation}
+
+Los valores teóricos de la frecuencia de oscilación y el sobre pico son, nuevamente, los de (\ref{equ:fres}) y (\ref{equ:mp})
+Se midió la respuesta en frecuencia del circuito (\ref{fig:pasaaltos}) para contrastar que el modelo analítico corresponda con la realidad, además se hizo una simulación en \textbf{LTSpice} obteniendo los siguientes resultados:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Bodes_Labo/Fotos/BR.png}
+\caption{Comparación de diagramas de Bode en módulo Notch.}
+	\label{fig:BODEBR}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Bodes_Labo/Fotos/BRP.png}
+\caption{Comparación de diagramas de Bode en fase Notch.}
+	\label{fig:BODEBRP}
+\end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Medición del factor de calidad}
+\subsection{Q Teórico}
+Se calculó el valor del factor de calidad de forma teórica según 
+
+\begin{equation}
+    Q=\frac{1}{2\xi}=1,51
+\end{equation}
+
+Luego, para cada una de las configuraciones anteriores (pasabajos, pasaaltos, pasabanda y notch) se midió el factor de calidad y se lo comparó con el teórico.
+\subsection{Q High/Low/Band-Pass}
+Para medir el Q del circuito se puede apreciar que si en las ecuaciones (\ref{eq:HighPass}) , (\ref{eq:BandReject}) , (\ref{equ:hrlc}) se evalúa la función en $\omega_0 \implies |H(s)|=Q$
+
+\subsection{Q Notch}
+En este caso no era tan simple como evaluar la transferencia en un valor dado a que si se evalúa $H(j\omega_0)=0$, se optó por medir la respuesta al escalón, y de allí obtener el sobre pico, el cual esta ligado al $\xi$ por la siguiente ecuación:
+\begin{align}M_p = e^{\frac{\pi \cdot \xi}{\sqrt{1-\xi^2}}} \end{align}
+obteniendo la siguiente medición:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Mediciones_pendrive_alan/ej4sobrepiconotch.png}
+\caption{Sobre pico de la respuesta al escalón en el Notch.}
+	\label{fig:Overshoot5}
+\end{figure}
 
 \end{document}
