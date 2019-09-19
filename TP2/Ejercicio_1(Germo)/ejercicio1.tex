@@ -1,9 +1,21 @@
-\section*{Caracterización de componentes pasivos}
+%%falta:
+% corchetes formula
+\section{Caracterización de componentes pasivos}
+
+
+\subsection{Inductancia}
+A continuación, se realizará un estudio acerca del comportamiento de una bobina, observando como varían sus magnitudes según la frecuencia y analizando sus circuitos equivalentes.\par En un sistema simplificado, la bobina sólo tiene un componente inductivo, sin embargo, dicho planteo dista en gran medida de la realidad donde, debido en gran medida a su fabricación, las inductancias tendrán tanto componentes resistivos como capacitivos. \par Las características previamente mencionadas nos llevarán a plantear distintos circuitos equivalentes. Se analizará cual de ellos refleja en mejor medida la práctica experimental realizada.
+
+Para comenzar, se realiza el estudio de las magnitudes propias del inductor en función de la frecuencia. \par Las frecuencias utilizadas fueron detectadas ya que eran las que permitían ver con claridad como variaba la fase. Las mediciones se tomaron en el modo serie del analizador de impedancias, las mismas se pueden apreciar en la tabla (\ref{table:Rta_en_frecuencia_inductor}).
+
+La inductancia provista por la cátedra tiene un valor nominal de $500\mu H$.
+\par\par
 
 \subsection*{Inductancia}
 A continuación, se realizará un estudio acerca del comportamiento de una bobina, observando como varían sus magnitudes según la frecuencia y analizando sus circuitos equivalentes.\par En un sistema simplificado, la bobina sólo tiene un componente inductivo, sin embargo, dicho planteo dista en gran medida de la realidad donde, debido a su fabricación, las inductancias tendrán tanto componentes resistivos como capacitivos. \par Las características previamente mencionadas nos llevarán a plantear distintos circuitos equivalentes. Se analizará cual de ellos refleja en mejor medida la práctica experimental realizada.
 
 Para comenzar, se realiza el estudio de las magnitudes propias del inductor en función de la frecuencia. \par Las frecuencias utilizadas fueron detectadas ya que eran las que permitían ver con claridad como variaba la fase. Las mediciones se tomaron en el modo serie del analizador de impedancias, las mismas se pueden apreciar en la tabla (\ref{table:Rta_en_frecuencia_inductor}).
+
 
 Se plantea el siguiente circuito equivalente:
 
@@ -11,20 +23,19 @@ Se plantea el siguiente circuito equivalente:
 \begin{figure}[H]
 \centering
 \includegraphics[width=6cm,height=4cm]{Ejercicio_1(Germo)/Circuitos/circuito_equivalente_inductancia.pdf}
+\caption{Circuito equivalente planteado para un inductor}
 \label{fig:circuito_equivalente_inductancia}
 \end{figure}
 %~circuito equivalente Inductancia
 
 Al ser las bobinas un conjunto de espiras enrolladas una gran cantidad de vueltas, el componente resistivo de la inductancia se debe a la resistencia eléctrica del material utilizado en su fabricación. También, se podría considerar la resistencia propia de los terminales.
-Por otro lado, debido a que consctructivamente cada una de las vueltas de la bobina están aisladas eléctricamente entre si debido al barniz que recubre el material y a la pequeña diferencia de tensión, se puede apreciar el comportamiento de un capacitor entre vuelta y vuelta del cable.
-
-
+Por otro lado, debido a que constructivamente cada una de las vueltas de la bobina están aisladas eléctricamente entre si debido al barniz que recubre el material y a la pequeña diferencia de tensión, se puede apreciar el comportamiento de un capacitor entre vuelta y vuelta del cable.
 %% Tabla inductor
  \begin{center}
      \begin{table}[H]
      \centering
      \renewcommand{\arraystretch}{1.1}
-     \scalebox{0.8}{
+     \scalebox{0.7}{
          \begin{tabular}{ c c c c c c }
             \hline 
              $\bm{f_S[Hz]}$ &  $\bm{L_S[mH]}$ & $\bm{Q}$& $\bm{R_S[\Omega]}$ & $\bm{|Z|[\Omega]}$ & $\bm{\theta}[^\circ]$ \\
@@ -66,8 +77,8 @@ Por otro lado, debido a que consctructivamente cada una de las vueltas de la bob
 				1M3   & -0.291      & 2.7  		& 874  		& 2531  & -69.8      \\
 				1M4  & -0.235      & 3.3 		 & 626  	& 2159  & -73.2     \\
 				2M    & -0.093      & 6.7 		 & 175 		 & 1179  & -81.5       \\
-				4M    & -19.79$\mu$  & 16.8 		& 29.6		 & 498.4 & -86.6     \\
-				10M   & -2.893$\mu$ & 27.3 		& 6.7  		& 181.9 & -87.9     \\
+				4M    & -19.79$m$ & 16.8 		& 29.6		 & 498.4 & -86.6     \\
+				10M   & -2.893$m$ & 27.3 		& 6.7  		& 181.9 & -87.9     \\
             \hline 
         \end{tabular}
         }
@@ -76,26 +87,91 @@ Por otro lado, debido a que consctructivamente cada una de las vueltas de la bob
     \end{table}
 \end{center}
 %%~Tabla inductor
+A continuación, para calcular empíricamente el módulo de la impedancia se considerará la disposición planteada en el circuito equivalente, donde se encuentra el capacitor en paralelo con la resistencia y la inductancia, obteniéndose: 
+\begin{equation}
+|Z|= \frac{R_S+\$L}{\$^2LC+\$R_SC+1}
+\end{equation}
+Mientras que la fase se obtendrá mediante la siguiente ecuación:
+\begin{equation}
+\theta= arctg\left(\frac{Im(Z)}{Re(Z)}\right)
+\end{equation}
+Para nuestro modelo se tomaron tres valores distintos posibles de capacitancia, dichos valores fueron seleccionadas ya que eran los que hacían que la impedancia se asemejara más a la obtenida empíricamente. Los valores utilizados fueron $1nF$, $1pF$ y $1fF$.
+
+La relación entre las impedancias obtenidas tomando dichos valores y la empírica se grafica a continuación.
+
+%grafico relacion Zs
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{Ejercicio_1(Germo)/Grafico/relacionZs.png}
+\caption{Ratio entre las impedancias para distintos valores de C}
+\label{fig:relacionZs}
+\end{figure}
+%~grafico relacion Zs
+
+
+Consiguientemente, se decidió tomar una capacitor de capacidad $1pF$ ya que era el que producía una impedancia de mayor relación con la obtenida mediante el analizador de impedancia. Se grafica la impedancia y fase obtenida empíricamente con la obtenida a través de los cálculos provistos arriba considerando el capacitor anteriormente mencionado.
+
+%grafico |Z| y fase
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{Ejercicio_1(Germo)/Grafico/Inductancia_relacion_entre_Z_y_fases.png}
+\caption{Módulo y fase de Z (Simulado vs Empírico)}
+\label{fig:Inductancia_relacion_entre_Z_y_fases}
+\end{figure}
+%~grafico |Z| y fase
+
+Debido a que no es posible ver con claridad las variaciones si se toma solamente el módulo de la impedancia, se analiza a continuación como varía la resistencia serie presente en el circuito. Se compara la obtenida mediante el analizador de impedancia en contraste con la parte real del módulo, que representaría la variación de dicho componente ya que es el único de componente 'real'.\par
+Por otro lado, en el mismo gráfico se muestra el valor de la inductancia serie para no sobrecargar el informe de figuras.
+
+%grafico |Z| y fase
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{Ejercicio_1(Germo)/Grafico/Inductancia_relacion_entre_L_s_y_R_s.png}
+\caption{Variación $R_S$ (Simulado vs Empírico) / $L_S$ }
+\label{fig:Inductancia_relacion_entre_L_s_y_R_s}
+\end{figure}
+%~grafico |Z| y fase
+
+Como conclusión del análisis gráfico, se grafica el factor de calidad de la inductancia obtenida empíricamente en contraposición con su par obtenido de manera teórica mediante la fórmula que se presenta continuación.
+
+\begin{equation}
+Q= \frac{\$L}{R}
+\end{equation}
+
+%grafico |Z| y fase
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{Ejercicio_1(Germo)/Grafico/QteovsQcalc.png}
+\caption{Factor de calidad del inductor}
+\label{fig:QteovsQcalc}
+\end{figure}
+%~grafico |Z| y fase
+
+\subsubsection*{Conclusiones}
+Primeramente, se puede asegurar que el modelo equivalente RLC (\ref{fig:circuito_equivalente_inductancia}) planteado fue el idóneo, el mismo se correspondió con el análisis posterior realizado. El capacitor de $1pF$ seleccionado para el modelo tuvo una gran correlación con la práctica de laboratorio realizada, sin embargo, también se podría haber seleccionado el de $1fF$ ya que tenía un comportamiento similar.\par Respecto de la selección del capacitor se considera conveniente mencionar que el otro capacitor muestreado, $1nF$, tuvo una buena correlación para frecuencias bajas, debajo de la frecuencia de resonancia experimental del circuito que se encuentra alrededor de los $860KHz$, pero para frecuencias mayores pierde toda correlación con la impedancia empírica si se lo utiliza como se ve en el gráfico correspondiente (\ref{fig:relacionZs}). Esto se debe a que a bajas frecuencias la capacidad del circuito tiene menor preponderancia que su inductancia.\par
+
+El circuito equivalente tiene una frecuencia de corte teórica de $7.11MHz$ ($f_C=\frac{1}{2\pi\sqrt{LC}}$) que dista en gran medida de la empírica, mencionada anteriorimente. Esto se debe a que la fórmula utilizada para sacar la segunda es para un circuito propiamente dicho, con esos valores fijos de los componentes; la aproximación no deja de ser un modelo analítico donde no hay valores fijos sino aproximaciones que se adaptan en mejor o peor medida teniendo en cuenta distintos factores, como puede ser la frecuencia de aplicación.\par
+El modelo equivalente seleccionado se lo considera idóneo ya que tienen una correlación ideal para $|Z|$ (\ref{fig:Inductancia_relacion_entre_Z_y_fases}), $\theta$, $Q$(\ref{fig:QteovsQcalc}) y $R_S$ (\ref{fig:Inductancia_relacion_entre_L_s_y_R_s}). A partir de la frecuencia de corte de $860KHz$, donde el circuito equivalente entra en resonancia logrando un módulo de la impedancia máximo, el analizador de impedancia arrojó valores negativos para la inductancia. Esto se debe a que a partir de dicha frecuencia la impedacia se vuelve negativa respecto del eje imaginario debido a una mayor preponderancia del capacitor respecto del inductor, devolviendo el analizador valores de inductancia que no tienen sentido físico más allá del signo negativo que implica lo anteriormente mencionado. A partir de esa frecuencia, el inductor pasa a comportarse como un capacitor más que para lo que fue originalmente realizado, teniendo una fase de $-90^\circ$.\par \par
 
 \subsection{Capacitor}
 Se procederá a realizar el mismo análisis planteado anteriormente para una inductancia pero, para este caso con un capacitor, analizando como varían sus magnitudes según la frecuencia a la que trabaja y el estudio de sus circuitos equivalentes.
 
 Para comenzar, se realiza el estudio de las magnitudes propias del capacitor en función de la frecuencia. \par Las frecuencias utilizadas fueron detectadas ya que eran las que permitían ver con claridad como variaba la fase. Las mediciones se tomaron en el modo paralelo del analizador de impedancias por lo que se medirán conductancias. Las mismas se pueden apreciar en la tabla (\ref{table:Rta_en_frecuencia_capacitor}).
 
+El capacitor utilizado fue el provisto por la cátedra para el Trabajo Práctico N°1 de $2.2nF$.
+\par \par
+
 Se plantea el siguiente circuito equivalente:
 
 %circuito equivalente capacitor
 \begin{figure}[H]
 \centering
-\includegraphics[width=6cm,height=4cm]{Ejercicio_1(Germo)/Circuitos/circuito_equivalente_capacitor.pdf}
-\label{fig:circuito_equivalente_capacitor}
+\includegraphics[width=6cm,height=4cm]{Ejercicio_1(Germo)/Circuitos/circuito_equivalente_capacitor_todoparalelo.pdf}
+\caption{Circuito equivalente planteado para un capacitor}
+\label{fig:circuito_equivalente_capacitor_todoparalelo}
 \end{figure}
 %~circuito equivalente capacitor
-
-
-La resistencia observada se debe a la resistencia eléctrica del material del componente(film).También, se podría considerar la resistencia propia de los terminales. \par
-Por otro lado, se podría considerar una inductancia en el modelo equivalente pero debido al método de fabriacación y por las frecuencias con las que se puede trabajar en el laboratorio no se pudo hallar una frecuencia donde se apreciará un comportamiento de tipo inductivo. El máximo cambio de fase obtenido fue de aproximadamente $4^\circ$ a $13 MHz$.
-
+La resistencia observada se debe a la resistencia eléctrica del material del componente (film) .También, se podría considerar la resistencia propia de los terminales. \par
 
 %% Tabla capacitor
  \begin{center}
@@ -103,13 +179,13 @@ Por otro lado, se podría considerar una inductancia en el modelo equivalente pe
      \begin{table}[H]
      \centering
      \renewcommand{\arraystretch}{1.1}
-     \scalebox{0.8}{
+     \scalebox{0.7}{
          \begin{tabular}{ c c c c c c c c }
             \hline 
              $\bm{f_P[Hz]}$ &  $\bm{C_P[nF]}$ & $\bm{D}$& $\bm{R_P[S]}$ & $\bm{|Z|[S]}$ & $\bm{\theta}[^\circ]$ \\
 
              \hline
-             10   & 2.2  & 0.000 & 0.00       & 0.14$\mu$   & 89.9  \\
+             10   & 2.20  & 0.000 & 0.00       & 0.14$\mu$   & 89.9  \\
 			100  & 2.27 & 0.010 & 0.00       & 1.43$\mu$   & 89.90 \\
 			1K   & 2.26 & 0.004 & 0.05$\mu$   & 14.22$\mu$  & 89.80 \\
 			5K   & 2.25 & 0.007 & 0.49$\mu$   & 70.73$\mu$  & 89.60 \\
@@ -145,3 +221,80 @@ Por otro lado, se podría considerar una inductancia en el modelo equivalente pe
     \end{table}
 \end{center}
 %%~Tabla capacitor
+A continuación, para calcular empíricamente el módulo de la impedancia se considerará la disposición planteada en el circuito equivalente, donde se encuentra en paralelo el capacitor, la resistencia y la inductancia, obteniéndose: 
+
+\begin{equation}
+|Z|= \frac{(1+R_P\$C)L\$}{\$^2LC+\$R_PC+1}
+\end{equation}
+
+Mientras que la fase se obtendrá mediante la siguiente ecuación:
+
+\begin{equation}
+\theta= arctg\left(\frac{Im(Z)}{Re(Z)}\right)
+\end{equation}
+
+Para nuestro modelo se tomaron dos valores distintos posibles de inductancia, dichos valores fueron seleccionadas ya que eran los que hacían que la impedancia se asemejara más a la obtenida empíricamente. Los valores utilizados fueron $1nH$ y $2.25nH$.
+
+La relación entre las impedancias obtenidas tomando dichos valores y la empírica se grafica a continuación.
+
+%grafico |Z| y fase
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{Ejercicio_1(Germo)/Grafico/capacitor_relacion_entre_Z.png}
+\caption{Ratio entre las impedancias para distintos valores de L}
+\label{fig:capacitor_relacion_entre_Z}
+\end{figure}
+%~grafico |Z| y fase
+
+
+Consiguientemente, se decidió tomar una inductancia de valor $2.25nH$ ya que era la que producía una impedancia de mayor relación con la obtenida mediante el analizador de impedancia. Se grafica la impedancia y fase obtenida empíricamente con la obtenida a través de los cálculos provistos arriba considerando el inductor anteriormente mencionado.
+
+%grafico |Z| y fase
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{Ejercicio_1(Germo)/Grafico/Capacitor_relacion_entre_Z_y_fases.png}
+\caption{Módulo y fase de Z (Simulado vs Empírico)}
+\label{fig:Capacitor_relacion_entre_Z_y_fases}
+\end{figure}
+%~grafico |Z| y fase
+
+Debido a que no es posible ver con claridad las variaciones si se toma solamente el módulo de la impedancia, se analiza a continuación como varía la resistencia paralela presente en el circuito. Se compara la obtenida mediante el analizador de impedancia en contraste con la parte real del módulo, que representaría la variación de dicho componente ya que es el único de valor 'real'.\par
+Por otro lado, en el mismo gráfico se muestra el valor de la capacitancia paralela para no sobrecargar el informe de figuras.
+%grafico |Z| y fase
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{Ejercicio_1(Germo)/Grafico/capacitor_relacion_C_P_y_R_p.png}
+\caption{Variación $R_P$ (Simulado vs Empírico) / $C_P$ }
+\label{fig:capacitor_relacion_C_P_y_R_p}
+\end{figure}
+%~grafico |Z| y fase
+
+Como conclusión del análisis gráfico, se grafica el factor de pérdidas del capacitor obtenido empíricamente en contraposición con su par obtenido de manera teórica mediante la fórmula que se presenta continuación.
+
+\begin{equation}
+Q= \frac{\$C}{R_P}
+\end{equation}
+\par
+\begin{equation}
+D= \frac{1}{Q}
+\end{equation}
+
+%grafico |Z| y fase
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{Ejercicio_1(Germo)/Grafico/capacitor_factor_de_perdida.png}
+\caption{Factor de pérdidas del capacitor}
+\label{fig:capacitor_factor_de_perdida}
+\end{figure}
+%~grafico |Z| y fase
+
+\subsubsection*{Conclusiones}
+Primeramente, se puede asegurar que el modelo equivalente RLC (\ref{fig:circuito_equivalente_capacitor_todoparalelo}) planteado fue el idóneo, el mismo se correspondió con el análisis posterior realizado. \par 
+En un principio, con los resultados del analizador de impedancia  ya analizados, se considero plantear un modelo equivalente que careciera de parte inductiva ya que el circuito no presentaba un comportamiento equivalente al caso anterior estudiado, donde el inductor a alta frecuencia se comporta como un capacitor. El cambio de fase máximo, como se puede apreciar en la tabla (\ref{table:Rta_en_frecuencia_capacitor},) es de aproximadamente $3^\circ$ respecto de la fase inicial a una frecuecia de $13MHz$ por lo que se comporta de manera homogénea en todo el espectro de frecuencias analizado como se puede observar en el gráfico (\ref{fig:capacitor_relacion_C_P_y_R_p}).\par El analizador de impedancia implica una limitación tecnológica importante para la realización de la experiencia.\par
+Se considera que el componente utilizado para la práctica es de gran calidad debido a dicho comportamiento homogéneo.\par
+%Sería de esperarse que a mayores frecuncias la fase sigue cambiando hasta que eventualmente el c 
+Se decidió utilizar el modelo mencionado al principio para enriquecer el análisis.\par
+La inductancia de $2.25nH$ seleccionada para el modelo tuvo una gran correlación respecto de la impedancia medida, el otro caso estudiado, $1nH$ no presentó una adecuada correlación por lo que no se lo considera apropiado. Probablemente, si se realizara un muestreo mayor se encontrarían otros valores similares que se adecuen al modelo analítico eficientemente. Resulta interesante señalar como varía la correlación del circuito entre los dos casos cuando sólo hay una diferencia de $1.25nH$ (\ref{fig:capacitor_relacion_entre_Z}).
+\par
+El modelo equivalente seleccionado se lo considera idóneo ya que tienen una correlación ideal para $|Z|$ (\ref{fig:Capacitor_relacion_entre_Z_y_fases}), $\theta$, $D$(\ref{fig:capacitor_factor_de_perdida}) y $R_P$ (\ref{fig:capacitor_relacion_C_P_y_R_p}). \par
+
