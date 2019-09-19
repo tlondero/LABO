@@ -231,6 +231,7 @@ Al quitar el Buffer, la respuesta observada no oscilaba, de donde no hay frecuen
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Filtro pasa banda}
+\subsection{Respuesta al escalón}
 Se analizó el circuito de la figura \ref{fig:pasabanda}
 
 \begin{figure}[H]
@@ -254,6 +255,28 @@ En este caso la función transferencia es
 \end{equation}
 
 La frecuencia de oscilación y el valor de sobre pico teóricos son los mismos que en el caso del filtro pasabajos, calculados en (\ref{equ:fres}) y (\ref{equ:mp}) respectivamente.
+Al estar analizando un sistema Lineal Tiempo Invariante (LTI), puede obtenerse la respuesta al escalón como la convolución entre la respuesta impulsiva y la función escalón $u(t)$, que transformando en Laplace, ya que el sistema es causal, permite hallar la respuesta al escalón como \begin{equation}
+    Y(s)=H(s)U(s)
+\end{equation}
+donde $Y(s)$ es la transformada de Laplace de la respuesta al escalón, $U(s)$ es la transformada del escalón y $H(s)$ es la función transferencia del circuito.
+
+Como $U(s)=\frac{1}{s}$ y $H(s)$ está dada por (\ref{eq:BandPass}), antitransformando se obtiene que la respuesta al escalón es 
+
+\begin{equation}
+    V_R(t)=\frac{2\sqrt{C}Rsin(\frac{t\sqrt{4L-CR^2}}{2\sqrt{C}L})e^{\frac{-Rt}{2L}}}{\sqrt{4L-CR^2}}
+\end{equation}
+
+\subsection{Mediciones}
+Se realizaron mediciones de la frecuencia de oscilación del transitorio ($f_t$), del tiempo de establecimiento del 5\% ($t_s$) y del valor de sobrepico ($M_p$)
+Los resultados obtenidos fueron:
+
+\begin{itemize}
+    \item $f_t=33,7 kHz$
+    \item $t_s=40\mu s$
+    \item $M_p=400 mV$
+\end{itemize}
+
+\subsection{Respuesta en frecuencia}
 Se midió la respuesta en frecuencia del circuito (\ref{fig:pasaaltos}) para contrastar que el modelo analítico corresponda con la realidad, además se hizo una simulación en \textbf{LTSpice} obteniendo los siguientes resultados:
 
 \begin{figure}[H]
@@ -272,7 +295,7 @@ Se midió la respuesta en frecuencia del circuito (\ref{fig:pasaaltos}) para con
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Filtro pasaaltos}
-\subsection{Análisis del circuito}
+\subsection{Respuesta al escalón}
 Se analizó el circuito de la figura \ref{fig:pasaaltos}
 
 \begin{figure}[H]
@@ -295,6 +318,19 @@ En este caso la función transferencia es
 \end{equation}
 
 Nuevamente, como el denominador de la función transferencia es el mismo que en los casos del filtro pasabanda y pasabajos, los valores teóricos de la frecuencia de oscilación y el sobre pico son los calculados en (\ref{equ:fres}) y (\ref{equ:mp}) respectivamente.
+La respuesta al escalón puede calcularse igual que en el caso anterior antitransformando en el dominio de Laplace:
+\begin{equation}
+    V_L(t)=e^{\frac{-Rt}{2L}}(cosh(\frac{t\sqrt{\frac{CR^2}{4}-L}}{\sqrt{C}L})-\frac{\sqrt{C}Rsinh(\frac{t\sqrt{\frac{CR^2}{4}-L}}{\sqrt{C}L})}{2\sqrt{\frac{CR^2}{4}-L}})
+\end{equation}
+
+\subsection{Mediciones}
+De la misma manera que el caso anterior, se midió la frecuencia de oscilación del transitorio, el tiempo de estblecimiento del 5\% y el valor de sobrepico. Los resultados obtenidos fueron
+\begin{itemize}
+    \item $f_t=38,6 kHz$
+    \item $M_p=352 mV $
+    \item $t_s=49,5 \mu s$
+\end{itemize}
+
 \subsection{Respuesta en frecuencia.}
 Se midió la respuesta en frecuencia del circuito (\ref{fig:pasaaltos}) para contrastar que el modelo analítico corresponda con la realidad, además se hizo una simulación en \textbf{LTSpice} obteniendo los siguientes resultados:
 \begin{figure}[H]
@@ -312,7 +348,7 @@ Se midió la respuesta en frecuencia del circuito (\ref{fig:pasaaltos}) para con
 \end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Filtro Notch}
-
+\subsection{Respuesta al escalón}
 Se analizó el circuito mostrado en la figura \ref{fig:notch}
 \begin{figure}[H]
 \centering
@@ -344,6 +380,21 @@ En este caso la transferencia está dada por
 \end{equation}
 
 Los valores teóricos de la frecuencia de oscilación y el sobre pico son, nuevamente, los de (\ref{equ:fres}) y (\ref{equ:mp})
+
+De forma similar a los 2 casos anteriores, antitransformando Laplace se puede obtener la repsuesta al escalón en el dominio del tiempo
+\begin{equation}
+    V_o(t)=1-\frac{2\sqrt{C}Rsin(\frac{t\sqrt{4L-CR^2}}{2\sqrt{C}L})e^{\frac{-Rt}{2L}}}{\sqrt{4L-CR^2}}
+\end{equation}
+
+\subsection{Mediciones}
+Se midió la frecuencia de oscilación del transitorio, el valor de sobrepico y el tiempo de establecimiento del 5\%, obteniéndose
+\begin{itemize}
+    \item $f_t=38,3 kHz$
+    \item $M_p=395 mV$
+    \item $t_s=23 \mu s$
+\end{itemize}
+
+\subsection{Respuesta en frecuencia}
 Se midió la respuesta en frecuencia del circuito (\ref{fig:pasaaltos}) para contrastar que el modelo analítico corresponda con la realidad, además se hizo una simulación en \textbf{LTSpice} obteniendo los siguientes resultados:
 \begin{figure}[H]
 	\centering
