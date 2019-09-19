@@ -381,10 +381,19 @@ En este caso la transferencia está dada por
 
 Los valores teóricos de la frecuencia de oscilación y el sobre pico son, nuevamente, los de (\ref{equ:fres}) y (\ref{equ:mp})
 
-De forma similar a los 2 casos anteriores, antitransformando Laplace se puede obtener la repsuesta al escalón en el dominio del tiempo
+De forma similar a los 2 casos anteriores, antitransformando Laplace se puede obtener la respuesta al escalón en el dominio del tiempo
 \begin{equation}
     V_o(t)=1-\frac{2\sqrt{C}Rsin(\frac{t\sqrt{4L-CR^2}}{2\sqrt{C}L})e^{\frac{-Rt}{2L}}}{\sqrt{4L-CR^2}}
 \end{equation}
+
+A continuación se presenta la respuesta observada en el osciloscopio.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{Mediciones_pendrive_alan/ej4sobrepiconotch.png}
+\caption{Respuesta al escalón del circuito en configuración Notch}
+	\label{fig:notchescalon}
+\end{figure}
+
 
 \subsection{Mediciones}
 Se midió la frecuencia de oscilación del transitorio, el valor de sobrepico y el tiempo de establecimiento del 5\%, obteniéndose
