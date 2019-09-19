@@ -94,7 +94,7 @@ Considerando los valores comerciales, y sabiendo que se disponía de una bobina 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth, trim = {0 3.4cm 0.4cm 2cm},clip]{Ejercicio2/Mediciones/A/waveform1.png}
+	\includegraphics[width=0.9\textwidth, trim = {0 3.4cm 0.4cm 2cm},clip]{Ejercicio2/Mediciones/A/waveform2.png}
 \caption{Respuesta al escalón del circuito.}
 	\label{fig:rtaescalon}
 \end{figure}
@@ -104,10 +104,7 @@ De esta forma, se midió una frecuencia de oscilación de $41 \ KHz $, un sobre 
 Se puede observar como, inyectada una señal cuadrada al circuito, existe un pequeño tiempo de establecimiento oscilatorio. A continuación, se realizó un barrido desde la frecuencia utilizada anterior mente hasta una frecuencia 20 mayor. A continuación se muestran los resultados:
 
 \begin{figure}[H]
-\begin{subfigure}
-  \centering
-  \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform2.png}  
-\end{subfigure}
+\centering
 \begin{subfigure}
   \centering
   \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform3.png}  
@@ -120,14 +117,14 @@ Se puede observar como, inyectada una señal cuadrada al circuito, existe un peq
   \centering
   \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform5.png}  
 \end{subfigure}
-\end{figure}
-
-\begin{figure}[H]
-\centering
 \begin{subfigure}
   \centering
   \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform6.png}  
 \end{subfigure}
+\end{figure}
+
+\begin{figure}[H]
+\centering
 \begin{subfigure}
   \centering
   \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform7.png}  
@@ -135,6 +132,10 @@ Se puede observar como, inyectada una señal cuadrada al circuito, existe un peq
 \begin{subfigure}
   \centering
   \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform8.png}  
+\end{subfigure}
+\begin{subfigure}
+  \centering
+  \includegraphics[width=.8\textwidth]{Ejercicio2/Mediciones/A/waveform9.png}  
 \end{subfigure}
 \caption{Formas de onda frente a un barrido de frecuencia.}
 \label{fig:fig}
@@ -169,12 +170,7 @@ Los valores teóricos son
 \end{itemize}
 \subsubsection{Mediciones}
 
-Los valores medidos fueron 
-\begin{itemize}
-  \item $f_t= 41,3 kHz$
-  \item $t_s=275\mu s$
-  \item $M_p=1,3 V$
-\end{itemize}
+Al realizar la medición se pudo comprobar como el circuito no se comporta como un LC ideal, actuando como un subamortiguado con un factor de calidad muy grande. Se logró medir la pseudofrecuencia de oscilación, siendo esta $f_t= 41,3 kHz$, el tiempo de establecimiento de $5\%$ de $275\mu s$ y finalmente la magnitud del sobrepico, siendo esta $M_p=1,3 V$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -191,6 +187,12 @@ Luego, los valores teóricos son (utilizando las mismas fórmulas presentadas en
     t_s=\frac{ln({\frac{1}{0,05\sqrt{1-\xi^2}}})}{\frac{R}{2L}}=25,3\mu s
 \end{equation}
 \subsubsection{Mediciones}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{Mediciones_pendrive_alan/Newfile3.jpeg}  
+\end{figure}
+
 Los valores obtenidos de las mediciones fueron:
 \begin{itemize}
   \item $f_t= 37,5 kHz$
@@ -210,6 +212,12 @@ En este caso el circuito no oscila, por lo que no hay frecuencia de oscilación 
 El tiempo de establecimiento teórico es $t_s=21,4 \mu s$
 
 \subsubsection{Mediciones}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{Mediciones_pendrive_alan/Newfile2.jpeg}  
+\end{figure}
+
 Los valores medidos fueron:
 \begin{itemize}
   \item $t_s= 18,8 \mu s$
@@ -429,11 +437,16 @@ Se calculó el valor del factor de calidad de forma teórica según
 
 Luego, para cada una de las configuraciones anteriores (pasabajos, pasaaltos, pasabanda y notch) se midió el factor de calidad y se lo comparó con el teórico.
 \subsection{Q High/Low/Band-Pass}
-Para medir el Q del circuito se puede apreciar que si en las ecuaciones (\ref{eq:HighPass}) , (\ref{eq:BandReject}) , (\ref{equ:hrlc}) se evalúa la función en $\omega_0 \implies |H(s)|=Q$
+Para medir el Q del circuito se puede apreciar que si en las ecuaciones (\ref{eq:HighPass}) , (\ref{eq:BandReject}) , (\ref{equ:hrlc}) se evalúa la función en $\omega_0 \implies |H(j\omega_0)|=Q$. El error de obtener el Q del circuito se reduce a errores humanos y de instrumental a la hora de la medición.
 
 \subsection{Q Notch}
 En este caso no era tan simple como evaluar la transferencia en un valor dado a que si se evalúa $H(j\omega_0)=0$, se optó por medir la respuesta al escalón, y de allí obtener el sobre pico, el cual esta ligado al $\xi$ por la siguiente ecuación:
 \begin{align}M_p = e^{\frac{\pi \cdot \xi}{\sqrt{1-\xi^2}}} \end{align}
+
+\begin{equation}
+Q =  \frac{1}{2} \frac{\sqrt{ln(M_p)^2 + \pi^2}}{ln(M_p)}
+\end{equation}
+
 obteniendo la siguiente medición:
 \begin{figure}[H]
 	\centering
@@ -441,5 +454,7 @@ obteniendo la siguiente medición:
 \caption{Sobre pico de la respuesta al escalón en el Notch.}
 	\label{fig:Overshoot5}
 \end{figure}
+
+y un valor de Q de $1,539$.
 
 \end{document}
