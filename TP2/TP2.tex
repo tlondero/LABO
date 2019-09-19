@@ -26,7 +26,7 @@ En el presente trabajo de laboratorio se estudian filtros RLC de segundo orden, 
 
 \section{Filtro pasabajos}
 
-En esta sección se analizó la respuesta al escalón del circuito mostrado en la Figura (\ref{fig:rlc}). Sabiendo que $L = 500 \ \mu H$, $C = 33 \ nF$ y $\xi = 0.33$, se determinó que $R = 81.24 \ \Omega$. Además, se calculó la frecuencia de resonancia de este circuito, siendo esta $f_0 = 39.2 \ kHz$. Para determinar R se analizó primero la transferencia. Tenemos que la función transferencia del circuito es:
+En esta sección se analizó la respuesta al escalón del circuito mostrado en la Figura (\ref{fig:rlc}). Sabiendo que $L = 500 \ \mu H$, $C = 33 \ nF$ y $\xi = 0.33$. Además, se calculó la frecuencia de resonancia de este circuito, siendo esta $f_0 = 39.2 \ kHz$. Para determinar R se analizó primero la transferencia. Tenemos que la función transferencia del circuito es:
 
 \begin{equation}
 	H(s) = \frac{1}{LC s^2 + RC s + 1}
@@ -161,7 +161,7 @@ Luego de realizar el análisis de la forma de onda anterior, se obtuvo el diagra
 
 \subsection{Caso R nula}
 \subsubsection{Consideraciones teóricas}
-Se analizó el circuito de la figura \ref{fig:rlc} con $R=0\Omega$, i.e. un circuito LC. Teóricamente, el circuito debería oscilar armónicamente, ya que no hay pérdida de energía. Por supuesto, esto no ocurre ya que tanto el cable como el inductor y el capacitor tienen resistencias internas, por lo que sí habrá disipación de energía y las oscilaciones decaerán en cada ciclo.
+Se analizó el circuito de la figura (\ref{fig:rlc}) con $R=0\Omega$, i.e. un circuito LC. Teóricamente, el circuito debería oscilar armónicamente, ya que no hay pérdida de energía. Por supuesto, esto no ocurre ya que tanto el cable como el inductor y el capacitor tienen resistencias internas, por lo que sí habrá disipación de energía y las oscilaciones decaerán en cada ciclo.
 Los valores teóricos son
 \begin{itemize}
   \item frecuencia de oscilación ($f_t$)$=\frac{1}{2\pi}\frac{1}{\sqrt{LC}}\approx 39 kHz$
@@ -171,7 +171,7 @@ Los valores teóricos son
 \subsubsection{Mediciones}
 
 Al realizar la medición se pudo comprobar como el circuito no se comporta como un LC ideal, actuando como un subamortiguado con un factor de calidad muy grande. Se logró medir la pseudofrecuencia de oscilación, siendo esta $f_t= 41,3 kHz$, el tiempo de establecimiento de $5\%$ de $275\mu s$ y finalmente la magnitud del sobrepico, siendo esta $M_p=1,3 V$.
-
+Se destaca que al medir la tensión a la salida del buffer, y debido a que la unica resistecia existente era la propia del capacitor, la bobina y las puntas, esta impedancia era comparable frente a la que posee el operacional en su salida. Es por ello que se observó una distorsión en la tensión cuadrada existente.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Caso R tal que $M_p=0,15V_i$}
@@ -235,7 +235,9 @@ Nuevamente el hecho de que todos los elementos poseen resistencias propias causa
 \end{itemize}
 
 \subsubsection{R tal que $M_p=0,15V_i$}
-Al quitar el Buffer, la respuesta observada no oscilaba, de donde no hay frecuencia de oscilación del transitorio ni máximo valor de sobrepico. El tiempo de establecimiento del 5\% medido fue $t_s=25\mu s$
+Al quitar el Buffer, la respuesta observada no oscilaba, de donde no hay frecuencia de oscilación del transitorio ni máximo valor de sobrepico. El tiempo de establecimiento del 5\% medido fue $t_s=25\mu s$.
+
+Finalmente se detaca que al no presentarse el operacional, la impedancia de salida de la fuente es comparable con la del circuito. El amplificador, por su parte, brindaba una alta imdancia de entrada al circuito total. Es por ello que al observar dicha situación, se logra detectar que la tensión de enrtada sufre distorciones.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Filtro pasa banda}
