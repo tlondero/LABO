@@ -34,21 +34,21 @@ A continuación veremos algunas capturas de los puntos relevantes, siendo estos 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{Imagenes/tp3_labo3.png}
+	\includegraphics[width=0.8\textwidth]{Imagenes/tp3_labo3.png}
 \caption{Fuente conmutada, frecuencia inicial [2kHz].}
 	\label{fig:fcon2}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{Imagenes/tp3_labo4.png}
+	\includegraphics[width=0.8\textwidth]{Imagenes/tp3_labo4.png}
 \caption{Fuente conmutada, frecuencia mínimo [76kHz].}
 	\label{fig:fcon76}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{Imagenes/tp3_labo5.png}
+	\includegraphics[width=0.8\textwidth]{Imagenes/tp3_labo5.png}
 \caption{Fuente conmutada, frecuencia final [200kHz].}
 	\label{fig:fcon200}
 \end{figure}
@@ -57,13 +57,13 @@ Luego, se procedió a alterar el Duty-Cycle de la señal de entrada, asi efectiv
 A medida que se cambia el Duty-Cycle, su potencia varía , aumenta la tensión de salida  (en el caso de que se aumente la potencia) y disminuye en caso de bajarla.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{Imagenes/dc_20.png}
+	\includegraphics[width=0.8\textwidth]{Imagenes/dc_20.png}
 \caption{Fuente conmutada, Duty-Cycle [20\%].}
 	\label{fig:fcon20}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{Imagenes/dc_50.png}
+	\includegraphics[width=0.8\textwidth]{Imagenes/dc_50.png}
 \caption{Fuente conmutada, Duty-Cycle [50\%].}
 	\label{fig:fcon50}
 \end{figure} 
@@ -81,7 +81,7 @@ La cual se adapta mucho mejor a las mediciones.\\
 Se continuó por medir la respuesta al escalón del circuito en condiciones nominales obteniendo el siguiente gráfico:
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{Imagenes/sr.png}
+	\includegraphics[width=0.8\textwidth]{Imagenes/sr.png}
 \caption{Fuente conmutada,Respuesta al Escalón.}
 	\label{fig:fconsr}
 \end{figure}
@@ -89,13 +89,13 @@ Se observa la variación de los picos en la salida, que a medida que se establec
 Luego se midió el ripple de salida del circuito, utilizando una frecuencia de entrada de 25kHz. Se observó que al agregar un capacitor en paralelo, y asi aumentando la componente capacitiva de la impedancia, decrece el sobrepico del ripple.\\Esto también se puede  pensar como, dado a que una de las funciones del componente es mantener la tensión como una función  continua, cuando  este observa una derivada de tensión elevada,reorganiza sus cargas almacenadas, lo cual provoca una corriente y que finalmente suaviza la tensión, cuanto mas alta sea la capacidad mayor será su efecto de suavizamiento sobre la tensión.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{Imagenes/ripple_.png}
+	\includegraphics[width=0.8\textwidth]{Imagenes/ripple_.png}
 \caption{Tensión de ripple de la salida de la Fuente conmutada.}
 	\label{fig:fconr}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{Imagenes/ripple_c.png}
+	\includegraphics[width=0.8\textwidth]{Imagenes/ripple_c.png}
 \caption{Tensión de ripple de la salida de la Fuente conmutada introduciendo un capacitor.}
 	\label{fig:fconrc}
 \end{figure}
@@ -104,14 +104,14 @@ Se continuó por medir la tensión en la bobina, esto se hizo al poner una punta
 \begin{align} V_{coil} = L \cdot \frac{dI_{coil}}{dt}\end{align}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{Imagenes/vcoil.png}
+	\includegraphics[width=0.8\textwidth]{Imagenes/vcoil.png}
 \caption{Tensión sobre el inductor.}
 	\label{fig:vcoil}
 \end{figure}
 Donde la señal rosa es la tensión sobre la bobina, la amarilla es la fuente y la verde sobre el otro nodo.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{Imagenes/icq_coil1.png}
+	\includegraphics[width=0.8\textwidth]{Imagenes/icq_coil1.png}
 \caption{Corriente sobre el inductor.}
 	\label{fig:icoil}
 \end{figure}
@@ -124,7 +124,7 @@ Se utilizó una frecuencia $f= 115kHz$ y un Duty-Cycle del 40\% .
 Finalmente es de suma importancia que sean paralelas las señales a medir dado a que la medición se basa en la proporcionalidad de ambas corrientes por un factor "L".
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{Imagenes/mentira_para_.png}
+	\includegraphics[width=0.8\textwidth]{Imagenes/mentira_para_.png}
 \caption{Proporcionalidad de corrientes.}
 	\label{fig:Lcoil}
 \end{figure}
@@ -142,7 +142,7 @@ el cual coincide aproximadamente con el valor nominal de la bobina
 Luego se midió la tensión entre colector y base, obteniendo los siguientes resultados:
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{Imagenes/vbc_vc_ab.png}
+	\includegraphics[width=0.8\textwidth]{Imagenes/vbc_vc_ab.png}
 \caption{Tensión Base-Colector.}
 	\label{fig:vbc}
 \end{figure}
@@ -153,7 +153,7 @@ Se puede apreciar que la tensión que gobierna dicha diferencia es la de colecto
 Continuando, se midió la tensión entre el colector y el emisor de distintas maneras. Utilizando el accesorio de resorte para la punta del osciloscopio, el cual permite no sumar a la medición la impedancia del cable de tierra y ademas la gran cercania en la adquisicion de la señal,  y además utilizando una punta con el cable de masa conectado directamente al cable de masa de la fuente de continua.obteniendo la siguiente imagen:
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{Imagenes/vce_pe_both.png}
+	\includegraphics[width=0.8\textwidth]{Imagenes/vce_pe_both.png}
 \caption{Tensión colector-emisor.}
 	\label{fig:vce}
 \end{figure}
