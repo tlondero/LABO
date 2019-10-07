@@ -5,4 +5,31 @@
 Para la siguiente sección, se buscó diseñar un puente que permita medir capacitores desde $100 \ nF$ hasta $1 \ \mu F$, trabajando a una frecuencia de $20 \ kHz$. Los capacitores a medir con dicho instrumento se caracterizan por poseer un factor de disipación D en un rango acotado entre $0.02$ y $0.12$.
 
 Con lo dicho anteriormente, se tuvo que elegir entre tres posibles puentes: el serie, el paralelo y el de Schearing. Debido a que este último se emplea para capacitores con de muy bajas perdidas, es decir, con un $D \ < \ 10^{-3}$, mientras que el paralelo se utiliza para capacitores de altas perdidas, se optó por valerse de un puente serie, ya que este está destinado a ser empleado para capacitores con un rango de perdidas similar al que requiere.
+
+\begin{figure}[H]
+\begin{center}
+\begin{circuitikz}[european voltages]
+	\draw (0,0) to[rmeterwa, t=V, label=$V_d$] ++(3,0) to[R, l=$R_4$] ++(0,-2) to[short] ++(-4,0) node[ocirc](-vg){};
+	\draw (0,0) to[vR, mirror, l=$R_3$] ++(0,-2);
+	\draw (0,1.5) to[vR, mirror, l=$R_1$] (0,0);
+	\draw (0,1.5) to[C, l_=$C_1$] ++(0,1.5) to[short] ++(3,0) to[C, l=$C_x$] ++(0,-1.5) to[R, l =$R_x$] ++(0,-1.5);
+	\draw (0,3) to[short] ++(-1,0) node[ocirc](vg){};
+	\draw (-vg) to[open, v^= $V_g$] (vg);
+\end{circuitikz}
+	\caption{Puente serie implementado}
+	\label{fig:puenteserie}
+\end{center}
+\end{figure}
+
+Luego, mediante el análisis de sensibilidades, considerando los valores máximos y mínimos de capacitores y estableciendo $C_1 = 1 \ nF$ y $R_1 = 100 \Omega$, se obtienen los siguientes valores para los demás componentes:
+
+\begin{equation*}
+\begin{split}
+	R_{1_{Min}} =& \ \frac{5 \cdot 10^{-7}}{\pi C_1} = 159 \ \Omega \\
+	R_{1_{Max}} =& \ \frac{3 \cdot 10^{-6}}{\pi C_1} = 1 \ k\Omega \\
+	R_{3_{Min}} =& \ \frac{R_4 \cdot 10^{-7}}{\pi C_1} = 10 \ k\Omega \\
+	R_{3_{Max}} =& \ \frac{R_4 \cdot 10^{-6}}{\pi C_1} = 100 \ k\Omega
+\end{split}
+\end{equation*}
+ 
 \end{document}
