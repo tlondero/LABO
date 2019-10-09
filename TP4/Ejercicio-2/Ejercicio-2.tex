@@ -54,8 +54,25 @@ F=\frac{A}{1+2A\cos(\theta_A)+A^2} \quad \wedge \quad A=\frac{Z_4}{Z_2}
 Primeramente, como primera decisión de diseño se decide implementar dos presets por cada ressitencia variable requerida, esto se debe a que uno servirá para ajuste grueso y el otro para un ajuste fino, logrando de esta manera obtener un ajuste más preciso que permita reducir la sensibilidad. \par
 Se decide utilizar un capacitor multicapa de $1nf$. Para dicho componente, considerando las frecuencias planteadas anteriormente($10KHz$ y $200KHz$) que serán nuestras cotas, y utilizando la ecuación (\ref{frec}), se necesitan valores de resistencias de $15K915 \Omega$ y $795 \Omega$ respectivamente. 
 Para el primer caso, serán utilizados dos presets de $\Omega$ y $\Omega$, por otro lado, presets de $\Omega$ y $\Omega$ serán utilizados para el segundo. \par
-Luego de investigar y simular para distintos valores, se decide tomar los siguientes valores para las ramas puramente resistivasdel puente, $R_4=1K\Omega$ y $R_2=2K\Omega$. Volviendo a la ecuación (\ref{cabeza_de_puente}), obtendremos un valor cabeza de puente $A=\frac{1}{2}$, que dará un $F=0.22$.
+Luego de investigar y simular para distintos valores, se decide tomar los siguientes valores para las ramas puramente resistivas del puente, $R_4=1K\Omega$ y $R_2=2K\Omega$. Volviendo a la ecuación (\ref{cabeza_de_puente}), obtendremos un valor cabeza de puente $A=\frac{1}{2}$, que dará un $F=0.22$.
 
+\begin{table}[H]
+\centering
+\begin{tabular}{ccccc}
+\hline
+$\mathbf{f_g \ [kHz]}$ & $\mathbf{P_{R1} + P_{R2} \ [k\Omega]}$ & $\mathbf{P_{R3} + P_{R4} \ [k\Omega]}$ & $\mathbf{f_c \ [kHz]}$ & \textbf{Error [\%]} \\
+\hline
+10                     & 15.16                                  & 15.92                                  & 10.24                  & 2.45                \\
+21.14                  & 7.53                                   & 7.95                                   & 20.57                  & 2.70                \\
+44.7                   & 3.56                                   & 3.75                                   & 43.56                  & 2.55                \\
+65.01                  & 2.58                                   & 2.45                                   & 63.30                  & 2.63                \\
+94.55                  & 1.68                                   & 1.74                                   & 93.09                  & 1.55                \\
+137.27                 & 1.159                                  & 1.187                                  & 135.69                 & 1.15                \\
+165.69                 & 0.961                                  & 0.985                                  & 163.58                 & 1.27                \\
+200                    & 0.8                                    & 0.82                                   & 196.98                 & 1.51   				\\
+\hline            
+\end{tabular}
+\end{table}
 
 \subsection{Conclusiones}
 \end{document}
