@@ -11,19 +11,19 @@
 
 %left branch
 (4,10) to[C, l=$C_1$,a=\SI{1}{\nano f}] (4,8.3333)
- to[vR, l=$PR_1$,a=\SI{10}{K\ohm},*-*] (4,6.66666)
- to[vR, l=$PR_2$,a=\SI{10}{K\ohm}] (4,5)
+ to[vR, mirror, l=$PR_1$, a=\SI{10}{k\ohm},*-*] (4,6.66666)
+ to[vR, mirror, l=$PR_2$, a=\SI{10}{k\ohm}] (4,5)
  -- (4,4.5) 
  (3,4.5) -- (5,4.5)
-  to[vR, l=$PR_3$,a=\SI{10}{K\ohm},*-*] (5,2.5)
-  to[vR, l=$PR_4$,a=\SI{10}{K\ohm},*-*] (5,0.5)
- (3,4.5) to[C,l=$C_2$,a=\SI{1}{\nano f}] (3,0.5)
+  to[vR, mirror, l=$PR_3$, a=\SI{10}{k\ohm},*-*] (5,2.5)
+  to[vR, mirror, l=$PR_4$, a=\SI{10}{k\ohm},*-*] (5,0.5)
+ (3,4.5) to[C,l=$C_2$, a=\SI{1}{\nano f}] (3,0.5)
  
  (3,0.5)-- (5,0.5)
  
 %right branch
-(8,10) to[R, l=$R_2$,a=\SI{2}{K\ohm}] (8,5)
-(8,5) to[R, l=$R_4$,a=\SI{1}{K\ohm}] (8,0)
+(8,10) to[R, l=$R_2$,a=\SI{2}{k\ohm}] (8,5)
+(8,5) to[R, l=$R_4$,a=\SI{1}{k\ohm}] (8,0)
 
 %connections
 (0,0) to (8,0)
