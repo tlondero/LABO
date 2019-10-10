@@ -4,11 +4,14 @@
 \section{Puente de Wien - Medición de frecuencias}
 
 \subsection{Introducción}
-En esta sección, se procederá a diseñar un puente de Wien, analizando las sensibilidades para todo el rango de medición. \par
-Dicho puente permitirá conocer la frecuencia de una fuente desconocida, esto se debe a un procedimiento por el cual se comparan distintas magnitudes presentes en las ramas del puente, se puede considerar como un proceso de medición indirecta. Existen limitaciones de tipo constructivas para el rango de frecuencias que se pueden medir, el asignado por la cátedra es de $10KHz$ a $200KHz$.\par
-Un puente se considera en equilibrio cuando ocurren dos circunstancias en simultáneo, en primer lugar, cuando el cociente entre la tensión en la salida del puente $V_D$ y la tensión del generador $V_G$ es nulo, por otro lado, el cociente entre una impedancia y su opuesta debe ser equivalente al otro par dentro del circuito. La primer hipótesis nunca se podrá confirmar ya que es una afirmación de carácter netamente teórico, en la práctica nunca se obtendrá una tensión nula debido tanto a la incerteza en los métodos de medición utilizados, mostrado en el ejercicio 1, así como también a las sensibilidades propias de los componentes. \par
-El puente de Wien cuenta con cuatro ramas, el primer par de ramas adyacentes cuentan con componentes puramente resistivos, el otro par está formado por circuitos RC, uno en paralelo y otro en serie, como se puede apreciar en el circuito [\ref{fig:Puente_de_wien}]. \par
 
+En esta sección, se procede a diseñar un puente de Wien, analizando las sensibilidades para todo el rango de medición.
+
+Dicho puente permite conocer la frecuencia de una fuente desconocida, esto se debe a un procedimiento por el cual se comparan distintas magnitudes presentes en las ramas del puente, el cual se puede considerar como un proceso de medición indirecta. Existen limitaciones de tipo constructivas para el rango de frecuencias que se pueden medir, el asignado por la cátedra es de $10 \ kHz$ a $200 \ kHz$.
+
+Un puente se considera en equilibrio cuando ocurren dos circunstancias en simultáneo. En primer lugar, cuando el cociente entre la tensión en la salida del puente $V_D$ y la tensión del generador $V_G$ es nulo. Por otro lado, el cociente entre una impedancia y su opuesta debe ser equivalente al otro par dentro del circuito. La primer hipótesis nunca se puede confirmar ya que es una afirmación de carácter netamente teórico, mientras que en la práctica nunca se obtiene una tensión nula debido tanto a la incerteza en los métodos de medición utilizados, mostrado en el Ejercicio 1, así como también a las sensibilidades propias de los componentes.
+
+El puente de Wien cuenta con cuatro ramas. El primer par de ramas adyacentes cuentan con componentes puramente resistivos, el otro está formado por circuitos RC, uno en paralelo y otro en serie, como se puede apreciar en la Figura (\ref{fig:Puente_de_wien}).
 
 %Puente_de_wien
 \begin{figure}[H]
@@ -19,47 +22,54 @@ El puente de Wien cuenta con cuatro ramas, el primer par de ramas adyacentes cue
 \end{figure}
 %~Puente_de_wien
 
+Las relaciones obtenidas para el mismo en condición de equilibrio son las siguientes:
 
-Las relaciones obtenidas para el mismo en condición de equilibrio son las siguientes: \par
 \begin{equation}
 \frac{R_1}{R_3}+\frac{C_3}{C_1}=\frac{R_2}{R_4}
 \end{equation}
 \begin{equation}
 w=\frac{1}{\sqrt{C_1C_3R_1R_3}}
-\end{equation} \par
-Generalmente, y esa es la manera en la que se procederá en este trabajo, el diseño del puente se realiza considerando las frecuencias desconocidas de las fuentes a medir. Se fijarán valores equivalentes para los capacitores, lo mismo sucederá con sus resistencias asociadas. 
+\end{equation}
+
+Generalmente el diseño del puente se realiza considerando las frecuencias desconocidas de las fuentes a medir. Se fijan valores equivalentes para los capacitores, lo mismo sucede con sus resistencias asociadas. 
 \begin{equation}
 R_1=R_3=R \quad	\wedge \quad C_1=C_3=C
 \end{equation}
+
 Dando como resultado, la siguiente relación para las ramas puramente resistivas:
 \begin{equation}
 R_2=2R_4
 \end{equation}
+
 Reduciendose el cálculo de la frecuencia a:
 \begin{equation}
 f=\frac{1}{2\pi RC}
 \label{frec}
 \end{equation}
-Las resistencias relacionadas con los capacitores son las que serán variadas para definir el comportamiente del puente, las mismas tendrán una sensibilidad asociada. Con dicha finalidad, se utilizarán resistencias variables de precisión (preset multivueltas de 25 vueltas). 
 
-Partiendo de la fórmula para la sensibilidad dada por $\Delta V_D=V_GF\delta_{Z_i}=V_GF\frac{\Delta Z_i}{Z_i}$ siendo $i$ la i-ésima rama, se obtendrán las siguientes sensibilidades para las resistencias variables $R_3$ y $R_1$.
+Las resistencias relacionadas con los capacitores son las que se varia para definir el comportamiento del puente, las mismas tienen una sensibilidad asociada. Con dicha finalidad, se utilizan resistencias variables (presets). 
+
+Partiendo de la fórmula para la sensibilidad dada por $\Delta V_D=V_GF\delta_{Z_i}=V_GF\frac{\Delta Z_i}{Z_i}$ siendo $i$ la i-ésima rama, se obtienen las siguientes sensibilidades para las resistencias variables $R_3$ y $R_1$:
 \begin{equation}
 \Delta V_{D_{R_1}}=V_g\left|\frac{\$C_1R_1}{\$C_1R_1+1}\right|\frac{\Delta R_1}{R_1}
 \end{equation}
 \begin{equation}
 \Delta V_{D_{R_3}}=V_g\left|\$C_3R_3+1\right|\frac{\Delta R_3}{R_3}
 \end{equation}
-Siendo $F$ el factor cabeza de puente dado por:
+
+Siendo $F$ el factor cabeza de puente, dado por:
 \begin{equation}
 F=\frac{A}{1+2A\cos(\theta_A)+A^2} \quad \wedge \quad A=\frac{Z_4}{Z_2}
 \label{cabeza_de_puente}
 \end{equation} 
 
 \subsection{Desarrollo}
-Primeramente, como primera decisión de diseño se decide implementar dos presets por cada resistencia variable requerida, esto se debe a que uno servirá para ajuste grueso y el otro para un ajuste fino, logrando de esta manera obtener un ajuste más preciso que permita reducir la sensibilidad. \par
-Se decide utilizar un capacitor multicapa de $1nf$. Para dicho componente, considerando las frecuencias planteadas anteriormente($10KHz$ y $200KHz$) que serán nuestras cotas, y utilizando la ecuación (\ref{frec}), se necesitan valores de resistencias de $15K915 \Omega$ y $795 \Omega$ respectivamente. 
-Para el primer caso, serán utilizados dos presets de $\Omega$ y $\Omega$, por otro lado, presets de $\Omega$ y $\Omega$ serán utilizados para el segundo. \par
-Luego de investigar y simular para distintos valores, se decide tomar los siguientes valores para las ramas puramente resistivas del puente, $R_4=1K\Omega$ y $R_2=2K\Omega$. Volviendo a la ecuación (\ref{cabeza_de_puente}), obtendremos un valor cabeza de puente $A=\frac{1}{2}$, que dará un $F=0.22$.
+
+Como primera decisión de diseño se implementan dos presets por cada resistencia variable requerida, esto se debe a que uno sirve para ajuste grueso y el otro para uno fino, logrando de esta manera obtener una calibración más precisa, que permita reducir la sensibilidad. Además, se consideran las limitaciones propias de los valores comerciales.
+
+Se decide utilizar un capacitor multicapa de $1 \ nF$. Para dicho componente, considerando las frecuencias planteadas anteriormente y utilizando(\ref{frec}), se necesitan valores de resistencias de $15,9 \ k\Omega$ y $795 \○  \Omega$ respectivamente. Para el primer caso, se utilizan dos presets de $\Omega$ y $\Omega$, mientras que para el segundo, de $\Omega$ y $\Omega$.
+
+Luego de investigar y simular para distintos valores, se decide tomar los siguientes para las ramas puramente resistivas del puente, $R_4= 1 \ k\Omega$ y $R_2= 2 \ k\Omega$. Volviendo a (\ref{cabeza_de_puente}), se obtiene un valor cabeza de puente $A=\frac{1}{2}$, que da un $F=0.22$.
 
 %Sensibilidades
 \begin{figure}[H]
@@ -76,7 +86,7 @@ Luego de investigar y simular para distintos valores, se decide tomar los siguie
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth,trim={0.25cm 5cm  1 5cm},clip]{Mediciones/Tensiones_10_KHz}
-\caption{Tensión en $V_D$ a 10 KHz}
+\caption{Tensión en $V_D$ a 10 kHz}
 \label{fig:Tensiones_10_KHz}
 \end{figure}
 %~Tension 10KHz
@@ -85,12 +95,10 @@ Luego de investigar y simular para distintos valores, se decide tomar los siguie
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth,trim={0.25cm 5cm  1 5cm},clip]{Mediciones/Tensiones_200_KHz}
-\caption{Tensión en $V_D$ a 200 KHz}
+\caption{Tensión en $V_D$ a 200 kHz}
 \label{fig:Tensiones_200_KHz}
 \end{figure}
 %~Tension 200KHz
-
-
 
 \begin{table}[H]
 \centering
@@ -114,6 +122,5 @@ $\mathbf{f_g \ [kHz]}$ & $\mathbf{P_{R1} + P_{R2} \ [k\Omega]}$ & $\mathbf{P_{R3
 
 \subsection{Conclusiones}
 
-En la práctica, las resistencias que se suponían de igual magnitud como una condición inicial ($R_3$ y $R_1$) dejarán de serlo como se puede apreciar en [\ref{tab:Tabla_error}], esto se debe a la variación que hay que introducir en las magnitudes de los presets para poder llegar lo más cercano posible a la condición de equilibrio($V_D=0$) considerando las sensibilidades previamente calculadas.
-Por otro lado, se observa que el error obtenido para el cálculo de la frecuencia es  considerablemente bajo[\ref{tab:Tabla_error}], con un promedio de 1.97\%. Consecuentemente, se buscó si existían otros valores de resistencias, bajo la misma frecuencia, con los que se pudiese llegar a la condición de equilibrio, descubriéndose que existen dichos valores pero el error es considerablemente más alto, entre el \%25 y \%50 generalmente. Dicha mayor diferencia en el error, se debe a que la diferencia entre las resistencias se volvía considerablemente mayor, llegando en algunos casos a un orden de magnitud. 
+En la práctica, las resistencias que se suponen de igual magnitud como una condición inicial ($R_3$ y $R_1$), dejando de serlo como se puede apreciar en la Tabla (\ref{tab:Tabla_error}). Esto se debe a la variación de magnitud de los presets para poder llegar lo más cercano posible a la condición de equilibrio ($V_D=0$) considerando las sensibilidades previamente calculadas. Por otro lado, se observa que el error obtenido para el cálculo de la frecuencia es bajo, con un promedio de 1.97\%. Consecuentemente, se buscó otros valores de resistencias, bajo la misma frecuencia, con los que se pudiese llegar a la condición de equilibrio, descubriendo que existen dichos valores, pero obteniéndose un error más alto, encontrándose este entre el \%25 y \%50. Dicha diferencia en el error, se debe a que la existente entre las resistencias se vuelve mayor, llegando en algunos casos a un orden de magnitud. 
 \end{document}
