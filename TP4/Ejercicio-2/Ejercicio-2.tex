@@ -49,12 +49,12 @@ f=\frac{1}{2\pi RC}
 
 Las resistencias relacionadas con los capacitores son las que se varia para definir el comportamiento del puente, las mismas tienen una sensibilidad asociada. Con dicha finalidad, se utilizan resistencias variables (presets). 
 
-Partiendo de la fórmula para la sensibilidad dada por $\Delta V_D=V_GF\delta_{Z_i}=V_GF\frac{\Delta Z_i}{Z_i}$ siendo $i$ la i-ésima rama, se obtienen las siguientes sensibilidades para las resistencias variables $R_3$ y $R_1$:
+Partiendo de la fórmula para la sensibilidad dada por $\Delta V_D=V_G \ F \ \delta_{Z_i}=V_G \ F \ \frac{\Delta Z_i}{Z_i}$ siendo $i$ la i-ésima rama, se obtienen las siguientes sensibilidades para las resistencias variables $R_3$ y $R_1$:
 \begin{equation}
-\Delta V_{D_{R_1}}=V_g\left|\frac{\$C_1R_1}{\$C_1R_1+1}\right|\frac{\Delta R_1}{R_1}
+\Delta V_{D_{R_1}}=V_g\left|\frac{SC_1R_1}{SC_1R_1+1}\right|\frac{\Delta R_1}{R_1}
 \end{equation}
 \begin{equation}
-\Delta V_{D_{R_3}}=V_g\left|\$C_3R_3+1\right|\frac{\Delta R_3}{R_3}
+\Delta V_{D_{R_3}}=V_g\left|SC_3R_3+1\right|\frac{\Delta R_3}{R_3}
 \end{equation}
 
 Siendo $F$ el factor cabeza de puente, dado por:
@@ -67,7 +67,7 @@ F=\frac{A}{1+2A\cos(\theta_A)+A^2} \quad \wedge \quad A=\frac{Z_4}{Z_2}
 
 Como primera decisión de diseño se implementan dos presets por cada resistencia variable requerida, esto se debe a que uno sirve para ajuste grueso y el otro para uno fino, logrando de esta manera obtener una calibración más precisa, que permita reducir la sensibilidad. Además, se consideran las limitaciones propias de los valores comerciales.
 
-Se decide utilizar un capacitor multicapa de $1 \ nF$. Para dicho componente, considerando las frecuencias planteadas anteriormente y utilizando(\ref{frec}), se necesitan valores de resistencias de $15,9 \ k\Omega$ y $795 \○  \Omega$ respectivamente. Para el primer caso, se utilizan dos presets de $\Omega$ y $\Omega$, mientras que para el segundo, de $\Omega$ y $\Omega$.
+Se decide utilizar un capacitor multicapa de $1 \ nF$. Para dicho componente, considerando las frecuencias planteadas anteriormente y utilizando(\ref{frec}), se necesitan valores de resistencias de $15,9 \ k\Omega$ y $795 \ \Omega$ respectivamente. Para el primer caso, se utilizan dos presets de $\Omega$ y $\Omega$, mientras que para el segundo, de $\Omega$ y $\Omega$.
 
 Luego de investigar y simular para distintos valores, se decide tomar los siguientes para las ramas puramente resistivas del puente, $R_4= 1 \ k\Omega$ y $R_2= 2 \ k\Omega$. Volviendo a (\ref{cabeza_de_puente}), se obtiene un valor cabeza de puente $A=\frac{1}{2}$, que da un $F=0.22$.
 
