@@ -45,9 +45,11 @@ Las resistencias relacionadas con los capacitores son las que serán variadas pa
 Partiendo de la fórmula para la sensibilidad dada por $\Delta V_D=V_GF\delta_{Z_i}=V_GF\frac{\Delta Z_i}{Z_i}$ siendo $i$ la i-ésima rama, se obtendrán las siguientes sensibilidades para las resistencias variables $R_3$ y $R_1$.
 \begin{equation}
 \Delta V_{D_{R_1}}=V_g\left|\frac{\$C_1R_1}{\$C_1R_1+1}\right|\frac{\Delta R_1}{R_1}
+\label{VDR1}
 \end{equation}
 \begin{equation}
 \Delta V_{D_{R_3}}=V_g\left|\$C_3R_3+1\right|\frac{\Delta R_3}{R_3}
+\label{VDR3}
 \end{equation}
 Siendo $F$ el factor cabeza de puente dado por:
 \begin{equation}
@@ -56,11 +58,11 @@ F=\frac{A}{1+2A\cos(\theta_A)+A^2} \quad \wedge \quad A=\frac{Z_4}{Z_2}
 \end{equation} 
 
 \subsection{Desarrollo}
-Primeramente, como primera decisión de diseño se decide implementar dos presets por cada resistencia variable requerida, esto se debe a que uno servirá para ajuste grueso y el otro para un ajuste fino, logrando de esta manera obtener un ajuste más preciso que permita reducir la sensibilidad. \par
-Se decide utilizar un capacitor multicapa de $1nf$. Para dicho componente, considerando las frecuencias planteadas anteriormente($10KHz$ y $200KHz$) que serán nuestras cotas, y utilizando la ecuación (\ref{frec}), se necesitan valores de resistencias de $15K915 \Omega$ y $795 \Omega$ respectivamente. 
-Para el primer caso, serán utilizados dos presets de $\Omega$ y $\Omega$, por otro lado, presets de $\Omega$ y $\Omega$ serán utilizados para el segundo. \par
-Luego de investigar y simular para distintos valores, se decide tomar los siguientes valores para las ramas puramente resistivas del puente, $R_4=1K\Omega$ y $R_2=2K\Omega$. Volviendo a la ecuación (\ref{cabeza_de_puente}), obtendremos un valor cabeza de puente $A=\frac{1}{2}$, que dará un $F=0.22$.
+Primeramente, como primera decisión de diseño se considera implementar dos presets por cada resistencia variable requerida. La implementación de dos componentes se debe a que uno serviría para ajuste grueso y el otro para un ajuste fino, logrando de esta manera obtener un ajuste más preciso que permita reducir la sensibilidad. Para los valores de frecuencia propuestos por la cátedra y usando un capacitor multicapa de $1nf$, era necesario lograr valores de resistividad entre los $800 \Omega$ y $16K\Omega$. En la práctica, no había disponibles en el pañol magnitudes de presets como para cubrir dicho rango, sin utilizar menos de 4 componentes, por lo que se decidió utilizar dos presets de $10K\Omega$.
+\par 
+Luego de investigar y simular para distintos valores, se decide tomar los siguientes valores para las ramas puramente resistivas del puente, $R_4=1K\Omega$ y $R_2=2K\Omega$. Volviendo a la ecuación [\ref{cabeza_de_puente}], obtendremos un valor cabeza de puente $A=\frac{1}{2}$, que dará un $F=0.22$.
 
+Se obtienen las siguientes sensibilidades utilzando las fórmulas presentes en [\ref{VDR1}][\ref{VDR1}]:
 %Sensibilidades
 \begin{figure}[H]
 \centering
@@ -70,27 +72,7 @@ Luego de investigar y simular para distintos valores, se decide tomar los siguie
 \end{figure}
 %~Sensibilidades
 
-
-
-%Tension 10KHz
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth,trim={0.25cm 5cm  1 5cm},clip]{Mediciones/Tensiones_10_KHz}
-\caption{Tensión en $V_D$ a 10 KHz}
-\label{fig:Tensiones_10_KHz}
-\end{figure}
-%~Tension 10KHz
-
-%Tension 200KHz
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth,trim={0.25cm 5cm  1 5cm},clip]{Mediciones/Tensiones_200_KHz}
-\caption{Tensión en $V_D$ a 200 KHz}
-\label{fig:Tensiones_200_KHz}
-\end{figure}
-%~Tension 200KHz
-
-
+A continuación, se presenta el estudio del error al medir la frecuencia.
 
 \begin{table}[H]
 \centering
@@ -112,8 +94,27 @@ $\mathbf{f_g \ [kHz]}$ & $\mathbf{P_{R1} + P_{R2} \ [k\Omega]}$ & $\mathbf{P_{R3
 \label{tab:Tabla_error}
 \end{table}
 
+%Tension 10KHz
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth,trim={0.25cm 5cm  1 5cm},clip]{Mediciones/Tensiones_10_KHz}
+\caption{Tensión en $V_D$ a 10 KHz}
+\label{fig:Tensiones_10_KHz}
+\end{figure}
+%~Tension 10KHz
+
+%Tension 200KHz
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth,trim={0.25cm 5cm  1 5cm},clip]{Mediciones/Tensiones_200_KHz}
+\caption{Tensión en $V_D$ a 200 KHz}
+\label{fig:Tensiones_200_KHz}
+\end{figure}
+%~Tension 200KHz
+
+
 \subsection{Conclusiones}
 
-En la práctica, las resistencias que se suponían de igual magnitud como una condición inicial ($R_3$ y $R_1$) dejarán de serlo como se puede apreciar en [\ref{tab:Tabla_error}], esto se debe a la variación que hay que introducir en las magnitudes de los presets para poder llegar lo más cercano posible a la condición de equilibrio($V_D=0$) considerando las sensibilidades previamente calculadas.
+En la práctica, las resistencias que se suponían de igual magnitud como una condición inicial ($R_3$ y $R_1$) dejarán de serlo como se puede apreciar en [\ref{tab:Tabla_error}] planteada en el desarrollo, esto se debe a la variación que hay que introducir en las magnitudes de los presets para poder llegar lo más cercano posible a la condición de equilibrio($V_D=0$) considerando las sensibilidades previamente calculadas.
 Por otro lado, se observa que el error obtenido para el cálculo de la frecuencia es  considerablemente bajo[\ref{tab:Tabla_error}], con un promedio de 1.97\%. Consecuentemente, se buscó si existían otros valores de resistencias, bajo la misma frecuencia, con los que se pudiese llegar a la condición de equilibrio, descubriéndose que existen dichos valores pero el error es considerablemente más alto, entre el \%25 y \%50 generalmente. Dicha mayor diferencia en el error, se debe a que la diferencia entre las resistencias se volvía considerablemente mayor, llegando en algunos casos a un orden de magnitud. 
 \end{document}
