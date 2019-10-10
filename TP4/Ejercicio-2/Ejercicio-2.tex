@@ -67,7 +67,7 @@ F=\frac{A}{1+2A\cos(\theta_A)+A^2} \quad \wedge \quad A=\frac{Z_4}{Z_2}
 
 Como primera decisión de diseño se implementan dos presets por cada resistencia variable requerida, esto se debe a que uno sirve para ajuste grueso y el otro para uno fino, logrando de esta manera obtener una calibración más precisa, que permita reducir la sensibilidad. Además, se consideran las limitaciones propias de los valores comerciales.
 
-Se decide utilizar un capacitor multicapa de $1 \ nF$. Para dicho componente, considerando las frecuencias planteadas anteriormente y utilizando(\ref{frec}), se necesitan valores de resistencias de $15,9 \ k\Omega$ y $795 \ \Omega$ respectivamente. Para el primer caso, se utilizan dos presets de $\Omega$ y $\Omega$, mientras que para el segundo, de $\Omega$ y $\Omega$.
+Se decide utilizar un capacitor multicapa de $1 \ nF$. Para dicho componente, considerando las frecuencias planteadas anteriormente y utilizando (\ref{frec}), se necesitan valores de resistencias de $15,9 \ k\Omega$ y $795 \ \Omega$ respectivamente. Para el primer caso, se utilizan dos presets de $\Omega$ y $\Omega$, mientras que para el segundo, de $\Omega$ y $\Omega$.
 
 Luego de investigar y simular para distintos valores, se decide tomar los siguientes para las ramas puramente resistivas del puente, $R_4= 1 \ k\Omega$ y $R_2= 2 \ k\Omega$. Volviendo a (\ref{cabeza_de_puente}), se obtiene un valor cabeza de puente $A=\frac{1}{2}$, que da un $F=0.22$.
 
@@ -85,7 +85,7 @@ Luego de investigar y simular para distintos valores, se decide tomar los siguie
 %Tension 10KHz
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth,trim={0.25cm 5cm  1 5cm},clip]{Mediciones/Tensiones_10_KHz}
+\includegraphics[width=0.8\textwidth,trim={0 3.45cm 0.1cm 1.75cm},clip]{Mediciones/Tensiones_10_KHz}
 \caption{Tensión en $V_D$ a 10 kHz}
 \label{fig:Tensiones_10_KHz}
 \end{figure}
@@ -94,7 +94,7 @@ Luego de investigar y simular para distintos valores, se decide tomar los siguie
 %Tension 200KHz
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth,trim={0.25cm 5cm  1 5cm},clip]{Mediciones/Tensiones_200_KHz}
+\includegraphics[width=0.8\textwidth,trim={0 3.45cm 0.1cm 1.75cm},clip]{Mediciones/Tensiones_200_KHz}
 \caption{Tensión en $V_D$ a 200 kHz}
 \label{fig:Tensiones_200_KHz}
 \end{figure}
