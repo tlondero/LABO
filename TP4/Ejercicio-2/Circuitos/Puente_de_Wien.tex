@@ -4,29 +4,26 @@
 
 \begin{document}
 
-\begin{circuitikz}[scale=1]\draw
+\begin{circuitikz}[european voltages, scale=1]\draw
 
 
-(0,0) to[sV,l=$V_g$] (0,10)
+(0,0) to[open, v^>= $V_g$, o-o] (0,10)
 
 %left branch
 (4,10) to[C, l=$C_1$,a=\SI{1}{\nano f}] (4,8.3333)
- to[vR, l=$R_1$,a=\SI{1}{K\ohm},*-*] (4,6.66666)
- to[vR, l=$R_2$,a=\SI{1}{K\ohm}] (4,5)
+ to[vR, mirror, l=$PR_1$, a=\SI{10}{k\ohm},*-*] (4,6.66666)
+ to[vR, mirror, l=$PR_2$, a=\SI{10}{k\ohm}] (4,5)
  -- (4,4.5) 
  (3,4.5) -- (5,4.5)
-  to[vR, l=$R_3$,a=\SI{1}{K\ohm},*-*] (5,2.5)
-  to[vR, l=$R_4$,a=\SI{1}{K\ohm},*-*] (5,0.5)
- (3,4.5) to[C,l=$C_2$,a=\SI{1}{\nano f}] (3,0.5)
+  to[vR, mirror, l=$PR_3$, a=\SI{10}{k\ohm},*-*] (5,2.5)
+  to[vR, mirror, l=$PR_4$, a=\SI{10}{k\ohm},*-*] (5,0.5)
+ (3,4.5) to[C,l=$C_2$, a=\SI{1}{\nano f}] (3,0.5)
  
  (3,0.5)-- (5,0.5)
  
 %right branch
-(8,10) to[R, l=$R_2$,a=\SI{1}{K\ohm}] (8,5)
-(8,5) to[R, l=$R_4$,a=\SI{1}{K\ohm}] (8,0)
-
-%Vd
-(8,5) to[V,l_=$V_D$] (4,5) 
+(8,10) to[R, l=$R_2$,a=\SI{2}{k\ohm}] (8,5)
+(8,5) to[R, l=$R_4$,a=\SI{1}{k\ohm}] (8,0)
 
 %connections
 (0,0) to (8,0)
@@ -34,21 +31,10 @@
 (4,0.5) to (4,0)
 
 %nodes
-(8,5) node[ocirc]{}
-(4,5) node[ocirc]{}
-(4,0) node[ground]{}
+(4,0) node[ground]{};
 
-%(0,0) to[R, l=$R_s$] (4,0)
-%(0,-2) to[C, l=$C$] (4,-2)
-%(4,0)--(4,-2)
-%(0,0) -- (0,-2)
-%(4,-1) -- (5,-1)
-%(0,-1) -- (-1,-1)
-
-
-%(-1,-1) node[ocirc]{}
-%(4,-1) node[circ]{}
-%(0,-1) node[circ]{}
+%Vd
+\draw (8,5) to[rmeterwa, t=V, l_=$V_d$] (4,5)
 
 
 ;\end{circuitikz}
