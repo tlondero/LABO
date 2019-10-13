@@ -9,7 +9,8 @@ Con lo dicho anteriormente, se tuvo que elegir entre tres posibles puentes: el s
 \begin{figure}[H]
 \begin{center}
 \begin{circuitikz}[european voltages]
-	\draw (0,0) to[rmeterwa, t=V, label=$V_d$] ++(3,0) to[R, l=$R_4$] ++(0,-2) to[short] ++(-4,0) node[ocirc](-vg){};
+%	\draw (0,0) to[rmeterwa, t=V, label=$V_d$] ++(3,0) to[R, l=$R_4$] ++(0,-2) to[short] ++(-4,0) node[ocirc](-vg){};
+\draw (0,0) to[short] ++(3,0) to[R, l=$R_4$] ++(0,-2) to[short] ++(-4,0) node[ocirc](-vg){};
 	\draw (0,0) to[vR, mirror, l=$R_3$] ++(0,-2);
 	\draw (0,1.5) to[vR, mirror, l=$R_1$] (0,0);
 	\draw (0,1.5) to[C, l_=$C_1$] ++(0,1.5) to[short] ++(3,0) to[C, l=$C_x$] ++(0,-1.5) to[R, l =$R_x$] ++(0,-1.5);
@@ -31,5 +32,117 @@ Luego, mediante el análisis de sensibilidades, considerando los valores máximo
 	R_{3_{Max}} =& \ \frac{R_4 \cdot 10^{-6}}{\pi C_1} = 100 \ k\Omega
 \end{split}
 \end{equation*}
- 
+ Ecuaciones útiles:
+\begin{equation*}
+\begin{split}
+	C_{x} =& \ \frac{C_1R_3}{R_4}\ F \\
+	R_{x} =& \ \frac{R_1R_4}{R_3}\ \Omega \\
+	D_{x} =& \ 2\pi f C_1R_1 
+\end{split}
+\end{equation*}
+ % Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[H]
+\scalebox{0.7}{
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{\textit{Valor nominal}} & \multicolumn{6}{c|}{2Khz}                       & \multicolumn{6}{c|}{20KHz}                      & \multicolumn{6}{c|}{200KHz}                  & \multirow{2}{*}{Observaciones} \\ \cline{2-19}
+                                        & C       & D     & $\phi$ & C       & D & $\phi$ & C       & D     & $\phi$ & C       & D & $\phi$ & C      & D     & $\phi$ & C     & D & $\phi$ &                                \\ \hline
+100nF                                   & 99.83nF & 0.012 & x      & 102nF   & x & x      & 114.1nF & 0.022 & x      & 101nF   & x & x      & 98.9nF & 0.125 & x      & 120nF & x & x      & x                              \\ \hline
+500nF                                   & 507nF   & x     & x      & 494.6nF & x & x      & 507nF   & x     & x      & 514.6nF & x & x      & 530nF  & x     & x      & 540nF & x & x      & x                              \\ \hline
+1uF                                     & 1uF     & x     & x      & 1uF     & x & x      & 1uF     & x     & x      & 1uF     & x & x      & 1uF    & x     & x      & 1uF   & x & x      & x                              \\ \hline
+2uF                                     & 1uF     & x     & x      & 1uF     & x & x      & 1uF     & x     & x      & 1uF     & x & x      & 1uF    & x     & x      & 1uF   & x & x      & x                              \\ \hline
+\end{tabular}
+}
+\end{table}
+Obteniendo para cada capacitor una medición del punto de estabilización del puente.
+%%%%%%%%%%%%100 NANO
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{/Mediciones/minimo/1xxnD0.x/2kHz.png}
+	\includegraphics[width=0.4\textwidth]{/Mediciones/minimo/100nD0.02/2kHz.png}
+	\subcaption{Medición 100nF 2kHz con distinto D [Derecha 0.012].}
+	\label{fig:fcon}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{/Mediciones/minimo/1xxnD0.x/20kHz.png}
+	\includegraphics[width=0.4\textwidth]{/Mediciones/minimo/100nD0.02/20kHz.png}
+\caption{Medición 100nF 20kHz con distinto D[Derecha 0.012].}
+	\label{fig:fcon}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{/Mediciones/minimo/1xxnD0.x/200kHz.png}
+	\includegraphics[width=0.4\textwidth]{/Mediciones/minimo/100nD0.02/200kHz.png}
+\caption{Medición 100nF 200kHz con distinto D[Derecha 0.012].}
+	\label{fig:fcon}
+\end{figure}
+%%%%%%%%%%%%500 nano
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{/Mediciones/media/4xxD0.x/2kHz.png}
+	\includegraphics[width=0.4\textwidth]{/Mediciones/media/406nD0.02/2kHz.png}
+\caption{Medición 500nF 2kHz con distinto D[Derecha 0.012].}
+	\label{fig:fcon}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{/Mediciones/media/4xxD0.x/20kHz.png}
+	\includegraphics[width=0.4\textwidth]{/Mediciones/media/406nD0.02/20kHz.png}
+\caption{Medición 500nF 20kHz con distinto D[Derecha 0.012].}
+	\label{fig:fcon}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{/Mediciones/media/4xxD0.x/200kHz.png}
+	\includegraphics[width=0.4\textwidth]{/Mediciones/media/406nD0.02/200kHz.png}
+\caption{Medición 500nF 200kHz con distinto D[Derecha 0.012].}
+	\label{fig:fcon}
+\end{figure}
+%%%%%%%%%%%%1 micro
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{/Mediciones/maximo/1xud0.x/2kHz.png}
+	\includegraphics[width=0.4\textwidth]{/Mediciones/maximo/1ud0.2/2kHz.png}
+\caption{Medición 1uF 2kHz con distinto D[Derecha 0.012].}
+	\label{fig:fcon}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{/Mediciones/maximo/1xud0.x/20kHz.png}
+	\includegraphics[width=0.4\textwidth]{/Mediciones/maximo/1ud0.2/20kHz.png}
+\caption{Medición 1uF 20kHz con distinto D[Derecha 0.012].}
+	\label{fig:fcon}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{/Mediciones/maximo/1xud0.x/200kHz.png}
+	\includegraphics[width=0.4\textwidth]{/Mediciones/maximo/1ud0.2/200kHz.png}
+\caption{Medición 1uF 200kHz con distinto D[Derecha 0.012].}
+	\label{fig:fcon}
+\end{figure}
+%%%%%%%%%%%%%2 micro
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{/Mediciones/doblemaximo/2xud0.x/2kHz.png}
+	\includegraphics[width=0.4\textwidth]{/Mediciones/doblemaximo/2ud0.2/2kHz.png}
+\caption{Medición 2uF 2kHz con distinto D[Derecha 0.012].}
+	\label{fig:fcon}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{/Mediciones/doblemaximo/2xud0.x/20kHz.png}
+	\includegraphics[width=0.4\textwidth]{/Mediciones/doblemaximo/2ud0.2/20kHz.png}
+\caption{Medición 2uF 20kHz con distinto D[Derecha 0.012].}
+	\label{fig:fcon}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{/Mediciones/doblemaximo/2xud0.x/200kHz.png}
+	\includegraphics[width=0.4\textwidth]{/Mediciones/doblemaximo/2ud0.2/200kHz.png}
+\caption{Medición 2uF 200kHz con distinto D[Derecha 0.012].}
+	\label{fig:fcon}
+\end{figure}
 \end{document}
