@@ -32,6 +32,34 @@ Luego, mediante el análisis de sensibilidades, considerando los valores máximo
 	R_{3_{Max}} =& \ \frac{R_4 \cdot 10^{-6}}{\pi C_1} = 100 \ k\Omega
 \end{split}
 \end{equation*}
+Para el análisis de sensibilidades se realizó para la variaciónd e Vd en función de R3 y R1:
+
+\begin{align*}
+\scalebox{1.5}{$
+S_{R_1}^{V_d} = \frac{\partial V_d}{\partial R_1} \cdot \frac{R_1}{V_d}=
+\frac{-R_1R_3}{\left( \frac{R_3}{R_3+\frac{1}{sC_1}+R1}-\frac{R_4}{R_4+\frac{1}{sC_x}+R_x} \right) \cdot  \left( R_3+\frac{1}{sC_1}+R1\right)^2}
+$}
+\end{align*}
+
+\begin{align*}
+\scalebox{1.5}{$
+S_{R_3}^{V_d} = \frac{\partial V_d}{\partial R_3} \cdot \frac{R_3}{V_d}=\frac{(C_1R_1s+1)R_3C_1(C_xR_xs+R_4C_xs+1)}{(C_1R_1s+C_1R_3s+1)\cdot (-C_1C_xR_3R_xs+R_4C_1C_xR_1s-C_1R_3+R_4C_x)}
+$}
+\end{align*}
+
+
+Luego se graficó par una frecuencia dada la tensión del puente en función de las resistencias a variar.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\textwidth]{/ImagenesEjercicio3/Graph.png}
+	\label{fig:graph}
+\end{figure}
+Tambien se realizó una simulación de montecarlo para asegurar que el puente converja al equilibrio también en una simulación.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{/ImagenesEjercicio3/Montecarlos.png}
+	\label{fig:graph}
+\end{figure}
  Ecuaciones útiles:
 \begin{equation*}
 \begin{split}
@@ -43,16 +71,16 @@ Luego, mediante el análisis de sensibilidades, considerando los valores máximo
  % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
 \begin{table}[H]
-\scalebox{0.7}{
+\scalebox{0.65}{
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
-\multirow{2}{*}{\textit{Valor nominal}} & \multicolumn{6}{c|}{2Khz}                       & \multicolumn{6}{c|}{20KHz}                      & \multicolumn{6}{c|}{200KHz}                  & \multirow{2}{*}{Observaciones} \\ \cline{2-19}
-                                        & C       & D     & $\phi$ & C       & D & $\phi$ & C       & D     & $\phi$ & C       & D & $\phi$ & C      & D     & $\phi$ & C     & D & $\phi$ &                                \\ \hline
-100nF                                   & 99.83nF & 0.012 & x      & 102nF   & x & x      & 114.1nF & 0.022 & x      & 101nF   & x & x      & 98.9nF & 0.125 & x      & 120nF & x & x      & x                              \\ \hline
-500nF                                   & 507nF   & x     & x      & 494.6nF & x & x      & 507nF   & x     & x      & 514.6nF & x & x      & 530nF  & x     & x      & 540nF & x & x      & x                              \\ \hline
-1uF                                     & 1uF     & x     & x      & 1uF     & x & x      & 1uF     & x     & x      & 1uF     & x & x      & 1uF    & x     & x      & 1uF   & x & x      & x                              \\ \hline
-2uF                                     & 1uF     & x     & x      & 1uF     & x & x      & 1uF     & x     & x      & 1uF     & x & x      & 1uF    & x     & x      & 1uF   & x & x      & x                              \\ \hline
+\multirow{2}{*}{\textit{Valor nominal}} & \multicolumn{6}{c|}{2Khz}                       & \multicolumn{6}{c|}{20KHz}                      & \multicolumn{6}{c|}{200KHz}                  & \multirow{2}{*}{Observaciones}                                                                                                                 \\ \cline{2-19}
+                                        & C       & D     & $\phi$ & C       & D & $\phi$ & C       & D     & $\phi$ & C       & D & $\phi$ & C      & D     & $\phi$ & C     & D & $\phi$ &                                                                                                                                                \\ \hline
+100nF                                   & 99.83nF & 0.012 & 0      & 102nF   & x & -4     & 114.1nF & 0.022 & 0      & 101nF   & x & 1      & 98.9nF & 0.125 & 4      & 120nF & x & 4      & -                                                                                                                                              \\ \hline
+500nF                                   & 507nF   & x     & -1     & 494.6nF & 4 & x      & 507nF   & x     & 1      & 514.6nF & x & 6      & 530nF  & x     & 1      & 540nF & 1 & 4      & -                                                                                                                                              \\ \hline
+1uF                                     & 1uF     & x     & 0      & 1uF     & x & 6      & 1uF     & x     & 0      & 1uF     & x & 1      & 1uF    & x     & 0      & 1uF   & x & 0      & -                                                                                                                                              \\ \hline
+2uF                                     & 1uF     & x     & 24     & 1uF     & x & 25     & 1uF     & x     & 4      & 1uF     & x & 4      & 1uF    & x     & 1      & 1uF   & x & 1      & \begin{tabular}[c]{@{}c@{}}El puente no llega al equilibrio\\  dado que se encuentra fuera del rango \\ para el cual fue diseñado\end{tabular} \\ \hline
 \end{tabular}
 }
 \end{table}
@@ -145,4 +173,5 @@ Obteniendo para cada capacitor una medición del punto de estabilización del pu
 \caption{Medición 2uF 200kHz con distinto D[Derecha 0.012].}
 	\label{fig:fcon}
 \end{figure}
+Finalmente se realizaron las mismas mediciones en el analizador de impedancias para obtener un calculo del error.
 \end{document}
