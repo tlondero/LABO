@@ -68,6 +68,15 @@ Tambien se realizó una simulación de montecarlo para asegurar que el puente co
 	D_{x} =& \ 2\pi f C_1R_1 
 \end{split}
 \end{equation*}
+De aquí se puede calcular la precición del puente para estos parámetros:
+\begin{equation*}
+\begin{split}
+	\Delta C_{x} =& \ \frac{C_1 \cdot \Delta R_3}{R_4}\  \\
+	R_{x} =& \ \frac{\Delta R_1 \cdot R_4  R_3+R_1  R_4 \cdot \Delta R_3}{(R_3)^2}\  \\
+	D_{x} =& \ 2\pi f C_1 \Delta R_1 
+\end{split}
+\end{equation*}
+
  % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
 \begin{table}[H]
@@ -173,5 +182,17 @@ Obteniendo para cada capacitor una medición del punto de estabilización del pu
 \caption{Medición 2uF 200kHz con distinto D[Derecha 0.012].}
 	\label{fig:fcon}
 \end{figure}
-Finalmente se realizaron las mismas mediciones en el analizador de impedancias para obtener un calculo del error.
+Finalmente se realizaron las mismas mediciones en el analizador de impedancias para obtener un calculo del error, obteniendo las siguientes mediciones.\\
+{\centering 
+\begin{Huge}
+\color{red} 
+TABLA ANALIZADOR DE IMPEDANCIAS
+\end{Huge}
+}
+Luego el error fue calculado utilizando la siguiente fórmula:
+\begin{equation*}
+\begin{split}
+	 Error \% =& \ \frac{|C_{Gen}-C_{Puente}|}{C_{Puente}}\ 
+\end{split}
+\end{equation*}
 \end{document}
