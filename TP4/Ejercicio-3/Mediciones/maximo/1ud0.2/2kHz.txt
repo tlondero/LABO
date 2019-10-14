@@ -1,0 +1,9 @@
+Frecuencia: 2kHz
+Fase:-4
+R1:No importa realmente- 300
+R3:100k
+C=1n
+R4=100
+D=0.
+RESULTADOS:
+Cx=1micro
