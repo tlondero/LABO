@@ -31,7 +31,7 @@ Las relaciones obtenidas para el mismo en condición de equilibrio son las sigui
 w=\frac{1}{\sqrt{C_1C_3R_1R_3}}
 \end{equation}
 
-Generalmente el diseño del puente se realiza considerando las frecuencias desconocidas de las fuentes a medir. Se fijan valores equivalentes para los capacitores, lo mismo sucede con sus resistencias asociadas. 
+Generalmente, el diseño del puente se realiza considerando las frecuencias desconocidas de las fuentes a medir. Se fijan valores equivalentes para los capacitores, lo mismo sucede con sus resistencias asociadas. 
 \begin{equation}
 R_1=R_3=R \quad	\wedge \quad C_1=C_3=C
 \end{equation}
@@ -47,22 +47,19 @@ f=\frac{1}{2\pi RC}
 \label{frec}
 \end{equation}
 
-Las resistencias relacionadas con los capacitores son las que se varia para definir el comportamiento del puente, las mismas tienen una sensibilidad asociada. Con dicha finalidad, se utilizan resistencias variables (presets). 
+Las resistencias relacionadas con los capacitores son las variables de ajuste para definir el comportamiento del puente, las mismas tienen una sensibilidad asociada. Para dicha finalidad, se utilizan resistencias variables (presets). 
 
 Partiendo de la fórmula para la sensibilidad dada por $\Delta V_D=V_G \ F \ \delta_{Z_i}=V_G \ F \ \frac{\Delta Z_i}{Z_i}$ siendo $i$ la i-ésima rama, se obtienen las siguientes sensibilidades para las resistencias variables $R_3$ y $R_1$:
 \begin{equation}
 \Delta V_{D_{R_1}}=V_g\left|\frac{SC_1R_1}{SC_1R_1+1}\right|\frac{\Delta R_1}{R_1}
 \end{equation}
 \begin{equation}
-\Delta V_{D_{R_3}}=V_g\left|SC_3R_3+1\right|\frac{\Delta R_3}{R_3}
+\Delta V_{D_{R_3}}=V_g\left|\frac{1}{SC_3R_3+1}\right|\frac{\Delta R_3}{R_3}
 \end{equation}
 
 Siendo $F$ el factor cabeza de puente, dado por:
 \begin{equation}
-\begin{split}
-F=& \ \frac{A}{1+2A\cos(\theta_A)+A^2} \\
-A=& \ \frac{Z_4}{Z_2}
-\end{split}
+F=\frac{A}{1+2A\cos(\theta_A)+A^2} \quad \wedge \quad A=\frac{Z_4}{Z_2}
 \label{cabeza_de_puente}
 \end{equation} 
 
@@ -73,6 +70,12 @@ Como primera decisión de diseño se implementan dos presets por cada resistenci
 Se decide utilizar un capacitor multicapa de $1 \ nF$. Para dicho componente, considerando las frecuencias planteadas anteriormente y utilizando (\ref{frec}), se necesitan valores de resistencias de $15,9 \ k\Omega$ y $795 \ \Omega$ respectivamente. Para el primer caso, se utilizan dos presets de $\Omega$ y $\Omega$, mientras que para el segundo, de $\Omega$ y $\Omega$.
 
 Luego de investigar y simular para distintos valores, se decide tomar los siguientes para las ramas puramente resistivas del puente, $R_4= 1 \ k\Omega$ y $R_2= 2 \ k\Omega$. Volviendo a (\ref{cabeza_de_puente}), se obtiene un valor cabeza de puente $A=\frac{1}{2}$, que da un $F=0.22$.
+
+Primeramente, como primera decisión de diseño se considera implementar dos presets por cada resistencia variable requerida. La implementación de dos componentes se debe a que uno serviría para ajuste grueso y el otro para un ajuste fino, logrando de esta manera obtener un ajuste más preciso que permita reducir la sensibilidad. Para los valores de frecuencia propuestos por la cátedra y usando un capacitor multicapa de $1nf$, era necesario lograr valores de resistividad entre los $800 \Omega$ y $16K\Omega$. En la práctica, no había disponibles en el pañol magnitudes de presets como para cubrir dicho rango, sin utilizar menos de 4 componentes, por lo que se decidió utilizar dos presets de $10K\Omega$.
+\par 
+Luego de investigar y simular para distintos valores, se decide tomar los siguientes valores para las ramas puramente resistivas del puente, $R_4=1K\Omega$ y $R_2=2K\Omega$. Volviendo a la ecuación [\ref{cabeza_de_puente}], obtendremos un valor cabeza de puente $A=\frac{1}{2}$, que dará un $F=0.22$.
+
+Se obtienen las siguientes sensibilidades utilzando las fórmulas presentes en [\ref{VDR1}][\ref{VDR1}]:
 
 %Sensibilidades
 \begin{figure}[H]
@@ -125,5 +128,8 @@ $\mathbf{f_g \ [kHz]}$ & $\mathbf{P_{R1} + P_{R2} \ [k\Omega]}$ & $\mathbf{P_{R3
 
 \subsection{Conclusiones}
 
-En la práctica, las resistencias que se suponen de igual magnitud como una condición inicial ($R_3$ y $R_1$), dejando de serlo como se puede apreciar en la Tabla (\ref{tab:Tabla_error}). Esto se debe a la variación de magnitud de los presets para poder llegar lo más cercano posible a la condición de equilibrio ($V_D=0$) considerando las sensibilidades previamente calculadas. Por otro lado, se observa que el error obtenido para el cálculo de la frecuencia es bajo, con un promedio de 1.97\%. Consecuentemente, se buscó otros valores de resistencias, bajo la misma frecuencia, con los que se pudiese llegar a la condición de equilibrio, descubriendo que existen dichos valores, pero obteniéndose un error más alto, encontrándose este entre el \%25 y \%50. Dicha diferencia en el error, se debe a que la existente entre las resistencias se vuelve mayor, llegando en algunos casos a un orden de magnitud. 
+En la práctica, las resistencias que se suponen de igual magnitud como una condición inicial ($R_3$ y $R_1$), dejando de serlo como se puede apreciar en la Tabla (\ref{tab:Tabla_error}). Esto se debe a la variación de magnitud de los presets para poder llegar lo más cercano posible a la condición de equilibrio ($V_D=0$) considerando las sensibilidades previamente calculadas. 
+Por otro lado, se observa que el error obtenido para el cálculo de la frecuencia es considerablemente bajo[\ref{tab:Tabla_error}], con un promedio de 1.97\%. Consecuentemente, se buscó otros valores de resistencias, bajo la misma frecuencia, con los que se pudiese llegar a la condición de equilibrio, descubriendo que existen dichos valores, pero obteniéndose un error más alto, encontrándose este entre el \%25 y \%50. Dicha diferencia en el error, se debe a que la existente entre las resistencias se vuelve mayor, llegando en algunos casos a un orden de magnitud. 
+
+
 \end{document}
