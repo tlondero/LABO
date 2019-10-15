@@ -19,51 +19,13 @@ El puente de Wien cuenta con cuatro ramas. El primer par de ramas adyacentes cue
 %\label{fig:Puente_de_wien}
 %\end{figure}
 
-\begin{figure}[H]
-\begin{center}
-\begin{circuitikz}[european voltages, scale=0.9]
-\draw (0,10) to[open, v= $V_g$, o-o] (0,0);
-\draw (0,0) to[open] (0,10)
-%left branch
-(4,10) to[C, l=$C_1$,a=\SI{1}{\nano f}] (4,8.3333)
- to[vR, mirror, l=$PR_1$, a=\SI{10}{k\ohm},*-*] (4,6.66666)
- to[vR, mirror, l=$PR_2$, a=\SI{10}{k\ohm}] (4,5)
- -- (4,4.5) 
- (3,4.5) -- (5,4.5)
-  to[vR, mirror, l=$PR_3$, a=\SI{10}{k\ohm},*-*] (5,2.5)
-  to[vR, mirror, l=$PR_4$, a=\SI{10}{k\ohm},*-*] (5,0.5)
- (3,4.5) to[C,l=$C_2$, a=\SI{1}{\nano f}] (3,0.5)
- 
- (3,0.5)-- (5,0.5)
- 
-%right branch
-(8,10) to[R, l=$R_2$,a=\SI{2}{k\ohm}] (8,5)
-(8,5) to[R, l=$R_4$,a=\SI{1}{k\ohm}] (8,0)
-
-%connections
-(0,0) to (8,0)
-(0,10) to (8,10)
-(4,0.5) to (4,0)
-
-%nodes
-(4,0) node[ground]{};
-
-%Vd
-\draw (8,5) to[rmeterwa, t=V, l_=$V_d$] (4,5);
-\end{circuitikz}
-\caption{Puente de Wien planteado.}
-\label{fig:Puente_de_wien}
-\end{center}
-\end{figure}
-
-%~Puente_de_wien
-
 Las relaciones obtenidas para el mismo en condición de equilibrio son las siguientes:
 \begin{equation}
 \frac{R_1}{R_3}+\frac{C_3}{C_1}=\frac{R_2}{R_4}
 \end{equation}
 \begin{equation}
 w=\frac{1}{\sqrt{C_1C_3R_1R_3}}
+\label{formula_frecuencia_sin_despejes}
 \end{equation}
 
 Generalmente, el diseño del puente se realiza considerando las frecuencias desconocidas de las fuentes a medir. Se fijan valores equivalentes para los capacitores, lo mismo sucede con sus resistencias asociadas. 
@@ -77,7 +39,7 @@ f=\frac{1}{2\pi RC}
 \label{frec}
 \end{equation}
 
-Las resistencias relacionadas con los capacitores son las variables de ajuste para definir el comportamiento del puente, las mismas tienen una sensibilidad asociada. Para dicha finalidad, se utilizan resistencias variables (presets). 
+Las resistencias relacionadas con los capacitores son las variables de ajuste para definir el comportamiento del puente, las mismas tienen una sensibilidad asociada. Para dicha finalidad, se utilizan resistencias variables (preset multivueltas de 25 vueltas). 
 
 Partiendo de la fórmula para la sensibilidad dada por $\Delta V_D=V_G \ F \ \delta_{Z_i}=V_G \ F \ \frac{\Delta Z_i}{Z_i}$ siendo $i$ la i-ésima rama, se obtienen las siguientes sensibilidades para las resistencias variables $R_3$ y $R_1$:
 \begin{equation}
@@ -87,7 +49,21 @@ Partiendo de la fórmula para la sensibilidad dada por $\Delta V_D=V_G \ F \ \de
 \Delta V_{D_{R_3}}=V_g\left|\frac{1}{SC_3R_3+1}\right|\frac{\Delta R_3}{R_3}
 \end{equation}
 
-Siendo $F$ el factor cabeza de puente, dado por:
+Considerando que $C=\frac{1}{wR}$, nos quedan las siguientes sensibilidades:
+
+\begin{equation}
+\Delta V_{D_{R_1}}=V_g\left|\frac{i}{i+1}\right|\frac{\Delta R_1}{R_1}
+\label{VDR_1}
+\end{equation}
+\begin{equation}
+\Delta V_{D_{R_3}}=V_g\left|\frac{1}{i+1}\right|\frac{\Delta R_3}{R_3}
+\label{VDR_3}
+\end{equation}
+
+Dado que $\left|\frac{i}{i+1}\right|=\left|\frac{1}{i+1}\right|=\frac{\sqrt{2}}{2}$ ambas sensibilidades son iguales.
+
+
+Por otro lado, el factor cabeza de puente, está dado por:
 \begin{equation}
 F=\frac{A}{1+2A\cos(\theta_A)+A^2} \quad \wedge \quad A=\frac{Z_4}{Z_2}
 \label{cabeza_de_puente}
@@ -97,48 +73,47 @@ F=\frac{A}{1+2A\cos(\theta_A)+A^2} \quad \wedge \quad A=\frac{Z_4}{Z_2}
 
 Como primera decisión de diseño se implementan dos presets por cada resistencia variable requerida, esto se debe a que uno sirve para ajuste grueso y el otro para uno fino, logrando de esta manera obtener una calibración más precisa, que permita reducir la sensibilidad. Además, se consideran las limitaciones propias de los valores comerciales.
 
-Se decide utilizar un capacitor multicapa de $1 \ nF$. Para dicho componente, considerando las frecuencias planteadas anteriormente y utilizando (\ref{frec}), se necesitan valores de resistencias de $15,9 \ k\Omega$ y $795 \ \Omega$ respectivamente. Para el primer caso, se utilizan dos presets de $X \ \Omega$ y $X \ \Omega$, mientras que para el segundo, de $X \ \Omega$ y $X \ \Omega$.
-\begin{center}
-	\huge{\textcolor{red}{\textbf{PONER VALORES DE PRESETS.}}}
-\end{center}
+Se decide utilizar un capacitor multicapa de $1 \ nF$. Para dicho componente, considerando las frecuencias límite planteadas anteriormente y utilizando (\ref{frec}), se necesitan valores de resistencias de $15,9 \ k\Omega$ y $795 \ \Omega$ respectivamente. Se utilizan 2 presets de $10 \ k\Omega$ para cada rama debido a que eran los que había disponible en el pañol. Se podrían haber utilizado uno de $10 \ k\Omega$ y dos de $5 \ k\Omega$ pero se consideró que el espacio que ocuparía no justificaría la ganancia en sensibilidad.
 
-Se decide tomar los siguientes para las ramas puramente resistivas del puente, $R_4= 1 \ k\Omega$ y $R_2= 2 \ k\Omega$. Volviendo a (\ref{cabeza_de_puente}), se obtiene un valor cabeza de puente $A=\frac{1}{2}$, que da un $F=0.22$.
-
-Primeramente, como primera decisión de diseño se considera implementar dos presets por cada resistencia variable requerida. La implementación de dos componentes se debe a que uno serviría para ajuste grueso y el otro para un ajuste fino, logrando de esta manera obtener un ajuste más preciso que permita reducir la sensibilidad. Para los valores de frecuencia propuestos por la cátedra y usando un capacitor multicapa de $1nf$, era necesario lograr valores de resistividad entre los $800 \Omega$ y $16K\Omega$. En la práctica, no había disponibles en el pañol magnitudes de presets como para cubrir dicho rango, sin utilizar menos de 4 componentes, por lo que se decidió utilizar dos presets de $10K\Omega$.
+Se decide tomar los siguientes valores para las ramas puramente resistivas del puente, $R_4= 1 \ k\Omega$ y $R_2= 2 \ k\Omega$. Volviendo a (\ref{cabeza_de_puente}), se obtiene un valor cabeza de puente $A=\frac{1}{2}$, que da un $F=0.22$.
 \par 
-Luego de investigar y simular para distintos valores, se decide tomar los siguientes valores para las ramas puramente resistivas del puente, $R_4=1K\Omega$ y $R_2=2K\Omega$. Volviendo a la ecuación [\ref{cabeza_de_puente}], obtendremos un valor cabeza de puente $A=\frac{1}{2}$, que dará un $F=0.22$.
 
-Se obtienen las siguientes sensibilidades utilzando las fórmulas presentes en [\ref{VDR1}][\ref{VDR1}]:
+
+Se obtienen las siguientes sensibilidades utilzando las fórmulas presentes en (\ref{VDR_1})(\ref{VDR_3}):
 
 %Sensibilidades
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.7]{Graficos/Sensibilidad}
+\includegraphics[width=0.8\textwidth]{Graficos/Sensibilidad}
 \caption{Sensibilidades $R_1$ y $R_3$}
 \label{fig:Sensibilidades}
 \end{figure}
 %~Sensibilidades
 
-
+Se mide el puente para una frecuencia de $10 \ KHz $, obteniéndose las siguientes tensiones:
 
 %Tension 10KHz
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth,trim={0 3.45cm 0.1cm 1.75cm},clip]{Mediciones/Tensiones_10_KHz}
+\includegraphics[width=0.8\textwidth,trim={1cm 3.45cm 0.1cm 5cm},clip]{Mediciones/Tensiones_10_KHz}
 \caption{Tensión en $V_D$ a 10 kHz}
 \label{fig:Tensiones_10_KHz}
 \end{figure}
 %~Tension 10KHz
+En el canal 1, se puede observar la señal producida por el generador mientras que en el canal 2 y 3 se observa $V_a$ y $V_b$ respectivamente.
+
+Se calcula el error de la medición respecto del calculado mediante una simulación en LTSpice. El error va a estar dado por 
 
 %Tension 200KHz
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth,trim={0 3.45cm 0.1cm 1.75cm},clip]{Mediciones/Tensiones_200_KHz}
+\includegraphics[width=0.8\textwidth,trim={1cm 3.45cm 0.1cm 5cm},clip]{Mediciones/Tensiones_200_KHz}
 \caption{Tensión en $V_D$ a 200 kHz}
 \label{fig:Tensiones_200_KHz}
 \end{figure}
 %~Tension 200KHz
 
+A continuación, se presenta la tabla donde se calcularon las diferencias entre la frecuencia del generador y la calculada analíticamente mediante (\ref{formula_frecuencia_sin_despejes}):
 \begin{table}[H]
 \centering
 \begin{tabular}{ccccc}
