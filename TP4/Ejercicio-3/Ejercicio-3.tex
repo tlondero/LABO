@@ -9,8 +9,8 @@ Con lo dicho anteriormente, se tuvo que elegir entre tres posibles puentes: el s
 \begin{figure}[H]
 \begin{center}
 \begin{circuitikz}[european voltages]
-%	\draw (0,0) to[rmeterwa, t=V, label=$V_d$] ++(3,0) to[R, l=$R_4$] ++(0,-2) to[short] ++(-4,0) node[ocirc](-vg){};
-\draw (0,0) to[short] ++(3,0) to[R, l=$R_4$] ++(0,-2) to[short] ++(-4,0) node[ocirc](-vg){};
+	%\draw (0,0) to[short] ++(3,0) to[R, l=$R_4$] ++(0,-2) to[short] ++(-4,0) node[ocirc](-vg){};
+	\draw (0,0) to[rmeterwa, t=V, label=$V_d$] ++(3,0) to[R, l=$R_4$] ++(0,-2) to[short] ++(-4,0) node[ocirc](-vg){};
 	\draw (0,0) to[vR, mirror, l=$R_3$] ++(0,-2);
 	\draw (0,1.5) to[vR, mirror, l=$R_1$] (0,0);
 	\draw (0,1.5) to[C, l_=$C_1$] ++(0,1.5) to[short] ++(3,0) to[C, l=$C_x$] ++(0,-1.5) to[R, l =$R_x$] ++(0,-1.5);
