@@ -1,0 +1,7 @@
+Frecuencia: 2kHz
+Fase:00.022
+R1:865
+R3:9.983k
+C=1n
+R4=100
+D=0.02

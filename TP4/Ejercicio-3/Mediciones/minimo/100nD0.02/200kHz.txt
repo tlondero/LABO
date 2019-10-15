@@ -1,0 +1,7 @@
+Frecuencia: 200kHz
+Fase:4
+R1:145
+R3:989.89k
+C=1n
+R4=100
+D=0.02

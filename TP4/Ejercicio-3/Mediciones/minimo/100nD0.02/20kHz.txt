@@ -1,0 +1,7 @@
+Frecuencia: 20kHz
+Fase:6
+R1:865
+R3:11.41k
+C=1n
+R4=100
+D=0.02
