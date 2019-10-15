@@ -10,7 +10,7 @@ Con lo dicho anteriormente, se tuvo que elegir entre tres posibles puentes: el s
 \begin{center}
 \begin{circuitikz}[european voltages]
 %	\draw (0,0) to[rmeterwa, t=V, label=$V_d$] ++(3,0) to[R, l=$R_4$] ++(0,-2) to[short] ++(-4,0) node[ocirc](-vg){};
-\draw (0,0) to[short] ++(3,0) to[R, l=$R_4$] ++(0,-2) to[short] ++(-4,0) node[ocirc](-vg){};
+	\draw (0,0) to[short] ++(3,0) to[R, l=$R_4$] ++(0,-2) to[short] ++(-4,0) node[ocirc](-vg){};
 	\draw (0,0) to[vR, mirror, l=$R_3$] ++(0,-2);
 	\draw (0,1.5) to[vR, mirror, l=$R_1$] (0,0);
 	\draw (0,1.5) to[C, l_=$C_1$] ++(0,1.5) to[short] ++(3,0) to[C, l=$C_x$] ++(0,-1.5) to[R, l =$R_x$] ++(0,-1.5);
@@ -51,14 +51,16 @@ Luego, fijando la frecuencia, se graficó la tensión del puente en función de 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth]{/ImagenesEjercicio3/Graph.png}
-	\label{fig:graph}
+	\caption{Tensión del puente en función de $R_1$ y $R_3$.}
+	\label{fig:graph1}
 \end{figure}
 
 También se realizó una simulación de Montecarlo para asegurar que el puente converja al equilibrio.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{/ImagenesEjercicio3/Montecarlos.png}
-	\label{fig:graph}
+	\caption{Diagramas de Montecarlo.}	
+	\label{fig:graph2}
 \end{figure}
 
 Planteando la tensión en el equilibrio, y despejando algebraicamente, se llega a las siguientes expresiones:
@@ -103,21 +105,21 @@ Obteniendo para cada capacitor una medición del punto de estabilización del pu
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/minimo/1xxnD0.x/2kHz.png}
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/minimo/100nD0.02/2kHz.png}
 	\subcaption{Medición de 100 nF a 2 kHz con distinto D [Derecha 0.012].}
-	\label{fig:fcon}
+	\label{fig:fcon1}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/minimo/1xxnD0.x/20kHz.png}
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/minimo/100nD0.02/20kHz.png}
 \caption{Medición de 100 nF a 20 kHz con distinto D [Derecha 0.012].}
-	\label{fig:fcon}
+	\label{fig:fcon2}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/minimo/1xxnD0.x/200kHz.png}
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/minimo/100nD0.02/200kHz.png}
 \caption{Medición de 100 nF a 200 kHz con distinto D [Derecha 0.012].}
-	\label{fig:fcon}
+	\label{fig:fcon3}
 \end{figure}
 %%%%%%%%%%%%500 nano
 \begin{figure}[H]
@@ -125,21 +127,21 @@ Obteniendo para cada capacitor una medición del punto de estabilización del pu
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/media/4xxD0.x/2kHz.png}
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/media/406nD0.02/2kHz.png}
 \caption{Medición de 500 nF a 2 kHz con distinto D [Derecha 0.012].}
-	\label{fig:fcon}
+	\label{fig:fcon4}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/media/4xxD0.x/20kHz.png}
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/media/406nD0.02/20kHz.png}
 \caption{Medición de 500 nF a 20 kHz con distinto D [Derecha 0.012].}
-	\label{fig:fcon}
+	\label{fig:fcon5}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/media/4xxD0.x/200kHz.png}
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/media/406nD0.02/200kHz.png}
 \caption{Medición de 500 nF a 200 kHz con distinto D [Derecha 0.012].}
-	\label{fig:fcon}
+	\label{fig:fcon6}
 \end{figure}
 %%%%%%%%%%%%1 micro
 \begin{figure}[H]
@@ -147,21 +149,21 @@ Obteniendo para cada capacitor una medición del punto de estabilización del pu
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/maximo/1xud0.x/2kHz.png}
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/maximo/1ud0.2/2kHz.png}
 \caption{Medición de 1 $\mu$F a 2 kHz con distinto D [Derecha 0.012].}
-	\label{fig:fcon}
+	\label{fig:fcon7}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/maximo/1xud0.x/20kHz.png}
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/maximo/1ud0.2/20kHz.png}
 \caption{Medición de 1 $\mu$F a 20 kHz con distinto D [Derecha 0.012].}
-	\label{fig:fcon}
+	\label{fig:fcon8}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/maximo/1xud0.x/200kHz.png}
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/maximo/1ud0.2/200kHz.png}
 \caption{Medición de 1 $\mu$F a 200 kHz con distinto D [Derecha 0.012].}
-	\label{fig:fcon}
+	\label{fig:fcon9}
 \end{figure}
 %%%%%%%%%%%%%2 micro
 \begin{figure}[H]
@@ -169,21 +171,21 @@ Obteniendo para cada capacitor una medición del punto de estabilización del pu
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/doblemaximo/2xud0.x/2kHz.png}
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/doblemaximo/2ud0.2/2kHz.png}
 \caption{Medición de 2 $\mu$F a 2 kHz con distinto D [Derecha 0.012].}
-	\label{fig:fcon}
+	\label{fig:fcon10}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/doblemaximo/2xud0.x/20kHz.png}
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/doblemaximo/2ud0.2/20kHz.png}
 \caption{Medición de 2 $\mu$F a 20 kHz con distinto D [Derecha 0.012].}
-	\label{fig:fcon}
+	\label{fig:fcon11}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/doblemaximo/2xud0.x/200kHz.png}
 	\includegraphics[width=0.4\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{/Mediciones/doblemaximo/2ud0.2/200kHz.png}
 \caption{Medición de 2 $\mu$F a 200 kHz con distinto D [Derecha 0.012].}
-	\label{fig:fcon}
+	\label{fig:fcon12}
 \end{figure}
 
 Finalmente se realizaron las mismas mediciones en el analizador de impedancias para obtener un calculo del error, obteniendo las siguientes mediciones.\\
