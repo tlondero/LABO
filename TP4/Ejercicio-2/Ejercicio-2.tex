@@ -9,16 +9,9 @@ En esta sección, se procede a diseñar un puente de Wien, analizando las sensib
 
 Dicho puente permite conocer la frecuencia de una fuente desconocida, esto se debe a un procedimiento por el cual se comparan distintas magnitudes presentes en las ramas del puente, el cual se puede considerar como un proceso de medición indirecta. Existen limitaciones de tipo constructivas para el rango de frecuencias que se pueden medir, el asignado por la cátedra es de $10 \ kHz$ a $200 \ kHz$.
 
-Un puente se considera en equilibrio cuando el cociente entre la tensión en la salida del puente $V_D$ y la tensión del generador $V_G$ es nulo. Esto implica que, el cociente entre una impedancia y su opuesta, debe ser equivalente al otro par dentro del circuito. Esta hipótesis nunca se puede confirmar ya que es una afirmación de carácter netamente teórico, mientras que en la práctica nunca se obtiene una tensión nula debido tanto a la incerteza en los métodos de medición utilizados, mostrado en el Ejercicio 1, así como también a las sensibilidades propias de los componentes.
+Un puente se considera en equilibrio cuando la tensión en la salida del puente $V_D$ es nula. Esto implica que, el cociente entre una impedancia y su opuesta, debe ser equivalente al otro par dentro del circuito. Dicha hipótesis nunca se puede confirmar ya que es una afirmación de carácter netamente teórico, mientras que en la práctica nunca se obtiene una tensión nula debido tanto a la incerteza en los métodos de medición utilizados, mostrado en el Ejercicio 1, así como también a las sensibilidades propias de los componentes.
 
 El puente de Wien cuenta con cuatro ramas. El primer par de ramas adyacentes cuentan con componentes puramente resistivos, el otro está formado por circuitos RC, uno en paralelo y otro en serie, como se puede apreciar en la Figura (\ref{fig:Puente_de_wien}).
-%\begin{figure}[H]
-%\centering
-%\includegraphics[scale=0.8]{Circuitos/Puente_de_Wien.pdf}
-%\caption{Puente de Wien planteado}
-%\label{fig:Puente_de_wien}
-%\end{figure}
-
 \begin{figure}[H]
 \centering
 \begin{circuitikz}[european voltages, scale=1]\draw
@@ -180,7 +173,7 @@ $\mathbf{f_g \ [kHz]}$ & $\mathbf{P_{R1} + P_{R2} \ [k\Omega]}$ & $\mathbf{P_{R3
 \subsection{Conclusiones}
 
 En la práctica, las resistencias que se suponen de igual magnitud como una condición inicial ($R_3$ y $R_1$), dejando de serlo como se puede apreciar en la Tabla (\ref{tab:Tabla_error}). Esto se debe a la variación de magnitud de los presets para poder llegar lo más cercano posible a la condición de equilibrio ($V_D=0$) considerando las sensibilidades previamente calculadas. 
-Por otro lado, se observa que el error obtenido para el cálculo de la frecuencia es considerablemente bajo[\ref{tab:Tabla_error}], con un promedio de 1.97\%. Consecuentemente, se buscó otros valores de resistencias, bajo la misma frecuencia, con los que se pudiese llegar a la condición de equilibrio, descubriendo que existen dichos valores, pero obteniéndose un error más alto, encontrándose este entre el \%25 y \%50. Dicha diferencia en el error, se debe a que la existente entre las resistencias se vuelve mayor, llegando en algunos casos a un orden de magnitud. 
+Por otro lado, se observa que el error obtenido para el cálculo de la frecuencia es considerablemente bajo[\ref{tab:Tabla_error}], con un promedio de 1.97\%. Consecuentemente, se buscó otros valores de resistencias, bajo la misma frecuencia, con los que se pudiese llegar a la condición de equilibrio, descubriendo que existen dichos valores, pero obteniéndose un error más alto, encontrándose este entre el 25\% y 50\%. Dicha diferencia en el error, se debe a que la existente entre las resistencias se vuelve mayor, llegando en algunos casos a un orden de magnitud. 
 
 En la práctica, las resistencias que se suponen de igual magnitud como una condición inicial ($R_3$ y $R_1$), dejando de serlo como se puede apreciar en la Tabla (\ref{tab:Tabla_error}).
 \begin{center}
