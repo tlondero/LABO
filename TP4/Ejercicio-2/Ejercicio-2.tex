@@ -19,6 +19,46 @@ El puente de Wien cuenta con cuatro ramas. El primer par de ramas adyacentes cue
 %\label{fig:Puente_de_wien}
 %\end{figure}
 
+\begin{figure}[H]
+\centering
+\begin{circuitikz}[european voltages, scale=1]\draw
+
+
+(0,0) to[open, v^>= $V_g$, o-o] (0,10)
+
+%left branch
+(4,10) to[C, l=$C_1$,a=\SI{1}{\nano f}] (4,8.3333)
+ to[vR, mirror, l=$PR_1$, a=\SI{10}{k\ohm},*-*] (4,6.66666)
+ to[vR, mirror, l=$PR_2$, a=\SI{10}{k\ohm}] (4,5)
+ -- (4,4.5) 
+ (3,4.5) -- (5,4.5)
+  to[vR, mirror, l=$PR_3$, a=\SI{10}{k\ohm},*-*] (5,2.5)
+  to[vR, mirror, l=$PR_4$, a=\SI{10}{k\ohm},*-*] (5,0.5)
+ (3,4.5) to[C,l=$C_2$, a=\SI{1}{\nano f}] (3,0.5)
+ 
+ (3,0.5)-- (5,0.5)
+ 
+%right branch
+(8,10) to[R, l=$R_2$,a=\SI{2}{k\ohm}] (8,5)
+(8,5) to[R, l=$R_4$,a=\SI{1}{k\ohm}] (8,0)
+
+%connections
+(0,0) to (8,0)
+(0,10) to (8,10)
+(4,0.5) to (4,0)
+
+%nodes
+(4,0) node[ground]{};
+
+%Vd
+\draw (8,5) to[short, t=V, l_=$V_d$] (4,5)
+
+
+;\end{circuitikz}
+\caption{Puente de Wien planteado}
+\label{fig:Puente_de_wien}
+\end{figure}
+
 Las relaciones obtenidas para el mismo en condición de equilibrio son las siguientes:
 \begin{equation}
 \frac{R_1}{R_3}+\frac{C_3}{C_1}=\frac{R_2}{R_4}
@@ -95,20 +135,20 @@ Se mide el puente para una frecuencia de $10 \ KHz $, obteniéndose las siguient
 %Tension 10KHz
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth,trim={1cm 3.45cm 0.1cm 5cm},clip]{Mediciones/Tensiones_10_KHz}
+\includegraphics[width=0.8\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{Mediciones/Tensiones_10_KHz}
 \caption{Tensión en $V_D$ a 10 kHz}
 \label{fig:Tensiones_10_KHz}
 \end{figure}
 %~Tension 10KHz
 En el canal 1, se puede observar la señal producida por el generador mientras que en el canal 2 y 3 se observa $V_a$ y $V_b$ respectivamente.\par
 
-Se calcula el error de la medición respecto del calculado mediante una simulación en LTSpice. El error va a estar dado por $\Epsilon= \frac{|V_{D_medido}-V_{D_simulado}|}{V_{D_simulado}}$.
+Se calcula el error de la medición respecto del calculado mediante una simulación en LTSpice. El error va a estar dado por $\varepsilon = \frac{|V_{D_medido}-V_{D_simulado}|}{V_{D_simulado}}$.
 
 Se mide el puente para una frecuencia de $200 \ KHz $, obteniéndose las siguientes tensiones:
 %Tension 200KHz
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth,trim={1cm 3.45cm 0.1cm 5cm},clip]{Mediciones/Tensiones_200_KHz}
+\includegraphics[width=0.8\textwidth,trim={0 2.2cm 0.1cm 1.75cm},clip]{Mediciones/Tensiones_200_KHz}
 \caption{Tensión en $V_D$ a 200 kHz}
 \label{fig:Tensiones_200_KHz}
 \end{figure}
