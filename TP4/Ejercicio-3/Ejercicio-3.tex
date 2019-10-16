@@ -12,7 +12,7 @@ Con lo dicho anteriormente, se tuvo que elegir entre tres posibles puentes: el s
 	\draw (0,1.5) to[vR, mirror, l=$R_1$] (0,0);
 	\draw (0,1.5) to[C, l_=$C_1$] ++(0,1.5) to[short] ++(3,0) to[C, l=$C_x$] ++(0,-1.5) to[R, l =$R_x$] ++(0,-1.5);
 	\draw (0,3) to[short] ++(-1,0) node[ocirc](vg){};
-	\draw (-vg) to[open, v^= $V_g$] (vg);
+	\draw (-vg) to[open, v^>= $V_g$] (vg);
 \end{circuitikz}
 	\caption{Puente serie implementado}
 	\label{fig:puenteserie}
