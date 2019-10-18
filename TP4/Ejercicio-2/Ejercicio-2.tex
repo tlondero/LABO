@@ -1,6 +1,3 @@
-\input{../Informe/Header.tex}
-
-\begin{document}
 \section{Puente de Wien - Medición de frecuencias}
 
 \subsection{Introducción}
@@ -44,7 +41,7 @@ El puente de Wien cuenta con cuatro ramas. El primer par de ramas adyacentes cue
 (4,0) node[ground]{};
 
 %Vd
-\draw (8,5) to[short, t=V, l_=$V_d$] (4,5)
+\draw (8,5) to[rmeterwa, t=V, l_=$V_d$] (4,5)
 
 
 ;\end{circuitikz}
@@ -172,17 +169,6 @@ $\mathbf{f_g \ [kHz]}$ & $\mathbf{P_{R1} + P_{R2} \ [k\Omega]}$ & $\mathbf{P_{R3
 
 \subsection{Conclusiones}
 
-En la práctica, las resistencias que se suponen de igual magnitud como una condición inicial ($R_3$ y $R_1$), dejando de serlo como se puede apreciar en la Tabla (\ref{tab:Tabla_error}). Esto se debe a la variación de magnitud de los presets para poder llegar lo más cercano posible a la condición de equilibrio ($V_D=0$) considerando las sensibilidades previamente calculadas. 
-Por otro lado, se observa que el error obtenido para el cálculo de la frecuencia es considerablemente bajo[\ref{tab:Tabla_error}], con un promedio de 1.97\%. Consecuentemente, se buscó otros valores de resistencias, bajo la misma frecuencia, con los que se pudiese llegar a la condición de equilibrio, descubriendo que existen dichos valores, pero obteniéndose un error más alto, encontrándose este entre el 25\% y 50\%. Dicha diferencia en el error, se debe a que la existente entre las resistencias se vuelve mayor, llegando en algunos casos a un orden de magnitud. 
+Teóricamente, las resistencias que se suponen de igual magnitud como una condición inicial ($R_1$ y $R_3$), en la práctica dejan de serlo, como se puede apreciar en la Tabla (\ref{tab:Tabla_error}). Estas variaciones son aceptables debido a que, observando cada caso, la diferencia entre ellos son pequeñas y además, los productos de las impedancias cruzadas se mantienen iguales.
 
-En la práctica, las resistencias que se suponen de igual magnitud como una condición inicial ($R_3$ y $R_1$), dejando de serlo como se puede apreciar en la Tabla (\ref{tab:Tabla_error}).
-\begin{center}
-	\huge{\textcolor{red}{\textbf{?????????????????}}}
-\end{center}
-Esto se debe a la variación de magnitud de los presets para poder llegar lo más cercano posible a la condición de equilibrio ($V_D=0$) considerando las sensibilidades previamente calculadas.
-\begin{center}
-	\huge{\textcolor{red}{\textbf{?????????????????}}}
-\end{center}
 Por otro lado, se observa que el error obtenido para el cálculo de la frecuencia es bajo, con un promedio de 1.97\%. Consecuentemente, se buscó otros valores de resistencias, bajo la misma frecuencia, con los que se pudiese llegar a la condición de equilibrio, descubriendo que existen dichos valores, pero obteniéndose un error más alto, encontrándose este entre el 25\% y 50\%. Dicha diferencia en el error, se debe a que, para llegar a esos resultados, se debe emplear impedancias más grandes.
-
-\end{document}
