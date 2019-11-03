@@ -1,43 +1,18 @@
-\section{Introducción}
+\section{Introduction}
 
-El presente trabajo de laboratorio tiene como objetivo estudiar, analizar y confeccionar distintos tipos de puentes.
-\begin{figure}[H]
-\begin{center}
-\begin{circuitikz}[european voltages]
-	\draw (0,0) to[rmeterwa, t=V, l_=$V_d$] ++(3,0) to[generic, l=$Z_4$] ++(0,-2) to[short] ++(-4,0) node[ocirc](-vg){};
-	\draw (0,0) to[generic, l=$Z_3$] ++(0,-2);
-	\draw (0,0) to[generic, l_=$Z_1$] (0,2);
-	\draw (3,0) to[generic, l_=$Z_2$] ++(0,2) to[short] ++(-4,0) node[ocirc](vg){};
-	\draw (-vg) to[open, v^= $V_g$] (vg);
-	\draw (0,0) node[label=left:$V_a$](){};
-	\draw (3,0) node[label=right:$V_b$](){};
-	
-\end{circuitikz}
-	\caption{Circuito genérico de un puente.}
-	\label{fig:pte}
-\end{center}
-\end{figure}
+En el presente trabajo de laboratorio se realizaron distintas mediciones utilizando el analizador de espectros.
 
-Considérese el puente de la Figura (\ref{fig:pte}). Se dice que el puente se encuentra en equilibrio cuando se verifica $V_d=0 \ V$. Se puede observar que $V_a=\frac{Z_3}{Z_1+Z_3}V_g$ y que $V_b=\frac{Z_4}{Z_2+Z_4}V_g$, de donde se alcanza el equlibrio cuando
+\section{Medición de distorsión armónica}
+Como primera experiencia se midió la distorsión armónica (THD) de distintos generadores de funciones disponibles en el laboratorio. Para esto se generó una señal senoidal de $1$ Mhz y $350$ mVpp de amplitud, con el OUT TERM en HiZ, de donde la señal que llegó al analizador fue de aproximadamente $125$ mVpp. Una vez realizadas las mediciones, se compararon los valores de THD obtenidos con los calculados analíticamente y los recuperados de las hojas de datos de los fabricantes. Para el cálculo analítico, se tomó la definición de THD como:
 \begin{equation}
-    V_d=V_a-V_b=(\frac{Z_3}{Z_1+Z_3}-\frac{Z_4}{Z_2+Z_4})V_g=0
+    THD=\frac{P_1+P_2+...}{P_0+P_1+P_2+...}
+    \label{eq:THD}
 \end{equation}
+donde $P_0$ representa la potencia del armónico fundamental, y $P_i$ la potencia del i-ésimo armónico.
 
-Desarrollando la ecuación anterior, se encuentra que la condición de equilibrio está dada por la siguiente relación entre las impedancias:
-\begin{equation}
-\label{eq}
-    Z_1Z_4=Z_2Z_3
-\end{equation}
+\subsection{Mediciones}
+Se procedió a medir la intensidad de los armónicos de la señal de entrada configurando al analizador de espectros con un Resolution Bandwith de \textcolor{red}{Rbw} y un span de \textcolor{red}{span} .
 
-Como se trata de magnitudes complejas, (\ref{eq}) se debe verificar tanto en módulo como en fase. Luego se puede observar que, para saber con exactitud cuándo el puente ha llegado al estado de equilibrio, es preciso poder medir $V_d=0 \ V$. Sin embargo, al ser esta tensión diferencial de tan baja amplitud, la condición teórica de equilibrio no es medible en la práctica. El objetivo de esta primer sección es analizar distintos métodos de medición y ver cuál permite obtener la menor amplitud posible. Se analizan tres instrumentos: el osciloscopio, el multímetro de precisión, y el amplificador de instrumentación. 
+\subsection{Verificación de los resultados obtenidos}
 
-\subsection{Osciloscopio}
-El osciloscopio permite medir la diferencia entre $V_a$ y $V_b$ de forma visual, tanto en módulo como en fase. Es preciso conectar dos puntas y hacer la resta con la función matemática del instrumento. 
-
-Por otro lado, el hecho de que el osciloscopio sea sensible al ruido implica que es posible que la señal pase a estar por debajo del nivel de ruido del mismo, dificultando la medición del verdadero mínimo.
-
-\subsection{Multímetro de precisión}
-El multímetro de precisión permite medir $V_d$ directamente sobre el circuito. Esto, sumado al hecho de que el instrumento posee una menor sensibilidad al ruido, logra que sea posible obtener mediciones más precisas que con el osciloscopio. No obstante, a diferencia de éste, no puede verse la variación de la señal en el tiempo de forma visual ni los cambios de fase.
-
-\subsection{Amplificador de instrumentación}
-Este instrumento permite amplificar la tensión diferencial $V_a-V_b$, lo cual ayuda a diferenciar a esta del piso de ruido y lograr una medición más precisa. Además, el instrumento se caracteriza por tener un alto rechazo al modo común (Alto CMRR), lo que permite, si se conecta al osciloscopio, reducir el nivel de ruido considerablemente.
+\subsection{Conclusiones}
