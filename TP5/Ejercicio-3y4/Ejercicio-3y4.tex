@@ -1,0 +1,26 @@
+\section{Análisis de señales en AM}
+Se estudiaron señales moduladas en AM generadas con dos osciloscopios, de forma que la frecuencia de la portadora sea de $1MHz$ y la frecuencia de la moduladora de $100 KHz$
+
+Sea $S_{AM}(t)$ la señal modulada, $S_p(t)$ la señal portadora y $S_M(t)$ la señal moduladora, entonces 
+\begin{equation}
+    S_p(t)=A_pcos(2\pi f_pt)
+\label{eq:Sp}
+\end{equation}
+
+\begin{equation}
+    S_M=\frac{1}{2}mA_pcos(2\pi f_Mt)
+\label{eq:Sm}
+\end{equation}
+siendo $A_p$ la amplitud de la señal portadora, $m$ el coeficiente de modulación y $f_p$ y $f_M$ la frecuencia de la señal portadora y la señal moduladora respectivamente.
+
+La señal modulada puede describirse como la suma de tres señales senoidales de tres frecuencias distintas, una central y otras dos que la modulan. Matemáticamente es posible describirla según la siguiente ecuación:
+\begin{equation}
+    S_{AM}(t)=S_p(t)(1+mS_M(t))
+    \label{eq:sam2}
+\end{equation}
+
+Desarrollando,
+\begin{equation}
+    S_{AM}=\frac{1}{2}A_pcos(2\pi f_pt)+\frac{1}{2}mA_p(cos(2\pi (f_p-f_M)t)+cos(2\pi (f_p+f_M)t))
+    \label{eq:Sam}
+\end{equation}
