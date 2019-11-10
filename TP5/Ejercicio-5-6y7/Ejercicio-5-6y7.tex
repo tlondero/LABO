@@ -3,36 +3,28 @@ De la página del Ente Nacional de Comunicaciones (ENACOM): "El Espectro Radioel
 
 El espectro es considerado un recurso natural, de carácter limitado,  sobre el cual el estado tiene soberanía. Por lo tanto, se lo divide en bandas atribuidas a distintos servicios y sistemas de comunicaciones. A continuación se presenta una figura con las atribuciones según el CABFRA. 
 
-\begin{table}[H]
-\begin{tabular}{|l|L{6cm}|L{6cm}|}
-\hline
-SERVICIO            & FRECUENCIAS DE OPERACIÓN                                                                                                                                                           & POTENCIA IRRADIADA                                                                                                                                 \\
-\hline
-Radiodifusión de AM & 535 - 1705 kHz                                                                                                                                                                     & Mín 100 W Máx 100 kW                                                                                                                               
-\\
-\hline
-Radiodifusión de FM & 88 - 108 MHz                                                                                                                                                                       & Mín 30 W Max 100 kW                                                                                                                                \\
-\hline
-Radiodifusión de TV & TV abierta \textbf{VHF bajo:} 54 - 72 MHz (canales 2-4) 76 - 88 MHz (c. 5-6) \textbf{VHF alto:} 174 - 216 MHz (c. 7-13) \textbf{UHF} (en gral. TV codificada, o sea no abierta)512 - 806 MHz (21-69) & \textbf{VHF:} Mín 5 kw en estación autónoma, 50 W en repetidora. Máx 30 kW en transmisor irradiado hasta 150 kW \textbf{UHF} (codificado, área reducida):aprox. 25 W \\
-\hline
-Telefonía celular   & \textbf{SRMC/STM:} 869 - 894 MHz (base) 824 - 849 MHz (móvil) \textbf{PCS:} 1850 - 1910 MHz (móvil)1930 - 1990 MHz (base)                                                                            & Celdas en zona muy urbanizada: Aprox. 20 WZona rural: máx. 100 W                                                                                   \\
-\hline
-HF                  & Servicio fijo y móvil (en gral uso comercial): 2 - 30 MHzRadioaficionados:bandas en los rangos de 1,8 - 3,6 - 3,8 - 7 -10 - 14 - 18 - 21 - 25 y 29 MHz                             & Se especifica potencia pico de envolvente (la potencia media está unos 10 dB por debajo) Uso comercial: máx 160 WRadioafición: máximo 1,5 kW       \\
-\hline
-VHF y UHF           & \textbf{{[}MHz{]}}30 - 50138 - 174242 - 280340 - 399421 - 426443 - 490                                                                                                                      & Handies 6 W Móvil 40 WBase 60 WEstos son valores típicos                                                                                           \\
-\hline
-Móvil Marítimo      & \textbf{Rangos HF:} 4, 6, 8, 12, 16, 18, 22, 25 MHz \textbf{Rangos VHF}: 156, 0 - 157,5 /160,5 - 162 MHz                                                                                             & \textbf{HF}: aprox. 150 W pico de envolvente \textbf{VHF}: 25 W                                                                                                      \\
-\hline
-Móvil Aeronáutico   & \textbf{HF (AM)}: entre 2 y 30 MHz \textbf{VHF:} 108 - 118 MHz radionavegación (ILS, VOR)118 - 136 MHz comunicaciones móvil - tierra                                                                 & \textbf{HF}: hasta 400 W PEP (media 100 W) \textbf{VHF}: 20 W\\
-\hline
- 
-\end{tabular}
+Considerando esta tabla, se buscó sintonizar una frecuencia que no perteneciera a una emisora de radio o TV. El resultado se puede observar en \ref{fig:hola} Se sintonizó la frecuencia 301.5 MHz, que corresponde a alguna de las tres aplicaciones de la figura \ref{fig:noradionitelev}. A pesar de que pudieron observarse picos de potencia en el analizador, al conectar los parlantes sólo se escucharon pitidos intermitentes. Esto puede deberse a que la señal sintonizada era digital y el analizador es incapaz de interpretarla.
 
-\caption{Cuadro de Atribuci\'on de Bandas de Frecuencias de la Rep\'ublica Argentina (CABFRA)}
-\label{tab:freq}
-\end{table}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{/ImagenesEjercicio5-6y7/notvnoradio301MHz.jpg}
+\caption{Espectro de la frecuencia analizada}
+	\label{fig:hello}
+\end{figure}
 
-Considerando esta table, se buscó sintonizar una frecuencia que no perteneciera a una emisora de radio o TV.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{/ImagenesEjercicio5-6y7/norh.png}
+\caption{Aplicaciones en el rango de frecuencias analizado}
+	\label{fig:noradionitelev}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.97\textwidth]{/ImagenesEjercicio5-6y7/espectr.png}
+\caption{Atribución de bandas de frecuencia}
+	\label{fig:esqcond}
+\end{figure}
 
 \section{Banda FM}
 
@@ -53,7 +45,25 @@ G         & 9,5                                                                 
 \end{tabular}
 \end{table}
 
-Dentro de estas categorías yacen $100$ canales de $200 KHz$ cada uno. Estos van desde el canal $201$ con frecuencia $88,1 MHz$, hasta el canal 300 con frecuencia $107,9 MHz$. 
+Dentro de estas categorías yacen $100$ canales de $200 KHz$ cada uno. Estos van desde el canal $201$ con frecuencia $88,1 MHz$, hasta el canal 300 con frecuencia $107,9 MHz$.
+
+Se buscó sintonizar alguna estación de radio y escucharla con unos parlantes conectados al analizador de espectros. Primero se sintonizó la estación Mega 98.3, con frecuencia 98.3 MHz, correspondiente al canal 277. En la figura \ref{fig:mega} puede observarse una imagen del espectro de la estación. La potencia de la portadora es de aproximadamente $-42 dBm$. Luego se sintonizó la emisora Aspen, con frecuencia 102.3 MHz, correspondiente al canal 297. En la figura \ref{fig:aspen} se observa el espectro medido para la estación. La potencia de la portadora se midió en aproximadamente $-35 dBm$. En ambos casos se logró un sonido con poca interferencia.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{/ImagenesEjercicio5-6y7/Mega98.32.jpg}
+\caption{Espectro medido para la emisora Mega 98.3}
+	\label{fig:mega}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{/ImagenesEjercicio5-6y7/radioaspen102.3.jpg}
+\caption{Espectro medido para radio Aspen}
+	\label{fig:aspen}
+\end{figure}
+
+
 
 \section{Señales de televisión}
 
@@ -66,11 +76,33 @@ De manera similar a lo que ocurre con las señales de FM, el espectro de frecuen
 
 A su vez, el espectro está dividido en canales desde el 2 al 69. A cada canal le corresponden $6 MHz$. Los canales del 2 al 6 se encuentran en la banda I, los canales del 7 al 13 en la banda II y los canales del 21 al 69 (excluyendo al 37 que corresponde a radioastronomía) en la banda III.
 
-Las bandas se puede dividir en distintas categorías según su radio de servicio. Dichas categorías para la banda II se presentan en la tabla \ref{fig:ctt}
+Las bandas se puede dividir en distintas categorías según su radio de servicio. Dichas categorías para la banda II se presentan en la figura \ref{fig:ctt}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{/ImagenesEjercicio5-6y7/ctt.png}
-	\caption{}	
+	\includegraphics[width=0.6\textwidth]{/ImagenesEjercicio5-6y7/ctt.png}
+	\caption{Categorías para Canal II}	
 	\label{fig:ctt}
+\end{figure}
+
+El Canal 11 tiene asignada la banda de frecuencia de 198 MHz a 204 MHz. Se logró sintonizar la portadora de audio y se esuchó con los parlantes el programa siendo emitido en ese momento. En la figura \ref{fig:canal11} se presenta lo observado en el analizador al sintonizar la portadora. En la tabla \ref{tab:ch} se muestra cómo están distribuidas las portadores de video y audio para este canal.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+Frecuencia & Contenido             \\ \hline
+199,25     & Portadora de video    \\ \hline
+202,83     & Subportadora de color \\ \hline
+203,85     & Portadora de sonido   \\ \hline
+\end{tabular}
+\caption{Frecuencias para Canal 11}
+\label{tab:ch}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{/ImagenesEjercicio5-6y7/canal11_2.jpeg}
+	\caption{Espectro de audio de canal 11}	
+	\label{fig:canal11}
 \end{figure}
