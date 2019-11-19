@@ -49,7 +49,14 @@ Puede observarse que la diferencia entre el pico central y los escoltas es de ap
 
 \subsection{Señal senoidal AM m=1}
 
-En este caso se observa que mientras la amplitud del pico central se mantuvo igual, mientras la de ambos escoltas aumentó. La diferencia de frecuencias continúa siendo de alrededor de $100 KHz$. Se observa que el pico central se encontró en $0,92 MHz$. En las Figuras (\ref{fig:am1}) y (\ref{fig:am2}) se puede observar el espectro medido en el analizador.
+En este caso se observa que mientras la amplitud del pico central se mantuvo igual, mientras la de ambos escoltas aumentó. La diferencia de frecuencias continúa siendo de alrededor de $100 KHz$. Se observa que el pico central se encontró en $0,92 MHz$. Se realizó una simulación del espectro que se observa en la figura (\ref{fig:simsin}). En las Figuras (\ref{fig:am1}) y (\ref{fig:am2}) se puede observar el espectro medido en el analizador.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{/ImagenesEjercicio3y4/FFT-AM-Sin-m1.png}
+\caption{Espectro simulado de la señal AM con m=1}
+	\label{fig:simsin}
+\end{figure}
 
 \begin{figure}[H]
   \centering
@@ -67,7 +74,15 @@ En este caso se observa que mientras la amplitud del pico central se mantuvo igu
 \end{figure}
 
 \subsection{Señal triangular AM con m=1}
-Se analizó una señal triangular con $m=1$. En este caso se observó la aparición de más armónicos que antes. En la Figura (\ref{fig_trign}) se puede observar el espectro medido.
+Se analizó una señal triangular con $m=1$. En este caso se observó la aparición de más armónicos que antes. En la figura (\ref{fig:simtri}) se observa una simulación del espectro a medir. En la figura (\ref{fig:trign}) se puede observar el espectro medido.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{/ImagenesEjercicio3y4/FFT-AM-Triang.png}
+\caption{Espectro simulado de la señal triangular AM}
+	\label{fig:simtri}
+\end{figure}
+
 
 \begin{figure}[H]
 	\centering
@@ -78,13 +93,20 @@ Se analizó una señal triangular con $m=1$. En este caso se observó la aparici
 
 \subsection{Señal senoidal AM con f=1 MHz, m=1 }
 
-Se analizó nuevamente una señal senoidal AM con m=1 pero ahora la frecuencia de la moduladora se hizo coincidir con la de la portadora. En este caso, la separación entre la frecuencia central y la escolta debería corresponder a $f_m+f_p=2f_p$ siendo $f_m$ la frecuencia de la moduladora y $f_p$ la frecuencia de la portadora. En la Figura (\ref{fig:amff}) se observa el espectro medido.
+Se analizó nuevamente una señal senoidal AM con m=1 pero ahora la frecuencia de la moduladora se hizo coincidir con la de la portadora. En este caso, la separación entre la frecuencia central y la escolta debería corresponder a $f_m+f_p=2f_p$ siendo $f_m$ la frecuencia de la moduladora y $f_p$ la frecuencia de la portadora. En la figura (\ref{fig:simsin1}) puede observarse el espectro simulado. En la Figura (\ref{fig:amff}) se observa el espectro medido.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\textwidth]{/ImagenesEjercicio3y4/FFT-AM-Sin-m1-1MHZ.png}
+\caption{Espectro simulado de la señal senoidal con m=1 y f=fp}
+	\label{fig:simsin1}
+\end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\textwidth]{/ImagenesEjercicio3y4/AMf_1.jpeg}
 \caption{Espectro de senoidal AM con f=fp y m=1}
-	\label{fig:hello}
+	\label{fig:amff}
 \end{figure}
 
 \section{Análisis de señales FM}
