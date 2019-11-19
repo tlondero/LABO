@@ -17,11 +17,11 @@ Luego, $X_n=\frac{2A}{n\pi}$ representan los coeficientes de la serie de Fourier
 
 \subsubsection{Simulación del Espectro}
 
-Se realizó una simulación del espectro de una señal cuadrada con frecuencia $1 MHz$ y amplitud $350 mV_{pp}$. En la figura \ref{fig:simcuad} se puede observar el resultado de dicha simulación. Nótese que efectivamente no hay presentes armónicos pares.
+Se realizó una simulación del espectro de una señal cuadrada con frecuencia $1 MHz$ y amplitud $350 mV_{pp}$. En la figura (\ref{fig:simcuad}) se puede observar el resultado de dicha simulación. Nótese que efectivamente no hay presentes armónicos pares.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{/ImagenesEjercicio2/FFT-Cuadrada.png}
+	\includegraphics[width=0.9\textwidth]{ImagenesEjercicio2/FFT-Cuadrada.png}
 \caption{Simulación del espectro de una señal cuadrada.}
 	\label{fig:simcuad}
 \end{figure}
@@ -30,15 +30,17 @@ Se realizó una simulación del espectro de una señal cuadrada con frecuencia $
 \subsubsection{Medición}
 Las mediciones se llevaron a cabo utilizando el marcador del dispositivo el cual al posicionarlo sobre el armónico que se quiere medir muestra la frecuencia y la potencia de este en $dBm$. A continuación se presentan las mediciones realizadas con el analizador de espectro:
 
-\begin{table}[]
+\begin{table}[H]
 \scalebox{0.8}{
 \begin{tabular}{@{}ccccccccccc@{}}
 \toprule
-$P_0$ & $P_1$ & $P_2$ & $P_3$ & $P_4$ & $P_5$ & $P_6$ & $P_7$ & $P_8$ & $P_9$ & $P_{10}$ \\ \midrule
-$-11.2dBm$ & $-63dBm$ & $-18.2dBm$ & $-62.8dBm$ & $-22.6dBm$ & $63.8dBm$ & $-30.2dBm$ & $-63.4dBm$ & $-27.6dBm$ & $-61.4dBm$ & $-32.6dBm$
+$0,982 MHz$ & $1,981 MHz$ & $2,98 MHz$ & $3,98 MHz$ & $4,98MHz$ & $5,979 MHz$ & $6,979 MHz$ & $7,978 MHz$ & $8,979 MHz$ & $9,979 MHz$ & $10,978 MHz$ \\ \midrule
+$-11.2dBm$ & $-63dBm$ & $-18.2dBm$ & $-62.8dBm$ & $-22.6dBm$ & $-63.8dBm$ & $-30.2dBm$ & $-63.4dBm$ & $-27.6dBm$ & $-61.4dBm$ & $-32.6dBm$
 \end{tabular}
 }
 \end{table}
+
+Puede observarse cómo los armónicos múltiplos pares de la frecuencia fundamental tienen una potencia muy baja comparado con los impares. Esto se corresponde con la teoría.
 
 \subsubsection{Cálculo del Duty-Cycle}	
 
@@ -78,17 +80,35 @@ Se observa nuevamente que los armónicos pares valen cero.
 
 \subsubsection{Simulación del Espectro}
 
-Se simuló el espectro de una señal triangular. Dicho espectro puede observarse en la figura \ref{fig:simtriang}
+Se simuló el espectro de una señal triangular. Dicho espectro puede observarse en la figura (\ref{fig:simtriang})
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{/ImagenesEjercicio2/FFT-Triangular.png}
+	\includegraphics[width=0.9\textwidth]{ImagenesEjercicio2/FFT-Triangular.png}
 \caption{Simulación del espectro de una señal triangular.}
 	\label{fig:simtriang}
 \end{figure}
 
 
 \subsubsection{Medición}
+
+De forma similar al caso anterior, se midieron algunos armónicos junto con sus potencias correspondientes (en $dBm$) A continuación se presenta una tabla con las mediciones.
+
+
+
+\begin{table}[H]
+\scalebox{0.8}{
+\begin{tabular}{@{}ccccccccccc@{}}
+\toprule
+$1,028 MHz$ & $2,027 MHz$ & $3,014 MHz$ & $4,012 MHz$ & $5,026 MHz$ & $6,004 MHz$ & $7,037 MHz$ & $8,007 MHz$ & $9,047 MHz$ & $10,029 MHz\\ \midrule
+
+$-13,6dBm$ & $-55dBm$ & $-34dBm$ & $-70dBm$ & $-44,2dBm$ & $-89,6dBm$ & $-53dBm$ & $-$ & $-53,2dBm$ & $-$
+
+\end{tabular}
+}
+\end{table}
+
+Notemos cómo nuevamente los armónicos pares tienen potencia mucho más baja que los impares. De hecho, los correspondientes a frecuencias de $8,007 MHz$ y $10,029MHz$ no pudieron medirse por ser demasiado tenues.
 
 \subsection{Tren de Pulsos}
 
@@ -102,17 +122,31 @@ Haciendo el desarrollo en serie de Fourier se encuentra que $|X_n|=\frac{A\sqrt{
 
 \subsubsection{Simulación del Espectro}
 
-Se simuló el espectro del tren de pulsos. El resultado puede observarse en la fiugra \ref{fig:simpulso}
+Se simuló el espectro del tren de pulsos. El resultado puede observarse en la figura (\ref{fig:simpulso})
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{/ImagenesEjercicio2/FFT-Pulsos.png}
+	\includegraphics[width=0.9\textwidth]{ImagenesEjercicio2/FFT-Pulsos.png}
 \caption{Simulación del espectro del tren de pulsos}
 	\label{fig:simpulso}
 \end{figure}
 
 \subsubsection{Medición}
 
-\subsubsection{Cálculo del Duty-Cycle}
+Se midieron los primeros armónicos con sus correspondientes potencias. Se presentan los resultados en la siguiente tabla:
+
+\begin{table}[H]
+\scalebox{0.8}{
+\begin{tabular}{@{}ccccccccccc@{}}
+\toprule
+$1,018 MHz$ & $2,018 MHz$ & $3,015 MHz$ & $4,011 MHz$ & $5,009 MHz$ & $6,004 MHz$ & $7,009 MHz$ & $8,007 MHz$ & $9,002 MHz$ & $9,999 MHz$ & $10,998 MHz$ \\ \midrule
+$-10,2dBm$ & $-16,2dBm$ & $-63dBm$ & $-25,4dBm$ & $-26,1dBm$ & $-81dBm$ & $-32,2dBm$ & $-34,4dBm$ & $-84,8dBm$ & $-36,8dBm$ & $-31,6dBm$
+\end{tabular}
+}
+\end{table}
+
+Las mediciones corresponden con la teoría. Se puede observar cómo en los armónicos múltiplos de $3$ la potencia cae considerablemente.
 
 \subsection{Conclusiones}
+
+\end{document}
