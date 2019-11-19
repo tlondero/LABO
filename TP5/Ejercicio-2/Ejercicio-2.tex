@@ -21,7 +21,7 @@ Se realizó una simulación del espectro de una señal cuadrada con frecuencia $
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{ImagenesEjercicio2/FFT-Cuadrada.png}
+	\includegraphics[width=0.9\textwidth]{/ImagenesEjercicio2/FFT-Cuadrada.png}
 \caption{Simulación del espectro de una señal cuadrada.}
 	\label{fig:simcuad}
 \end{figure}
@@ -84,7 +84,7 @@ Se simuló el espectro de una señal triangular. Dicho espectro puede observarse
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{ImagenesEjercicio2/FFT-Triangular.png}
+	\includegraphics[width=0.9\textwidth]{/ImagenesEjercicio2/FFT-Triangular.png}
 \caption{Simulación del espectro de una señal triangular.}
 	\label{fig:simtriang}
 \end{figure}
@@ -126,7 +126,7 @@ Se simuló el espectro del tren de pulsos. El resultado puede observarse en la f
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\textwidth]{ImagenesEjercicio2/FFT-Pulsos.png}
+	\includegraphics[width=0.9\textwidth]{/ImagenesEjercicio2/FFT-Pulsos.png}
 \caption{Simulación del espectro del tren de pulsos}
 	\label{fig:simpulso}
 \end{figure}
@@ -148,5 +148,7 @@ $-10,2dBm$ & $-16,2dBm$ & $-63dBm$ & $-25,4dBm$ & $-26,1dBm$ & $-81dBm$ & $-32,2
 Las mediciones corresponden con la teoría. Se puede observar cómo en los armónicos múltiplos de $3$ la potencia cae considerablemente.
 
 \subsection{Conclusiones}
+
+En los tres casos se puede observar que hubo correspondencia entre la teoría y la práctica. Tanto en la cuadrada con DC del $50\%$ como en la triangular la potencia en los armónicos pares decayó considerablemente. Por supuesto, no fue exactamente cero porque el generador es incapaz de crear una onda cuadrada o triangular perfecta; de hecho en el primer ejercicio se vio que tanto el generador Agilent como el GW poseen en mayor o menor medida un grado de distorsión armónica. Una conclusión similar se puede confeccionar para el tren de pulsos: los armónicos múltiplos de tres resultaron tener una potencia que, aunque no fue cero, resultó muy baja comparada con el resto de los armónicos. El analizador de espectros resulta un elemento muy útil a la hora de analizar espectros de señales. No obstante, pueden surgir complicaciones si se intentan medir potencias muy pequeñas, ya que éstas se pueden confundir con el piso de ruido.
 
 \end{document}
